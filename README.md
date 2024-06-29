@@ -26,20 +26,6 @@ npm install --save-dev eslint eslint-plugin-n
 
 **Note:** It recommends a use of [the "engines" field of package.json](https://docs.npmjs.com/files/package.json#engines). The "engines" field is used by `n/no-unsupported-features/*` rules.
 
-### **[.eslintrc.json](https://eslint.org/docs/latest/use/configure/configuration-files)** (An example)
-
-```jsonc
-{
-    "extends": ["eslint:recommended", "plugin:n/recommended"],
-    "parserOptions": {
-        "ecmaVersion": 2021
-    },
-    "rules": {
-        "n/exports-style": ["error", "module.exports"]
-    }
-}
-```
-
 ### [`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files-new) (requires eslint>=v8.23.0)
 
 ```js
@@ -54,6 +40,54 @@ module.exports = [
     }
 ]
 ```
+
+To setup without the recommended configs, you'll need to add the plugin:
+
+```js
+const nodePlugin = require("eslint-plugin-n")
+
+module.exports = [
+    {
+		plugins: {
+			n: nodePlugin
+		},
+        rules: {
+            "n/exports-style": ["error", "module.exports"]
+        }
+    }
+]
+```
+
+### **[.eslintrc.json](https://eslint.org/docs/latest/use/configure/configuration-files)** (legacy example)
+
+```jsonc
+{
+    "extends": ["eslint:recommended", "plugin:n/recommended"],
+    "parserOptions": {
+        "ecmaVersion": 2021
+    },
+    "rules": {
+        "n/exports-style": ["error", "module.exports"]
+    }
+}
+```
+
+To setup without the recommended rules you'll need to add the plugin:
+
+```jsonc
+{
+    "parserOptions": {
+        "ecmaVersion": 2021
+    },
+    "plugins": {
+		"n": node
+    },
+    "rules": {
+        "n/exports-style": ["error", "module.exports"]
+    }
+}
+```
+
 
 **package.json** (An example)
 
@@ -98,12 +132,9 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 <!-- begin auto-generated rules list -->
 
 💼 [Configurations](https://github.com/eslint-community/eslint-plugin-n#-configs) enabled in.\
-☑️ Set in the `flat/recommended` [configuration](https://github.com/eslint-community/eslint-plugin-n#-configs).\
-🟢 Set in the `flat/recommended-module` [configuration](https://github.com/eslint-community/eslint-plugin-n#-configs).\
-✅ Set in the `flat/recommended-script` [configuration](https://github.com/eslint-community/eslint-plugin-n#-configs).\
-☑️ Set in the `recommended` [configuration](https://github.com/eslint-community/eslint-plugin-n#-configs).\
-🟢 Set in the `recommended-module` [configuration](https://github.com/eslint-community/eslint-plugin-n#-configs).\
-✅ Set in the `recommended-script` [configuration](https://github.com/eslint-community/eslint-plugin-n#-configs).\
+☑️ Set in the `flat/recommended` and `recommended` [configurations](https://github.com/eslint-community/eslint-plugin-n#-configs).\
+🟢 Set in the `flat/recommended-module` and `recommended-module` [configurations](https://github.com/eslint-community/eslint-plugin-n#-configs).\
+✅ Set in the `flat/recommended-script` and `flat/recommended-script` [configurations](https://github.com/eslint-community/eslint-plugin-n#-configs).\
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).\
 ❌ Deprecated.
 
