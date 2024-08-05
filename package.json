@@ -18,7 +18,7 @@
     "dependencies": {
         "@eslint-community/eslint-utils": "^4.4.0",
         "enhanced-resolve": "^5.17.0",
-        "eslint-plugin-es-x": "^7.5.0",
+        "eslint-plugin-es-x": "^8.0.0",
         "get-tsconfig": "^4.7.0",
         "globals": "^15.8.0",
         "ignore": "^5.2.4",
