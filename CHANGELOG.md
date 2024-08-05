@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.10.3](https://github.com/eslint-community/eslint-plugin-n/compare/v17.10.2...v17.10.3) (2024-08-05)
+
+
+### 📚 Documentation
+
+* **process-exit-as-throw:** update wording ([#323](https://github.com/eslint-community/eslint-plugin-n/issues/323)) ([e5e758e](https://github.com/eslint-community/eslint-plugin-n/commit/e5e758ea0cd238220127ae7bcbd967f1d8920f28))
+
 ## [17.10.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.10.1...v17.10.2) (2024-08-05)
 
 
