@@ -10,6 +10,8 @@ This rule is aimed at preventing synchronous methods from being called in Node.j
 
 ### Options
 
+#### allowAtRootLevel
+
 This rule has an optional object option `{ allowAtRootLevel: <boolean> }`, which determines whether synchronous methods should be allowed at the top level of a file, outside of any functions. This option defaults to `false`.
 
 Examples of **incorrect** code for this rule with the default `{ allowAtRootLevel: false }` option:
@@ -54,6 +56,26 @@ Examples of **correct** code for this rule with the `{ allowAtRootLevel: true }`
 /*eslint n/no-sync: ["error", { allowAtRootLevel: true }]*/
 
 fs.readFileSync(somePath).toString();
+```
+
+#### ignores
+
+You can `ignore` specific function names using this option.
+
+Examples of **incorrect** code for this rule with the `{ ignores: ['readFileSync'] }` option:
+
+```js
+/*eslint n/no-sync: ["error", { ignores: ['readFileSync'] }] */
+
+fs.readdirSync(somePath);
+```
+
+Examples of **correct** code for this rule with the `{ ignores: ['readFileSync'] }` option:
+
+```js
+/*eslint n/no-sync: ["error", { ignores: ['readFileSync'] }] */
+
+fs.readFileSync(somePath);
 ```
 
 ## 🔎 Implementation
