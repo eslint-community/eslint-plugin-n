@@ -8,11 +8,12 @@
         "allowJs": true,
         "checkJs": true,
 
+        "noEmit": true,
         "declaration": true,
         "emitDeclarationOnly": true,
         "declarationDir": "./types",
 
-        "allowSyntheticDefaultImports": false,
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
 
@@ -21,5 +22,5 @@
         "skipLibCheck": false
     },
     "include": ["./lib/eslint-utils.d.ts"],
-    "files": ["./lib/index.js"]
+    "files": ["./lib/index.js", "./tests/types.test.ts"]
 }

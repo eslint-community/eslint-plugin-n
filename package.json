@@ -51,7 +51,7 @@
         "rimraf": "^5.0.10",
         "ts-ignore-import": "^4.0.1",
         "type-fest": "^4.26.1",
-        "typescript": "~5.6"
+        "typescript": "~5.4"
     },
     "scripts": {
         "build": "node scripts/update",
@@ -64,13 +64,12 @@
         "lint:js": "eslint .",
         "new": "node scripts/new-rule",
         "postversion": "git push && git push --tags",
-        "prepack": "tsc --emitDeclarationOnly && ts-ignore-import 'types/**/*.d.ts' --allow=@eslint-community/eslint-utils --allow=semver --allow=get-tsconfig",
         "prepare": "husky",
         "preversion": "npm test",
         "test": "run-p lint:* test:types test:tests",
         "test:mocha": "_mocha  --reporter progress --timeout 4000",
         "test:tests": "npm run test:mocha \"tests/lib/**/*.js\"",
-        "test:types": "tsc --noEmit --emitDeclarationOnly false",
+        "test:types": "tsc --emitDeclarationOnly false",
         "update:eslint-docs": "eslint-doc-generator",
         "version": "npm run -s build && eslint lib/rules --fix && git add .",
         "watch": "npm run test:_mocha -- --watch --growl"
