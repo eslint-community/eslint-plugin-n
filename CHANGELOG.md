@@ -1,5 +1,19 @@
 # Changelog
 
+## [17.12.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.11.1...v17.12.0) (2024-10-19)
+
+
+### 🌟 Features
+
+* **no-unsupported:** Support node 23.0.0 and 22.10.0 ([#358](https://github.com/eslint-community/eslint-plugin-n/issues/358)) ([0fd0350](https://github.com/eslint-community/eslint-plugin-n/commit/0fd0350ee1aa7825fb52c172342dd419f79a21f7))
+
+
+### 🩹 Fixes
+
+* **no-unsupported:** `getCallSite` is experimental ([#363](https://github.com/eslint-community/eslint-plugin-n/issues/363)) ([d15c63a](https://github.com/eslint-community/eslint-plugin-n/commit/d15c63a9a874e5d0becc7d213d354ae3c8231b21))
+* **no-unsupported:** support missing `process.features` ([#362](https://github.com/eslint-community/eslint-plugin-n/issues/362)) ([9552a4a](https://github.com/eslint-community/eslint-plugin-n/commit/9552a4a4c9001c6b5f51620d68a3b2cbaa392cd4))
+* update dependencies ([#365](https://github.com/eslint-community/eslint-plugin-n/issues/365)) ([bf34ca5](https://github.com/eslint-community/eslint-plugin-n/commit/bf34ca53864e059e3fbf632f33429ba10a75ee9b))
+
 ## [17.11.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.11.0...v17.11.1) (2024-10-09)
 
 
