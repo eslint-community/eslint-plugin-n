@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.15.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.14.0...v17.15.0) (2024-12-06)
+
+
+### 🌟 Features
+
+* **no-unsupported:** support node 22.12.0 ([#393](https://github.com/eslint-community/eslint-plugin-n/issues/393)) ([af4f774](https://github.com/eslint-community/eslint-plugin-n/commit/af4f774be560ac9472d98c99082a678ca5703574))
+
 ## [17.14.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.13.2...v17.14.0) (2024-11-21)
 
 
