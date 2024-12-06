@@ -60,6 +60,11 @@ Please see the shared settings documentation for more information.
 This can be configured in the rule options or as a shared setting [`settings.resolvePaths`](../shared-settings.md#resolvepaths).
 Please see the shared settings documentation for more information.
 
+#### resolverConfig
+
+This can be configured in the rule options or as a shared setting [`settings.resolverConfig`](../shared-settings.md#resolverconfig).
+Please see the shared settings documentation for more information.
+
 #### tryExtensions
 
 This can be configured in the rule options or as a shared setting [`settings.tryExtensions`](../shared-settings.md#tryextensions).

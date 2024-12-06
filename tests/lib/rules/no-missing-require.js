@@ -141,6 +141,31 @@ ruleTester.run("no-missing-require", rule, {
             options: [{ resolvePaths: ["tests"] }],
         },
 
+        // resolverConfig
+        {
+            filename: fixture("test.js"),
+            code: "require('a');",
+            options: [
+                {
+                    resolverConfig: {
+                        modules: [fixture("./")],
+                    },
+                },
+            ],
+        },
+
+        {
+            filename: fixture("test.js"),
+            code: "require('my-module');",
+            options: [
+                {
+                    resolverConfig: {
+                        modules: [fixture("my_modules")],
+                    },
+                },
+            ],
+        },
+
         // Ignores it if not callee.
         {
             filename: fixture("test.js"),
