@@ -4,7 +4,7 @@
  */
 "use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
+const { RuleTester, TsRuleTester } = require("#test-helpers")
 const rule = require("../../../lib/rules/no-sync")
 
 new RuleTester().run("no-sync", rule, {
@@ -144,6 +144,91 @@ new RuleTester().run("no-sync", rule, {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
                     type: "MemberExpression",
+                },
+            ],
+        },
+    ],
+})
+
+new TsRuleTester().run("no-sync", rule, {
+    valid: [
+        {
+            code: `
+declare function fooSync(): void;
+fooSync();
+`,
+            options: [
+                {
+                    ignores: [
+                        {
+                            from: "file",
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            code: `
+declare function fooSync(): void;
+fooSync();
+`,
+            options: [
+                {
+                    ignores: [
+                        {
+                            from: "file",
+                            name: ["fooSync"],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+    invalid: [
+        {
+            code: `
+declare function fooSync(): void;
+fooSync();
+`,
+            filename: "foo.ts",
+            options: [
+                {
+                    ignores: [
+                        {
+                            from: "file",
+                            path: "**/bar.ts",
+                        },
+                    ],
+                },
+            ],
+            errors: [
+                {
+                    messageId: "noSync",
+                    data: { propertyName: "fooSync" },
+                    type: "CallExpression",
+                },
+            ],
+        },
+        {
+            code: `
+declare function fooSync(): void;
+fooSync();
+`,
+            options: [
+                {
+                    ignores: [
+                        {
+                            from: "file",
+                            name: ["barSync"],
+                        },
+                    ],
+                },
+            ],
+            errors: [
+                {
+                    messageId: "noSync",
+                    data: { propertyName: "fooSync" },
+                    type: "CallExpression",
                 },
             ],
         },

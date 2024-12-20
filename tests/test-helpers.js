@@ -9,6 +9,7 @@ const { FlatRuleTester } = require("eslint/use-at-your-own-risk")
 const globals = require("globals")
 const semverSatisfies = require("semver/functions/satisfies")
 const os = require("os")
+const typescriptParser = require("@typescript-eslint/parser")
 
 // greater than or equal to ESLint v9
 exports.gteEslintV9 = semverSatisfies(eslintVersion, ">=9", {
@@ -33,6 +34,18 @@ const defaultConfig = {
         globals: { ...globals.es2015, ...globals.node },
     },
 }
+const tsConfig = {
+    languageOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        parser: typescriptParser,
+        parserOptions: {
+            projectService: {
+                allowDefaultProject: ["*.*", "src/*"], // TODO: Don't use default project.
+            },
+        },
+    },
+}
 exports.RuleTester = function (config = defaultConfig) {
     if (config.languageOptions.env?.node === false)
         config.languageOptions.globals = config.languageOptions.globals || {}
@@ -54,6 +67,13 @@ exports.RuleTester = function (config = defaultConfig) {
     }
     return ruleTester
 }
+exports.TsRuleTester = function (config = tsConfig) {
+    return exports.RuleTester.call(this, config)
+}
+Object.setPrototypeOf(
+    exports.TsRuleTester.prototype,
+    exports.RuleTester.prototype
+)
 
 // support skip in tests
 function shouldRun(item) {
