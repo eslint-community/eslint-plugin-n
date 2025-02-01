@@ -17,21 +17,23 @@
     },
     "dependencies": {
         "@eslint-community/eslint-utils": "^4.4.1",
+        "@typescript-eslint/utils": "^8.21.0",
         "enhanced-resolve": "^5.17.1",
         "eslint-plugin-es-x": "^7.8.0",
         "get-tsconfig": "^4.8.1",
         "globals": "^15.11.0",
         "ignore": "^5.3.2",
         "minimatch": "^9.0.5",
-        "semver": "^7.6.3"
+        "semver": "^7.6.3",
+        "ts-declaration-location": "^1.0.5"
     },
     "devDependencies": {
         "@eslint/js": "^9.14.0",
         "@types/eslint": "^9.6.1",
         "@types/estree": "^1.0.6",
         "@types/node": "^20.17.5",
-        "@typescript-eslint/parser": "^8.12.2",
-        "@typescript-eslint/typescript-estree": "^8.12.2",
+        "@typescript-eslint/parser": "^8.21.0",
+        "@typescript-eslint/typescript-estree": "^8.21.0",
         "eslint": "^9.14.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-doc-generator": "^1.7.1",
@@ -51,7 +53,7 @@
         "rimraf": "^5.0.10",
         "ts-ignore-import": "^4.0.1",
         "type-fest": "^4.26.1",
-        "typescript": "~5.6"
+        "typescript": "^5.7"
     },
     "scripts": {
         "build": "node scripts/update",
@@ -118,5 +120,6 @@
     },
     "imports": {
         "#test-helpers": "./tests/test-helpers.js"
-    }
+    },
+    "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
