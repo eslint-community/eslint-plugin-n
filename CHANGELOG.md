@@ -1,5 +1,13 @@
 # Changelog
 
+## [17.15.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.15.1...v17.15.2) (2025-02-01)
+
+
+### 🧹 Chores
+
+* eslint v8 compat ([#397](https://github.com/eslint-community/eslint-plugin-n/issues/397)) ([86a5242](https://github.com/eslint-community/eslint-plugin-n/commit/86a524250dcc7c32225f2880ec66767a06c6258d))
+* improve `prefer-node-protocol`'s performance ([#406](https://github.com/eslint-community/eslint-plugin-n/issues/406)) ([4efe60f](https://github.com/eslint-community/eslint-plugin-n/commit/4efe60f37c71ce3d71932714207bac780332cf3d))
+
 ## [17.15.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.15.0...v17.15.1) (2024-12-20)
 
 
