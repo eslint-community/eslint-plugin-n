@@ -1,5 +1,17 @@
 # Changelog
 
+## [17.16.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.0...v17.16.1) (2025-03-02)
+
+
+### 🩹 Fixes
+
+* patch new eslint options types ([#411](https://github.com/eslint-community/eslint-plugin-n/issues/411)) ([340312e](https://github.com/eslint-community/eslint-plugin-n/commit/340312e15f062e059c04ef8c8cf238afd3454b68))
+
+
+### 🧹 Chores
+
+* **package:** explicitly declare js module type ([#410](https://github.com/eslint-community/eslint-plugin-n/issues/410)) ([9f09931](https://github.com/eslint-community/eslint-plugin-n/commit/9f099311720f078c398a1c931959b05ba6d60516))
+
 ## [17.16.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.15.1...v17.16.0) (2025-02-23)
 
 
