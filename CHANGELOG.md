@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.16.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.1...v17.16.2) (2025-03-04)
+
+
+### 🩹 Fixes
+
+* Revert "feat: add support for ignoring sync methods from certain locations" ([#416](https://github.com/eslint-community/eslint-plugin-n/issues/416)) ([0779e2f](https://github.com/eslint-community/eslint-plugin-n/commit/0779e2ffc17ae49b58db32835e1c697b8125ec67))
+
 ## [17.16.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.0...v17.16.1) (2025-03-02)
 
 
