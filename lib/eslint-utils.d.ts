@@ -24,6 +24,7 @@ declare module "@eslint-community/eslint-utils" {
         iterateGlobalReferences<Info extends unknown>(traceMap: TraceMap<Info>): IterableIterator<Reference<Info>>;
         iterateCjsReferences<Info extends unknown>(traceMap: TraceMap<Info>): IterableIterator<Reference<Info>>;
         iterateEsmReferences<Info extends unknown>(traceMap: TraceMap<Info>): IterableIterator<Reference<Info>>;
+        iteratePropertyReferences<Info extends unknown>(node: estree.Expression, traceMap: TraceMap<Info>): IterableIterator<Reference<Info>>;
     }
     export namespace ReferenceTracker {
         export { READ };
