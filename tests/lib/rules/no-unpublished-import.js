@@ -155,6 +155,18 @@ ruleTester.run("no-unpublished-import", rule, {
             code: "import type foo from 'foo';",
             options: [{ ignoreTypeImport: true }],
         },
+
+        // imports using `tsconfig.json > compilerOptions > paths` setting
+        // https://github.com/eslint-community/eslint-plugin-n/issues/421
+        {
+            filename: fixture("tsconfig-paths-wildcard/index.ts"),
+            code: "import foo from '@test/dev'",
+            options: [
+                {
+                    allowModules: ["@test/dev"],
+                },
+            ],
+        },
     ],
     invalid: [
         {
