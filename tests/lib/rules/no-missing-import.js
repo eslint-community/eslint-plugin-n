@@ -167,6 +167,17 @@ ruleTester.run("no-missing-import", rule, {
             code: "import electron from 'electron';",
             options: [{ allowModules: ["electron"] }],
         },
+        // allow virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-name';",
+            options: [{ allowModules: ["virtual:package-name"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-scope/name';",
+            options: [{ allowModules: ["virtual:package-scope"] }],
+        },
 
         // resolvePaths
         {
@@ -480,5 +491,17 @@ ruleTester.run("no-missing-import", rule, {
                   },
               ]
             : []),
+
+        // virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-name';",
+            errors: cantResolve("virtual:package-name"),
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-scope/name';",
+            errors: cantResolve("virtual:package-scope/name"),
+        },
     ],
 })

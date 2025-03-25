@@ -123,10 +123,22 @@ ruleTester.run("no-unpublished-import", rule, {
             code: "import a from './a';",
         },
 
+        // allow module
         {
             filename: fixture("1/test.js"),
             code: "import electron from 'electron';",
             options: [{ allowModules: ["electron"] }],
+        },
+        // allow virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-name';",
+            options: [{ allowModules: ["virtual:package-name"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-scope/name';",
+            options: [{ allowModules: ["virtual:package-scope"] }],
         },
 
         // Auto-published files only apply to root package directory

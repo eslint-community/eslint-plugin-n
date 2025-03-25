@@ -224,6 +224,17 @@ ruleTester.run("no-unpublished-require", rule, {
             code: "require('electron');",
             options: [{ allowModules: ["electron"] }],
         },
+        // allow virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-name');",
+            options: [{ allowModules: ["virtual:package-name"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-scope/name');",
+            options: [{ allowModules: ["virtual:package-scope"] }],
+        },
 
         // Auto-published files only apply to root package directory
         {
