@@ -1,5 +1,19 @@
 # Changelog
 
+## [17.17.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.2...v17.17.0) (2025-03-26)
+
+
+### 🌟 Features
+
+* **allow-modules:** include `virtual:` in the modules pattern ([#425](https://github.com/eslint-community/eslint-plugin-n/issues/425)) ([a109793](https://github.com/eslint-community/eslint-plugin-n/commit/a10979306d2f23ea78984d708f61213a098490f9))
+* **node-builtin:** Add support for import.meta properties ([#420](https://github.com/eslint-community/eslint-plugin-n/issues/420)) ([76fc219](https://github.com/eslint-community/eslint-plugin-n/commit/76fc219c57f0519c2f7138e23ffb09cd66da6546))
+
+
+### 🩹 Fixes
+
+* **no-unpublished:** `allowModules` option was disabled when using TS alias ([#423](https://github.com/eslint-community/eslint-plugin-n/issues/423)) ([9ae39fb](https://github.com/eslint-community/eslint-plugin-n/commit/9ae39fb38331592d916c906ec772e73364f96599))
+* type errors ([#427](https://github.com/eslint-community/eslint-plugin-n/issues/427)) ([8e3c290](https://github.com/eslint-community/eslint-plugin-n/commit/8e3c290c23ccb2826fd3fc611bb8a52765eea60b))
+
 ## [17.16.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.1...v17.16.2) (2025-03-04)
 
 
