@@ -51,6 +51,11 @@ Please see the shared settings documentation for more information.
 This can be configured in the rule options or as a shared setting [`settings.convertPath`](../shared-settings.md#convertpath).
 Please see the shared settings documentation for more information.
 
+#### tryExtensions
+
+This can be configured in the rule options or as a shared setting [`settings.tryExtensions`](../shared-settings.md#tryextensions).
+Please see the shared settings documentation for more information.
+
 ### ignoreTypeImport
 
 If using typescript, you may want to ignore type imports. This option allows you to do that.

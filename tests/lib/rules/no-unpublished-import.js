@@ -140,6 +140,16 @@ ruleTester.run("no-unpublished-import", rule, {
             code: "import a from 'virtual:package-scope/name';",
             options: [{ allowModules: ["virtual:package-scope"] }],
         },
+        // try extensions
+        {
+            filename: fixture("4/index.jsx"),
+            code: "import abc from './abc';",
+            options: [
+                {
+                    tryExtensions: [".jsx"],
+                },
+            ],
+        },
 
         // Auto-published files only apply to root package directory
         {
@@ -279,6 +289,16 @@ ruleTester.run("no-unpublished-import", rule, {
                 },
             ],
             errors: ['"../test.jsx" is not published.'],
+        },
+        // try extensions
+        {
+            filename: fixture("4/index.jsx"),
+            code: "import abc from './abc';",
+            errors: ['"./abc" is not published.'],
+            // Without setting tryExtensions, it defaults to [".js", ".json", ".node"], and thus
+            // cannot find the abc.jsx file, which is published.
+            //
+            // options: [{ tryExtensions: [".jsx"], }],
         },
 
         // outside of the package.
