@@ -17,6 +17,7 @@ Note that Node.js support for this feature began in:
 
 > v16.0.0, v14.18.0 (`require()`)  
 > v14.13.1, v12.20.0 (`import`)
+> v22.3.0, v20.16.0 (`process.getBuiltinModule()`)
 
 ## 📖 Rule Details
 
@@ -32,6 +33,8 @@ import fs from "node:fs"
 export { promises } from "node:fs"
 
 const fs = require("node:fs")
+
+const fs = process.getBuiltinModule("node:fs")
 ```
 
 👎 Examples of **incorrect** code for this rule:
@@ -44,6 +47,8 @@ import fs from "fs"
 export { promises } from "fs"
 
 const fs = require("fs")
+
+const fs = process.getBuiltinModule("fs")
 ```
 
 ### Configured Node.js version range
