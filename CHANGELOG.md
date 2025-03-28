@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.18.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.17.0...v17.18.0) (2025-03-28)
+
+
+### 🌟 Features
+
+* Allow to use `tryExtensions` in the rule `no-unpublished-import` ([#429](https://github.com/eslint-community/eslint-plugin-n/issues/429)) ([002ac9c](https://github.com/eslint-community/eslint-plugin-n/commit/002ac9cbc57272b9b3d28fb6aaea32dc8235bfc4))
+
 ## [17.17.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.2...v17.17.0) (2025-03-26)
 
 
