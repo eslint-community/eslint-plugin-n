@@ -242,5 +242,12 @@ new RuleTester({
             `,
             errors: ["Prefer `node:buffer` over `buffer`."],
         },
+
+        // https://github.com/eslint-community/eslint-plugin-n/issues/431
+        {
+            code: 'import https from "https";',
+            output: 'import https from "node:https";',
+            errors: ["Prefer `node:https` over `https`."],
+        },
     ],
 })
