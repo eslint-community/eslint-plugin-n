@@ -5660,8 +5660,8 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 },
                 {
                     code: `
-                        const sqlite = require('node:sqlite');
-                        const database = new sqlite.DatabaseSync(':memory:');
+                        const { DatabaseSync } = require('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
                     `,
                     options: [
                         {
@@ -5673,8 +5673,8 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 },
                 {
                     code: `
-                        const sqlite = process.getBuiltinModule('node:sqlite');
-                        const database = new sqlite.DatabaseSync(':memory:');
+                        const { DatabaseSync } = process.getBuiltinModule('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
                     `,
                     options: [
                         {
@@ -5715,26 +5715,26 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 },
                 {
                     code: `
-                        const sqlite = require('node:sqlite');
-                        const database = new sqlite.DatabaseSync(':memory:');
+                        const { DatabaseSync } = require('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
                     `,
                     options: [{ version: ">=22.3.0", allowExperimental: true }],
                     languageOptions: { ecmaVersion: "latest" },
 
                     errors: [
                         {
-                            messageId: "not-experimental-till",
-                            data: {
-                                name: "sqlite",
-                                experimental: "22.5.0",
-                                version: ">=22.3.0",
-                            },
-                        },
-                        {
                             messageId: "not-supported-till",
                             data: {
                                 name: "sqlite.DatabaseSync",
                                 supported: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                        {
+                            messageId: "not-experimental-till",
+                            data: {
+                                name: "sqlite",
+                                experimental: "22.5.0",
                                 version: ">=22.3.0",
                             },
                         },
@@ -5742,26 +5742,26 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 },
                 {
                     code: `
-                        const sqlite = process.getBuiltinModule('node:sqlite');
-                        const database = new sqlite.DatabaseSync(':memory:');
+                        const { DatabaseSync } = process.getBuiltinModule('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
                     `,
                     options: [{ version: ">=22.3.0", allowExperimental: true }],
                     languageOptions: { ecmaVersion: "latest" },
 
                     errors: [
                         {
-                            messageId: "not-experimental-till",
-                            data: {
-                                name: "sqlite",
-                                experimental: "22.5.0",
-                                version: ">=22.3.0",
-                            },
-                        },
-                        {
                             messageId: "not-supported-till",
                             data: {
                                 name: "sqlite.DatabaseSync",
                                 supported: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                        {
+                            messageId: "not-experimental-till",
+                            data: {
+                                name: "sqlite",
+                                experimental: "22.5.0",
                                 version: ">=22.3.0",
                             },
                         },
