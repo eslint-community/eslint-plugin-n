@@ -5678,6 +5678,28 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                         import { DatabaseSync } from 'node:sqlite';
                         const database = new DatabaseSync(':memory:');
                     `,
+                    options: [
+                        {
+                            version: ">=22.5.0",
+                        },
+                    ],
+                    languageOptions: { ecmaVersion: "latest" },
+
+                    errors: [
+                        {
+                            messageId: "not-supported-yet",
+                            data: {
+                                name: "sqlite",
+                                version: ">=22.5.0",
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: `
+                        import { DatabaseSync } from 'node:sqlite';
+                        const database = new DatabaseSync(':memory:');
+                    `,
                     options: [{ version: ">=22.3.0", allowExperimental: true }],
                     languageOptions: { ecmaVersion: "latest" },
 
