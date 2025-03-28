@@ -77,6 +77,25 @@ new RuleTester({
             options: [{ version: "15.14.0" }],
             code: 'const fs = require("fs");',
         },
+
+        // `process.getBuiltinModule`
+        'const fs = process.getBuiltinModule("node:fs");',
+        'const fs = globalThis.process.getBuiltinModule("node:fs");',
+        'const fs = process.getBuiltinModule("node:fs/promises");',
+        'const fs = process.getNotBuiltinModule("node:fs", extra);',
+        "const fs = process.getBuiltinModule(fs);",
+        'const fs = process.getNotBuiltinModule("fs");',
+        'const fs = process.foo.getNotBuiltinModule("fs");',
+        'const fs = foo.process.getNotBuiltinModule("fs");',
+        'const fs = process.getNotBuiltinModule.foo("fs");',
+        "const fs = process.getNotBuiltinModule(`fs`);",
+        "const fs = process.getNotBuiltinModule();",
+        'const fs = process.getNotBuiltinModule(...["fs"]);',
+        'const fs = process.getNotBuiltinModule("eslint-plugin-n");',
+        {
+            options: [{ version: "12.19.1" }],
+            code: 'const fs = process.getBuiltinModule("node:fs");',
+        },
     ],
     invalid: [
         {
@@ -248,6 +267,45 @@ new RuleTester({
             code: 'import https from "https";',
             output: 'import https from "node:https";',
             errors: ["Prefer `node:https` over `https`."],
+        },
+
+        // `process.getBuiltinModule`
+        {
+            code: 'const {promises} = process.getBuiltinModule("fs")',
+            output: 'const {promises} = process.getBuiltinModule("node:fs")',
+            errors: ["Prefer `node:fs` over `fs`."],
+        },
+        {
+            code: 'const {promises} = globalThis.process.getBuiltinModule("fs")',
+            output: 'const {promises} = globalThis.process.getBuiltinModule("node:fs")',
+            errors: ["Prefer `node:fs` over `fs`."],
+        },
+        {
+            code: 'const {promises} = process.getBuiltinModule("fs", extra)',
+            output: 'const {promises} = process.getBuiltinModule("node:fs", extra)',
+            errors: ["Prefer `node:fs` over `fs`."],
+        },
+        {
+            code: "const fs = process.getBuiltinModule('fs/promises')",
+            output: "const fs = process.getBuiltinModule('node:fs/promises')",
+            errors: ["Prefer `node:fs/promises` over `fs/promises`."],
+        },
+        {
+            code: `
+                const express = process.getBuiltinModule('express');
+                const fs = process.getBuiltinModule('fs/promises');
+            `,
+            output: `
+                const express = process.getBuiltinModule('express');
+                const fs = process.getBuiltinModule('node:fs/promises');
+            `,
+            errors: ["Prefer `node:fs/promises` over `fs/promises`."],
+        },
+        {
+            options: [{ version: "12.19.1" }],
+            code: 'const {promises} = process.getBuiltinModule("fs")',
+            output: 'const {promises} = process.getBuiltinModule("node:fs")',
+            errors: ["Prefer `node:fs` over `fs`."],
         },
     ],
 })
