@@ -22,6 +22,10 @@ new RuleTester({
         "import * as dns from 'dns'; dns.promises.lookup()",
         "import {promises} from 'dns'; promises.lookup()",
         "import {promises as dns} from 'dns'; dns.lookup()",
+        "const dns = process.getBuiltinModule('dns'); dns.promises.lookup()",
+        "const dns = process.getBuiltinModule('node:dns'); dns.promises.lookup()",
+        "const {promises} = process.getBuiltinModule('dns'); promises.lookup()",
+        "const {promises: dns} = process.getBuiltinModule('dns'); dns.lookup()",
     ],
     invalid: [
         {
@@ -50,6 +54,18 @@ new RuleTester({
         },
         {
             code: "import {lookup} from 'dns'; lookup()",
+            errors: [{ messageId: "preferPromises", data: { name: "lookup" } }],
+        },
+        {
+            code: "const dns = process.getBuiltinModule('dns'); dns.lookup()",
+            errors: [{ messageId: "preferPromises", data: { name: "lookup" } }],
+        },
+        {
+            code: "const dns = process.getBuiltinModule('node:dns'); dns.lookup()",
+            errors: [{ messageId: "preferPromises", data: { name: "lookup" } }],
+        },
+        {
+            code: "const {lookup} = process.getBuiltinModule('dns'); lookup()",
             errors: [{ messageId: "preferPromises", data: { name: "lookup" } }],
         },
 
