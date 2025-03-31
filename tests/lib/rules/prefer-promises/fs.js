@@ -23,6 +23,10 @@ new RuleTester({
         "import * as fs from 'fs'; fs.promises.access()",
         "import {promises} from 'fs'; promises.access()",
         "import {promises as fs} from 'fs'; fs.access()",
+        "const fs = process.getBuiltinModule('fs'); fs.promises.access()",
+        "const fs = process.getBuiltinModule('node:fs'); fs.promises.access()",
+        "const {promises} = process.getBuiltinModule('fs'); promises.access()",
+        "const {promises: fs} = process.getBuiltinModule('fs'); fs.access()",
     ],
     invalid: [
         {
@@ -51,6 +55,18 @@ new RuleTester({
         },
         {
             code: "import {access} from 'fs'; access()",
+            errors: [{ messageId: "preferPromises", data: { name: "access" } }],
+        },
+        {
+            code: "const fs = process.getBuiltinModule('fs'); fs.access()",
+            errors: [{ messageId: "preferPromises", data: { name: "access" } }],
+        },
+        {
+            code: "const fs = process.getBuiltinModule('node:fs'); fs.access()",
+            errors: [{ messageId: "preferPromises", data: { name: "access" } }],
+        },
+        {
+            code: "const {access} = process.getBuiltinModule('fs'); access()",
             errors: [{ messageId: "preferPromises", data: { name: "access" } }],
         },
 
