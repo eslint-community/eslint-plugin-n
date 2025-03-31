@@ -7,6 +7,8 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/console")
 
+const cjsMethods = [`require`, "process.getBuiltinModule"]
+
 new RuleTester().run("prefer-global/console", rule, {
     valid: [
         "console.log(10)",
@@ -14,34 +16,38 @@ new RuleTester().run("prefer-global/console", rule, {
             code: "console.log(10)",
             options: ["always"],
         },
-        {
-            code: "var console = require('console'); console.log(10)",
-            options: ["never"],
-        },
-        {
-            code: "var console = require('node:console'); console.log(10)",
-            options: ["never"],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var console = ${method}('console'); console.log(10)`,
+                options: ["never"],
+            },
+            {
+                code: `var console = ${method}('node:console'); console.log(10)`,
+                options: ["never"],
+            },
+        ]),
     ],
     invalid: [
-        {
-            code: "var console = require('console'); console.log(10)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var console = require('node:console'); console.log(10)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var console = require('console'); console.log(10)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var console = require('node:console'); console.log(10)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var console = ${method}('console'); console.log(10)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var console = ${method}('node:console'); console.log(10)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var console = ${method}('console'); console.log(10)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var console = ${method}('node:console'); console.log(10)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+        ]),
         {
             code: "console.log(10)",
             options: ["never"],
