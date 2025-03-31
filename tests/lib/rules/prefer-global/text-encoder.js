@@ -7,6 +7,8 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/text-encoder")
 
+const cjsMethods = [`require`, "process.getBuiltinModule"]
+
 new RuleTester().run("prefer-global/text-encoder", rule, {
     valid: [
         "var b = new TextEncoder(s)",
@@ -14,34 +16,38 @@ new RuleTester().run("prefer-global/text-encoder", rule, {
             code: "var b = new TextEncoder(s)",
             options: ["always"],
         },
-        {
-            code: "var { TextEncoder } = require('util'); var b = new TextEncoder(s)",
-            options: ["never"],
-        },
-        {
-            code: "var { TextEncoder } = require('node:util'); var b = new TextEncoder(s)",
-            options: ["never"],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var { TextEncoder } = ${method}('util'); var b = new TextEncoder(s)`,
+                options: ["never"],
+            },
+            {
+                code: `var { TextEncoder } = ${method}('node:util'); var b = new TextEncoder(s)`,
+                options: ["never"],
+            },
+        ]),
     ],
     invalid: [
-        {
-            code: "var { TextEncoder } = require('util'); var b = new TextEncoder(s)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { TextEncoder } = require('node:util'); var b = new TextEncoder(s)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { TextEncoder } = require('util'); var b = new TextEncoder(s)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { TextEncoder } = require('node:util'); var b = new TextEncoder(s)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var { TextEncoder } = ${method}('util'); var b = new TextEncoder(s)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { TextEncoder } = ${method}('node:util'); var b = new TextEncoder(s)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { TextEncoder } = ${method}('util'); var b = new TextEncoder(s)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { TextEncoder } = ${method}('node:util'); var b = new TextEncoder(s)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+        ]),
         {
             code: "var b = new TextEncoder(s)",
             options: ["never"],

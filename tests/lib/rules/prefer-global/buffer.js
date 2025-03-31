@@ -7,6 +7,8 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/buffer")
 
+const cjsMethods = [`require`, "process.getBuiltinModule"]
+
 new RuleTester().run("prefer-global/buffer", rule, {
     valid: [
         "var b = Buffer.alloc(10)",
@@ -14,34 +16,38 @@ new RuleTester().run("prefer-global/buffer", rule, {
             code: "var b = Buffer.alloc(10)",
             options: ["always"],
         },
-        {
-            code: "var { Buffer } = require('buffer'); var b = Buffer.alloc(10)",
-            options: ["never"],
-        },
-        {
-            code: "var { Buffer } = require('node:buffer'); var b = Buffer.alloc(10)",
-            options: ["never"],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var { Buffer } = ${method}('buffer'); var b = Buffer.alloc(10)`,
+                options: ["never"],
+            },
+            {
+                code: `var { Buffer } = ${method}('node:buffer'); var b = Buffer.alloc(10)`,
+                options: ["never"],
+            },
+        ]),
     ],
     invalid: [
-        {
-            code: "var { Buffer } = require('buffer'); var b = Buffer.alloc(10)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { Buffer } = require('node:buffer'); var b = Buffer.alloc(10)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { Buffer } = require('buffer'); var b = Buffer.alloc(10)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { Buffer } = require('node:buffer'); var b = Buffer.alloc(10)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var { Buffer } = ${method}('buffer'); var b = Buffer.alloc(10)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { Buffer } = ${method}('node:buffer'); var b = Buffer.alloc(10)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { Buffer } = ${method}('buffer'); var b = Buffer.alloc(10)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { Buffer } = ${method}('node:buffer'); var b = Buffer.alloc(10)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+        ]),
         {
             code: "var b = Buffer.alloc(10)",
             options: ["never"],

@@ -7,6 +7,8 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/process")
 
+const cjsMethods = [`require`, "process.getBuiltinModule"]
+
 new RuleTester().run("prefer-global/process", rule, {
     valid: [
         "process.exit(0)",
@@ -22,26 +24,32 @@ new RuleTester().run("prefer-global/process", rule, {
             code: "var process = require('node:process'); process.exit(0)",
             options: ["never"],
         },
+        {
+            code: "process.getBuiltinModule('buffer')",
+            options: ["always"],
+        },
     ],
     invalid: [
-        {
-            code: "var process = require('process'); process.exit(0)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var process = require('node:process'); process.exit(0)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var process = require('process'); process.exit(0)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var process = require('node:process'); process.exit(0)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
+        ...cjsMethods.flatMap(method => [
+            {
+                code: `var process_ = ${method}('process'); process_.exit(0)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var process_ = ${method}('node:process'); process_.exit(0)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var process_ = ${method}('process'); process_.exit(0)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var process_ = ${method}('node:process'); process_.exit(0)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+        ]),
         {
             code: "process.exit(0)",
             options: ["never"],
