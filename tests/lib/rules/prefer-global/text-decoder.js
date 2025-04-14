@@ -7,7 +7,7 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/text-decoder")
 
-const cjsMethods = [`require`, "process.getBuiltinModule"]
+const provideModuleMethods = ["require", "process.getBuiltinModule"]
 
 new RuleTester().run("prefer-global/text-decoder", rule, {
     valid: [
@@ -16,7 +16,7 @@ new RuleTester().run("prefer-global/text-decoder", rule, {
             code: "var b = new TextDecoder(s)",
             options: ["always"],
         },
-        ...cjsMethods.flatMap(method => [
+        ...provideModuleMethods.flatMap(method => [
             {
                 code: `var { TextDecoder } = ${method}('util'); var b = new TextDecoder(s)`,
                 options: ["never"],
@@ -28,7 +28,7 @@ new RuleTester().run("prefer-global/text-decoder", rule, {
         ]),
     ],
     invalid: [
-        ...cjsMethods.flatMap(method => [
+        ...provideModuleMethods.flatMap(method => [
             {
                 code: `var { TextDecoder } = ${method}('util'); var b = new TextDecoder(s)`,
                 errors: [{ messageId: "preferGlobal" }],

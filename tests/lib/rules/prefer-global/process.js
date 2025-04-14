@@ -7,7 +7,7 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/process")
 
-const cjsMethods = [`require`, "process.getBuiltinModule"]
+const provideModuleMethods = ["require", "process.getBuiltinModule"]
 
 new RuleTester().run("prefer-global/process", rule, {
     valid: [
@@ -30,7 +30,7 @@ new RuleTester().run("prefer-global/process", rule, {
         },
     ],
     invalid: [
-        ...cjsMethods.flatMap(method => [
+        ...provideModuleMethods.flatMap(method => [
             {
                 code: `var process_ = ${method}('process'); process_.exit(0)`,
                 errors: [{ messageId: "preferGlobal" }],

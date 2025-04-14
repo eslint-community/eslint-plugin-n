@@ -7,7 +7,7 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/buffer")
 
-const cjsMethods = [`require`, "process.getBuiltinModule"]
+const provideModuleMethods = ["require", "process.getBuiltinModule"]
 
 new RuleTester().run("prefer-global/buffer", rule, {
     valid: [
@@ -16,7 +16,7 @@ new RuleTester().run("prefer-global/buffer", rule, {
             code: "var b = Buffer.alloc(10)",
             options: ["always"],
         },
-        ...cjsMethods.flatMap(method => [
+        ...provideModuleMethods.flatMap(method => [
             {
                 code: `var { Buffer } = ${method}('buffer'); var b = Buffer.alloc(10)`,
                 options: ["never"],
@@ -28,7 +28,7 @@ new RuleTester().run("prefer-global/buffer", rule, {
         ]),
     ],
     invalid: [
-        ...cjsMethods.flatMap(method => [
+        ...provideModuleMethods.flatMap(method => [
             {
                 code: `var { Buffer } = ${method}('buffer'); var b = Buffer.alloc(10)`,
                 errors: [{ messageId: "preferGlobal" }],
