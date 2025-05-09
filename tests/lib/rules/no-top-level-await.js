@@ -18,7 +18,7 @@ function fixture(name) {
 }
 
 new RuleTester({
-    languageOptions: { ecmaVersion: 2020, sourceType: "module" },
+    languageOptions: { ecmaVersion: 2022, sourceType: "module" },
 }).run("no-top-level-await", rule, {
     valid: [
         {
