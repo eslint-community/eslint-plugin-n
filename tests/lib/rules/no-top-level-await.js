@@ -3,7 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 "use strict"
-const { RuleTester } = require("eslint")
+
+const { RuleTester } = require("#test-helpers")
 const rule = require("../../../lib/rules/no-top-level-await.js")
 const path = require("path")
 
@@ -17,7 +18,7 @@ function fixture(name) {
 }
 
 new RuleTester({
-    languageOptions: { sourceType: "module" },
+    languageOptions: { ecmaVersion: 2020, sourceType: "module" },
 }).run("no-top-level-await", rule, {
     valid: [
         {
