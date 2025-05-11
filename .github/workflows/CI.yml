@@ -33,7 +33,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
         eslint: [8.x, "9.x"]
-        node: [18.x, 20.x, 22.x, 23.x]
+        node: [18.x, 20.x, 22.x, 24.x]
         include:
           - os: ubuntu-latest
             node: "18.18.0"
