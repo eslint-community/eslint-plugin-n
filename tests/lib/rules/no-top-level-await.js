@@ -100,6 +100,14 @@ new RuleTester({
                 },
             ],
         },
+        // files field of `package.json` with convertPath
+        {
+            filename: fixture("simple-files/test/a.ts"),
+            code: "const foo = await import('foo')",
+            options: [
+                { convertPath: { "src/**/*": ["src/(.+).ts", "lib/$1.js"] } },
+            ],
+        },
         // Unknown files
         {
             code: "const foo = await import('foo')",
@@ -203,6 +211,22 @@ new RuleTester({
                         "Top-level `await` is forbidden in published modules.",
                     line: 2,
                     column: 1,
+                },
+            ],
+        },
+        // files field of `package.json` with convertPath
+        {
+            filename: fixture("simple-files/src/a.ts"),
+            code: "const foo = await import('foo')",
+            options: [
+                { convertPath: { "src/**/*": ["src/(.+).ts", "lib/$1.js"] } },
+            ],
+            errors: [
+                {
+                    message:
+                        "Top-level `await` is forbidden in published modules.",
+                    line: 1,
+                    column: 13,
                 },
             ],
         },
