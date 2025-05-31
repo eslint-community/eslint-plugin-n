@@ -98,6 +98,16 @@ ruleTester.run("no-extraneous-import", rule, {
             filename: fixture("tsconfig-paths/index.ts"),
             code: "import foo from '#configurations/foo'",
         },
+
+        // virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-name';",
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-scope/name';",
+        },
     ],
     invalid: [
         {

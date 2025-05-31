@@ -42,6 +42,12 @@ ruleTester.run("no-deprecated-api", rule, {
             code: "import {request} from 'http'; request()",
             languageOptions: { sourceType: "module" },
         },
+        {
+            code: "const {Buffer} = process.getBuiltinModule('another-buffer'); new Buffer()",
+        },
+        {
+            code: "const {request} = process.getBuiltinModule('http'); request()",
+        },
 
         // On Node v6.8.0, fs.existsSync revived.
         {
@@ -758,6 +764,92 @@ ruleTester.run("no-deprecated-api", rule, {
         },
         {
             code: "require('module').createRequireFromPath()",
+            options: [{ version: "12.2.0" }],
+            errors: [
+                "'module.createRequireFromPath' was deprecated since v12.2.0. Use 'module.createRequire()' instead.",
+            ],
+        },
+
+        // process.getBuiltinModule()
+        {
+            code: "const b = process.getBuiltinModule('buffer'); new b.Buffer()",
+            options: [{ version: "6.0.0" }],
+            errors: [
+                "'new buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "const b = process.getBuiltinModule('node:buffer'); new b.Buffer()",
+            options: [{ version: "6.0.0" }],
+            errors: [
+                "'new buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "const {Buffer} = process.getBuiltinModule('buffer'); new Buffer()",
+            options: [{ version: "6.0.0" }],
+            errors: [
+                "'new buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "const {Buffer:b} = process.getBuiltinModule('buffer'); new b()",
+            options: [{ version: "6.0.0" }],
+            errors: [
+                "'new buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "const b = process.getBuiltinModule('buffer'); b.SlowBuffer",
+            options: [{ version: "6.0.0" }],
+            errors: [
+                "'buffer.SlowBuffer' was deprecated since v6.0.0. Use 'buffer.Buffer.allocUnsafeSlow()' instead.",
+            ],
+        },
+        {
+            code: "const domain = process.getBuiltinModule('domain');",
+            options: [{ version: "4.0.0" }],
+            languageOptions: { sourceType: "module" },
+            errors: ["'domain' module was deprecated since v4.0.0."],
+        },
+
+        {
+            code: "new (process.getBuiltinModule('buffer').Buffer)()",
+            options: [
+                {
+                    //
+                    ignoreModuleItems: ["buffer.Buffer()"],
+                    ignoreGlobalItems: ["Buffer()", "new Buffer()"],
+                    version: "6.0.0",
+                },
+            ],
+            errors: [
+                "'new buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "process.getBuiltinModule('buffer').Buffer()",
+            options: [
+                {
+                    //
+                    ignoreModuleItems: ["new buffer.Buffer()"],
+                    ignoreGlobalItems: ["Buffer()", "new Buffer()"],
+                    version: "6.0.0",
+                },
+            ],
+            errors: [
+                "'buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "process.getBuiltinModule('module').createRequireFromPath()",
+            options: [{ version: "12.0.0" }],
+            errors: [
+                "'module.createRequireFromPath' was deprecated since v12.2.0.",
+            ],
+        },
+        {
+            code: "process.getBuiltinModule('module').createRequireFromPath()",
             options: [{ version: "12.2.0" }],
             errors: [
                 "'module.createRequireFromPath' was deprecated since v12.2.0. Use 'module.createRequire()' instead.",

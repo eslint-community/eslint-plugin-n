@@ -123,10 +123,32 @@ ruleTester.run("no-unpublished-import", rule, {
             code: "import a from './a';",
         },
 
+        // allow module
         {
             filename: fixture("1/test.js"),
             code: "import electron from 'electron';",
             options: [{ allowModules: ["electron"] }],
+        },
+        // allow virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-name';",
+            options: [{ allowModules: ["virtual:package-name"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import a from 'virtual:package-scope/name';",
+            options: [{ allowModules: ["virtual:package-scope"] }],
+        },
+        // try extensions
+        {
+            filename: fixture("4/index.jsx"),
+            code: "import abc from './abc';",
+            options: [
+                {
+                    tryExtensions: [".jsx"],
+                },
+            ],
         },
 
         // Auto-published files only apply to root package directory
@@ -154,6 +176,18 @@ ruleTester.run("no-unpublished-import", rule, {
             languageOptions: { parser: require("@typescript-eslint/parser") },
             code: "import type foo from 'foo';",
             options: [{ ignoreTypeImport: true }],
+        },
+
+        // imports using `tsconfig.json > compilerOptions > paths` setting
+        // https://github.com/eslint-community/eslint-plugin-n/issues/421
+        {
+            filename: fixture("tsconfig-paths-wildcard/index.ts"),
+            code: "import foo from '@test/dev'",
+            options: [
+                {
+                    allowModules: ["@test/dev"],
+                },
+            ],
         },
     ],
     invalid: [
@@ -255,6 +289,16 @@ ruleTester.run("no-unpublished-import", rule, {
                 },
             ],
             errors: ['"../test.jsx" is not published.'],
+        },
+        // try extensions
+        {
+            filename: fixture("4/index.jsx"),
+            code: "import abc from './abc';",
+            errors: ['"./abc" is not published.'],
+            // Without setting tryExtensions, it defaults to [".js", ".json", ".node"], and thus
+            // cannot find the abc.jsx file, which is published.
+            //
+            // options: [{ tryExtensions: [".jsx"], }],
         },
 
         // outside of the package.

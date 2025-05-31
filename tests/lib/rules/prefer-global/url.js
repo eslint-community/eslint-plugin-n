@@ -7,6 +7,8 @@
 const RuleTester = require("#test-helpers").RuleTester
 const rule = require("../../../../lib/rules/prefer-global/url")
 
+const provideModuleMethods = ["require", "process.getBuiltinModule"]
+
 new RuleTester().run("prefer-global/url", rule, {
     valid: [
         "var b = new URL(s)",
@@ -14,34 +16,38 @@ new RuleTester().run("prefer-global/url", rule, {
             code: "var b = new URL(s)",
             options: ["always"],
         },
-        {
-            code: "var { URL } = require('url'); var b = new URL(s)",
-            options: ["never"],
-        },
-        {
-            code: "var { URL } = require('node:url'); var b = new URL(s)",
-            options: ["never"],
-        },
+        ...provideModuleMethods.flatMap(method => [
+            {
+                code: `var { URL } = ${method}('url'); var b = new URL(s)`,
+                options: ["never"],
+            },
+            {
+                code: `var { URL } = ${method}('node:url'); var b = new URL(s)`,
+                options: ["never"],
+            },
+        ]),
     ],
     invalid: [
-        {
-            code: "var { URL } = require('url'); var b = new URL(s)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { URL } = require('node:url'); var b = new URL(s)",
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { URL } = require('url'); var b = new URL(s)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
-        {
-            code: "var { URL } = require('node:url'); var b = new URL(s)",
-            options: ["always"],
-            errors: [{ messageId: "preferGlobal" }],
-        },
+        ...provideModuleMethods.flatMap(method => [
+            {
+                code: `var { URL } = ${method}('url'); var b = new URL(s)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { URL } = ${method}('node:url'); var b = new URL(s)`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { URL } = ${method}('url'); var b = new URL(s)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `var { URL } = ${method}('node:url'); var b = new URL(s)`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+        ]),
         {
             code: "var b = new URL(s)",
             options: ["never"],

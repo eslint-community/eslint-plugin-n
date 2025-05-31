@@ -1,0 +1,7 @@
+{
+    "name": "test",
+    "version": "0.0.0",
+    "devDependencies": {
+        "@test/dev": "0.0.0"
+    }
+}

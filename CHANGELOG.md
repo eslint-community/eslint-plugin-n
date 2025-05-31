@@ -1,5 +1,36 @@
 # Changelog
 
+## [17.18.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.17.0...v17.18.0) (2025-05-09)
+
+
+### 🌟 Features
+
+* Allow to use `tryExtensions` in the rule `no-unpublished-import` ([#429](https://github.com/eslint-community/eslint-plugin-n/issues/429)) ([002ac9c](https://github.com/eslint-community/eslint-plugin-n/commit/002ac9cbc57272b9b3d28fb6aaea32dc8235bfc4))
+* **no-deprecated-api:** Add support for `process.getBuiltinModule()` ([#435](https://github.com/eslint-community/eslint-plugin-n/issues/435)) ([fca7cf4](https://github.com/eslint-community/eslint-plugin-n/commit/fca7cf48d7d5d74feefd1864ab5f1fa098662fad))
+* **node-builtins:** Add support for `process.getBuiltinModule()` ([#433](https://github.com/eslint-community/eslint-plugin-n/issues/433)) ([d4c7831](https://github.com/eslint-community/eslint-plugin-n/commit/d4c7831bfec83b8930e0c4754429162ade128653))
+* **prefer-global:** Add support for `process.getBuiltinModule()` ([#436](https://github.com/eslint-community/eslint-plugin-n/issues/436)) ([83aa3a7](https://github.com/eslint-community/eslint-plugin-n/commit/83aa3a7dc4ef0b683e7d30acbf9177da35bfe1b4))
+* **prefer-node-protocol:** Add support for `process.getBuiltinModule()` ([#430](https://github.com/eslint-community/eslint-plugin-n/issues/430)) ([9e97d8e](https://github.com/eslint-community/eslint-plugin-n/commit/9e97d8efc32f1dc6fa5568d862f5505d8e1e5cb9))
+* **prefer-promises:** Add support for `process.getBuiltinModule()` ([#437](https://github.com/eslint-community/eslint-plugin-n/issues/437)) ([6f5e81d](https://github.com/eslint-community/eslint-plugin-n/commit/6f5e81d20bb0fdffdada5b06f43113cd41131e0e))
+
+
+### 🩹 Fixes
+
+* false negatives for `https` in `prefer-node-protocol`, and false negatives for `node:sqlite` in `node-builtins` ([#432](https://github.com/eslint-community/eslint-plugin-n/issues/432)) ([bb21bd0](https://github.com/eslint-community/eslint-plugin-n/commit/bb21bd0f33a0785ad20c33c33190f72f44685196))
+
+## [17.17.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.2...v17.17.0) (2025-03-26)
+
+
+### 🌟 Features
+
+* **allow-modules:** include `virtual:` in the modules pattern ([#425](https://github.com/eslint-community/eslint-plugin-n/issues/425)) ([a109793](https://github.com/eslint-community/eslint-plugin-n/commit/a10979306d2f23ea78984d708f61213a098490f9))
+* **node-builtin:** Add support for import.meta properties ([#420](https://github.com/eslint-community/eslint-plugin-n/issues/420)) ([76fc219](https://github.com/eslint-community/eslint-plugin-n/commit/76fc219c57f0519c2f7138e23ffb09cd66da6546))
+
+
+### 🩹 Fixes
+
+* **no-unpublished:** `allowModules` option was disabled when using TS alias ([#423](https://github.com/eslint-community/eslint-plugin-n/issues/423)) ([9ae39fb](https://github.com/eslint-community/eslint-plugin-n/commit/9ae39fb38331592d916c906ec772e73364f96599))
+* type errors ([#427](https://github.com/eslint-community/eslint-plugin-n/issues/427)) ([8e3c290](https://github.com/eslint-community/eslint-plugin-n/commit/8e3c290c23ccb2826fd3fc611bb8a52765eea60b))
+
 ## [17.16.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.16.1...v17.16.2) (2025-03-04)
 
 

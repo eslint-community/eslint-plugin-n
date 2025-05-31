@@ -67,6 +67,16 @@ tester.run("no-extraneous-require", rule, {
             filename: fixture("dependencies/a.js"),
             code: "require('ccc')",
         },
+
+        // virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-name');",
+        },
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-scope/name');",
+        },
     ],
     invalid: [
         {

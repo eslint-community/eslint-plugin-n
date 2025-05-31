@@ -240,6 +240,17 @@ ruleTester.run("no-missing-require", rule, {
             code: "require('jquery.cookie');",
             options: [{ allowModules: ["jquery.cookie"] }],
         },
+        // allow virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-name');",
+            options: [{ allowModules: ["virtual:package-name"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-scope/name');",
+            options: [{ allowModules: ["virtual:package-scope"] }],
+        },
 
         // typescriptExtensionMap
         {
@@ -439,6 +450,18 @@ ruleTester.run("no-missing-require", rule, {
             filename: fixture("test.js"),
             code: "require.resolve('no-exist-package-0');",
             errors: cantResolve("no-exist-package-0"),
+        },
+
+        // Virtual modules
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-name');",
+            errors: cantResolve("virtual:package-name"),
+        },
+        {
+            filename: fixture("test.js"),
+            code: "require('virtual:package-scope/name');",
+            errors: cantResolve("virtual:package-scope/name"),
         },
     ],
 })

@@ -5458,6 +5458,136 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
             ],
         },
 
+        //----------------------------------------------------------------------
+        // import.meta
+        //----------------------------------------------------------------------
+        {
+            valid: [
+                ...[
+                    { version: "22.0.0" },
+                    { version: "20.6.0" },
+                    { version: "18.19.0" },
+                    { version: "13.9.0", allowExperimental: true },
+                    { version: "12.16.2", allowExperimental: true },
+                    { version: "18.18.0", ignores: ["import.meta.resolve"] },
+                ].map(option => {
+                    return {
+                        code: "import.meta.resolve(specifier)",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                    }
+                }),
+                ...[
+                    { version: "22.0.0" },
+                    { version: "21.2.0" },
+                    { version: "20.11.0" },
+                    { version: "20.10.0", ignores: ["import.meta.dirname"] },
+                ].map(option => {
+                    return {
+                        code: "import.meta.dirname;",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                    }
+                }),
+                ...[
+                    { version: "22.0.0" },
+                    { version: "21.2.0" },
+                    { version: "20.11.0" },
+                    { version: "20.10.0", ignores: ["import.meta.filename"] },
+                ].map(option => {
+                    return {
+                        code: "import.meta.filename;",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                    }
+                }),
+            ],
+            invalid: [
+                ...[
+                    { version: "20.5.0" },
+                    { version: "19.8.1" },
+                    { version: "18.18.0" },
+                ].map(option => {
+                    return {
+                        code: "import.meta.resolve(specifier)",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                        errors: [
+                            {
+                                messageId: "not-supported-till",
+                                data: {
+                                    name: "import.meta.resolve",
+                                    supported: "20.6.0 (backported: ^18.19.0)",
+                                    version: option.version,
+                                },
+                            },
+                        ],
+                    }
+                }),
+                ...[
+                    { version: "13.8.0", allowExperimental: true },
+                    { version: "12.15.0", allowExperimental: true },
+                ].map(option => {
+                    return {
+                        code: "import.meta.resolve(specifier)",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                        errors: [
+                            {
+                                messageId: "not-experimental-till",
+                                data: {
+                                    name: "import.meta.resolve",
+                                    experimental:
+                                        "13.9.0 (backported: ^12.16.2)",
+                                    version: option.version,
+                                },
+                            },
+                        ],
+                    }
+                }),
+                ...[{ version: "21.1.0" }, { version: "20.10.0" }].map(
+                    option => {
+                        return {
+                            code: "import.meta.dirname;",
+                            options: [option],
+                            languageOptions: { ecmaVersion: "latest" },
+                            errors: [
+                                {
+                                    messageId: "not-supported-till",
+                                    data: {
+                                        name: "import.meta.dirname",
+                                        supported:
+                                            "21.2.0 (backported: ^20.11.0)",
+                                        version: option.version,
+                                    },
+                                },
+                            ],
+                        }
+                    }
+                ),
+                ...[{ version: "21.1.0" }, { version: "20.10.0" }].map(
+                    option => {
+                        return {
+                            code: "import.meta.filename;",
+                            options: [option],
+                            languageOptions: { ecmaVersion: "latest" },
+                            errors: [
+                                {
+                                    messageId: "not-supported-till",
+                                    data: {
+                                        name: "import.meta.filename",
+                                        supported:
+                                            "21.2.0 (backported: ^20.11.0)",
+                                        version: option.version,
+                                    },
+                                },
+                            ],
+                        }
+                    }
+                ),
+            ],
+        },
+
         {
             valid: [
                 {
@@ -5490,6 +5620,171 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                                 name: "fetch",
                                 supported: "21.0.0",
                                 version: "16.16.0",
+                            },
+                        },
+                    ],
+                },
+            ],
+        },
+
+        //----------------------------------------------------------------------
+        // sqlite
+        //----------------------------------------------------------------------
+        {
+            valid: [
+                {
+                    code: `
+                        import { DatabaseSync } from 'node:sqlite';
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [
+                        {
+                            version: ">=22.5.0",
+                            allowExperimental: true,
+                        },
+                    ],
+                    languageOptions: { ecmaVersion: "latest" },
+                },
+                {
+                    code: `
+                        import { DatabaseSync } from 'node:sqlite';
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [
+                        {
+                            version: ">=22.3.0",
+                            ignores: ["sqlite", "sqlite.DatabaseSync"],
+                        },
+                    ],
+                    languageOptions: { ecmaVersion: "latest" },
+                },
+                {
+                    code: `
+                        const { DatabaseSync } = require('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [
+                        {
+                            version: ">=22.5.0",
+                            allowExperimental: true,
+                        },
+                    ],
+                    languageOptions: { ecmaVersion: "latest" },
+                },
+                {
+                    code: `
+                        const { DatabaseSync } = process.getBuiltinModule('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [
+                        {
+                            version: ">=22.5.0",
+                            allowExperimental: true,
+                        },
+                    ],
+                    languageOptions: { ecmaVersion: "latest" },
+                },
+            ],
+            invalid: [
+                {
+                    code: `
+                        import { DatabaseSync } from 'node:sqlite';
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [
+                        {
+                            version: ">=22.5.0",
+                        },
+                    ],
+                    languageOptions: { ecmaVersion: "latest" },
+
+                    errors: [
+                        {
+                            messageId: "not-supported-yet",
+                            data: {
+                                name: "sqlite",
+                                version: ">=22.5.0",
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: `
+                        import { DatabaseSync } from 'node:sqlite';
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [{ version: ">=22.3.0", allowExperimental: true }],
+                    languageOptions: { ecmaVersion: "latest" },
+
+                    errors: [
+                        {
+                            messageId: "not-experimental-till",
+                            data: {
+                                name: "sqlite",
+                                experimental: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "sqlite.DatabaseSync",
+                                supported: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: `
+                        const { DatabaseSync } = require('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [{ version: ">=22.3.0", allowExperimental: true }],
+                    languageOptions: { ecmaVersion: "latest" },
+
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "sqlite.DatabaseSync",
+                                supported: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                        {
+                            messageId: "not-experimental-till",
+                            data: {
+                                name: "sqlite",
+                                experimental: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: `
+                        const { DatabaseSync } = process.getBuiltinModule('node:sqlite');
+                        const database = new DatabaseSync(':memory:');
+                    `,
+                    options: [{ version: ">=22.3.0", allowExperimental: true }],
+                    languageOptions: { ecmaVersion: "latest" },
+
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "sqlite.DatabaseSync",
+                                supported: "22.5.0",
+                                version: ">=22.3.0",
+                            },
+                        },
+                        {
+                            messageId: "not-experimental-till",
+                            data: {
+                                name: "sqlite",
+                                experimental: "22.5.0",
+                                version: ">=22.3.0",
                             },
                         },
                     ],
