@@ -3,12 +3,15 @@
  * @author 唯然<weiran.zsd@outlook.com>
  */
 "use strict"
+
+const path = require("path")
 const eslintVersion = require("eslint/package.json").version
 const { RuleTester } = require("eslint")
 const { FlatRuleTester } = require("eslint/use-at-your-own-risk")
 const globals = require("globals")
 const semverSatisfies = require("semver/functions/satisfies")
 const os = require("os")
+const typescriptParser = require("@typescript-eslint/parser")
 
 // greater than or equal to ESLint v9
 exports.gteEslintV9 = semverSatisfies(eslintVersion, ">=9", {
@@ -33,6 +36,26 @@ const defaultConfig = {
         globals: { ...globals.es2015, ...globals.node },
     },
 }
+
+/**
+ * @param {string} fixturePath - Path to the fixture directory relative to the fixtures directory
+ * @returns
+ */
+function getTsConfig(fixturePath) {
+    return {
+        languageOptions: {
+            parser: typescriptParser,
+            parserOptions: {
+                tsconfigRootDir: path.join(__dirname, "fixtures", fixturePath),
+                projectService: {
+                    // Ensure we're not using the default project
+                    maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 0,
+                },
+            },
+        },
+    }
+}
+
 exports.RuleTester = function (config = defaultConfig) {
     if (config.languageOptions.env?.node === false)
         config.languageOptions.globals = config.languageOptions.globals || {}
@@ -55,6 +78,31 @@ exports.RuleTester = function (config = defaultConfig) {
     return ruleTester
 }
 
+/**
+ * @param {string | import('eslint').Linter.Config} configOrFixturePath
+ * @returns
+ */
+exports.TsRuleTester = function (configOrFixturePath) {
+    const config =
+        typeof configOrFixturePath === "object"
+            ? configOrFixturePath
+            : getTsConfig(configOrFixturePath)
+
+    const ruleTester = exports.RuleTester.call(this, config)
+    const $run = ruleTester.run.bind(ruleTester)
+    ruleTester.run = function (name, rule, tests) {
+        tests.valid = tests.valid.map(setTsFilename)
+        tests.invalid = tests.invalid.map(setTsFilename)
+
+        $run(name, rule, tests)
+    }
+    return ruleTester
+}
+Object.setPrototypeOf(
+    exports.TsRuleTester.prototype,
+    exports.RuleTester.prototype
+)
+
 // support skip in tests
 function shouldRun(item) {
     if (typeof item === "string") return true
@@ -62,4 +110,16 @@ function shouldRun(item) {
     const skip = item.skip
     delete item.skip
     return skip === void 0 || skip === false
+}
+
+function setTsFilename(item) {
+    if (typeof item === "string") {
+        return {
+            code: item,
+            filename: "file.ts",
+        }
+    }
+
+    item.filename ??= "file.ts"
+    return item
 }

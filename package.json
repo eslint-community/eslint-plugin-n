@@ -18,21 +18,23 @@
     },
     "dependencies": {
         "@eslint-community/eslint-utils": "^4.5.0",
+        "@typescript-eslint/utils": "^8.26.1",
         "enhanced-resolve": "^5.17.1",
         "eslint-plugin-es-x": "^7.8.0",
         "get-tsconfig": "^4.8.1",
         "globals": "^15.11.0",
         "ignore": "^5.3.2",
         "minimatch": "^9.0.5",
-        "semver": "^7.6.3"
+        "semver": "^7.6.3",
+        "ts-declaration-location": "^1.0.6"
     },
     "devDependencies": {
         "@eslint/js": "^9.14.0",
         "@types/eslint": "^9.6.1",
         "@types/estree": "^1.0.6",
         "@types/node": "^20.17.5",
-        "@typescript-eslint/parser": "^8.12.2",
-        "@typescript-eslint/typescript-estree": "^8.12.2",
+        "@typescript-eslint/parser": "^8.26.1",
+        "@typescript-eslint/typescript-estree": "^8.26.1",
         "eslint": "^9.14.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-doc-generator": "^1.7.1",
