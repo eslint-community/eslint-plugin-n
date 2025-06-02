@@ -1,5 +1,13 @@
 # Changelog
 
+## [17.19.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.18.0...v17.19.0) (2025-06-02)
+
+
+### 🌟 Features
+
+* add `no-top-level-await` rule ([#440](https://github.com/eslint-community/eslint-plugin-n/issues/440)) ([a500a48](https://github.com/eslint-community/eslint-plugin-n/commit/a500a48dec48707c12c1b0300632bb6ea7c99734))
+* add support for ignoring sync methods from certain locations ([#424](https://github.com/eslint-community/eslint-plugin-n/issues/424)) ([ef94e49](https://github.com/eslint-community/eslint-plugin-n/commit/ef94e498e0b79fbdd8a44bb01c95e1bf3d4ba09a))
+
 ## [17.18.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.17.0...v17.18.0) (2025-05-09)
 
 
