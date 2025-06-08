@@ -2,7 +2,7 @@
 
 📝 Require correct usage of hashbang.
 
-❌ This rule is deprecated. It was replaced by [`n/hashbang`](hashbang.md).
+❌ This rule has been [deprecated](https://github.com/eslint-community/eslint-plugin-n/issues/196) since v17.0.0. It was replaced by [`n/hashbang`](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/hashbang.md). This rule was deprecated in eslint-plugin-n v17.0.0. Please use 'n/hashbang'.
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
