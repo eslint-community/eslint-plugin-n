@@ -7,6 +7,7 @@
 const { RuleTester } = require("#test-helpers")
 const rule = require("../../../lib/rules/no-top-level-await.js")
 const path = require("path")
+const tsParser = require("@typescript-eslint/parser")
 
 /**
  * Makes a file path to a fixture.
@@ -99,6 +100,12 @@ new RuleTester({
                     ignoreBin: true,
                 },
             ],
+        },
+        // await using
+        {
+            filename: fixture("simple-files/lib/a.js"),
+            code: "async function f() { await using foo = x }",
+            languageOptions: { parser: tsParser },
         },
         // files field of `package.json` with convertPath
         {
@@ -227,6 +234,20 @@ new RuleTester({
                         "Top-level `await` is forbidden in published modules.",
                     line: 1,
                     column: 13,
+                },
+            ],
+        },
+        // await using
+        {
+            filename: fixture("simple-files/lib/a.js"),
+            code: "await using foo = x",
+            languageOptions: { parser: tsParser },
+            errors: [
+                {
+                    message:
+                        "Top-level `await` is forbidden in published modules.",
+                    line: 1,
+                    column: 1,
                 },
             ],
         },
