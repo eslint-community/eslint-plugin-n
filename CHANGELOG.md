@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.20.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.19.0...v17.20.0) (2025-06-12)
+
+
+### 🌟 Features
+
+* **no-top-level-await:** add support for `await using` ([#447](https://github.com/eslint-community/eslint-plugin-n/issues/447)) ([88dea92](https://github.com/eslint-community/eslint-plugin-n/commit/88dea92e099edfdab5a2b89a2bbde8c297f880dd))
+
 ## [17.19.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.18.0...v17.19.0) (2025-06-02)
 
 
