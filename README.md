@@ -194,6 +194,7 @@ About each config:
 - `recommended`: Considers both CommonJS and ES Modules. If [`"type":"module"` field](https://medium.com/@nodejs/announcing-a-new-experimental-modules-1be8d2d6c2ff#b023) existed in package.json then it considers files as ES Modules. Otherwise it considers files as CommonJS. In addition, it considers `*.mjs` files as ES Modules and `*.cjs` files as CommonJS.
 - `recommended-module`: Considers all files as ES Modules.
 - `recommended-script`: Considers all files as CommonJS.
+- `flat/all`: enables all of the rules shipped with the package. This configuration is **not recommended** for production use because it may change with every minor and major version. Use at your own risk.
 
 These preset configs:
 
