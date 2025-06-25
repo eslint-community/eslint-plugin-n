@@ -79,6 +79,13 @@ Examples of **correct** code for this rule with the `{ ignores: ['readFileSync']
 fs.readFileSync(somePath);
 ```
 
+> [!WARNING]
+> Advanced `ignores` options (object specifiers) require TypeScript and the [`ts-declaration-location`](https://www.npmjs.com/package/ts-declaration-location) package. This package is an **optional peer dependency** for the `n/no-sync` rule. If you want to use advanced TypeScript-based ignores, please install it in your project:
+>
+> ```sh
+> npm install --save-dev ts-declaration-location
+> ```
+
 ##### Advanced (TypeScript only)
 
 You can provide a list of specifiers to ignore. Specifiers are typed as follows:
@@ -101,6 +108,9 @@ type Specifier =
     name?: string[];
   }
 ```
+
+> [!NOTE]
+> To use advanced TypeScript-based ignores, you must have `ts-declaration-location` installed as a dependency in your project.
 
 ###### From a file
 
