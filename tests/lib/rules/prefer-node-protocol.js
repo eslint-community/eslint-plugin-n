@@ -58,6 +58,10 @@ new RuleTester({
 
         // check disabling by supported Node.js versions
         {
+            options: [{ version: ">=10.13.0" }],
+            code: 'import fs from "fs";',
+        },
+        {
             options: [{ version: "12.19.1" }],
             code: 'import fs from "fs";',
         },
