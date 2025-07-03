@@ -1,5 +1,22 @@
 # Changelog
 
+## [17.21.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.20.0...v17.21.0) (2025-07-03)
+
+
+### 🌟 Features
+
+* add config "flat/all" ([#401](https://github.com/eslint-community/eslint-plugin-n/issues/401)) ([b6a0d71](https://github.com/eslint-community/eslint-plugin-n/commit/b6a0d7115015827b868e8fd4528c1722faf64fd3))
+
+
+### 🩹 Fixes
+
+* correctly handle version ranges in prefer-node-protocol ([#454](https://github.com/eslint-community/eslint-plugin-n/issues/454)) ([d60439d](https://github.com/eslint-community/eslint-plugin-n/commit/d60439d83b48717e56a44de89e2b6beaf6ea05bf))
+
+
+### 🧹 Chores
+
+* **no-sync:** remove `@typescript-eslint/utils` ([#449](https://github.com/eslint-community/eslint-plugin-n/issues/449)) ([45e2803](https://github.com/eslint-community/eslint-plugin-n/commit/45e28036dfde635fc4a66143de2e5131eae6da3f))
+
 ## [17.20.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.19.0...v17.20.0) (2025-06-12)
 
 
