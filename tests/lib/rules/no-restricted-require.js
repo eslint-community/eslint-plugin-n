@@ -54,6 +54,10 @@ new RuleTester().run("no-restricted-require", rule, {
             code: 'require("../foo");',
             options: [[{ name: path.resolve(__dirname, "foo") }]],
         },
+        {
+            code: 'require("foo/bar/baz")',
+            options: [["foo/*"]],
+        },
     ],
     invalid: [
         {
@@ -193,6 +197,17 @@ new RuleTester().run("no-restricted-require", rule, {
             filename: path.resolve(__dirname, "lib/sub/test.js"),
             code: 'require("../../foo");',
             options: [[{ name: path.resolve(__dirname, "foo") }]],
+            errors: [
+                {
+                    messageId: "restricted",
+                    data: { name: "../../foo", customMessage: "" },
+                },
+            ],
+        },
+        {
+            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            code: 'require("../../foo");',
+            options: [[{ name: "**/foo" }]],
             errors: [
                 {
                     messageId: "restricted",
