@@ -24,7 +24,6 @@
         "globals": "^15.11.0",
         "globrex": "^0.1.2",
         "ignore": "^5.3.2",
-        "minimatch": "^9.0.5",
         "semver": "^7.6.3",
         "ts-declaration-location": "^1.0.6"
     },
