@@ -463,6 +463,14 @@ ruleTester.run("no-missing-require", rule, {
             code: "require('virtual:package-scope/name');",
             errors: cantResolve("virtual:package-scope/name"),
         },
+
+        // Sanity test for (wrong) attempt to require data
+        // (this should only be supported in imports)
+        {
+            filename: fixture("test.js"),
+            code: "require('data:text/javascript,const x = 123;');",
+            errors: cantResolve("data:text/javascript,const x = 123;"),
+        },
     ],
 })
 
