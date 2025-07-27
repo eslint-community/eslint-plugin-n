@@ -1,5 +1,13 @@
 # Changelog
 
+## [17.21.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.0...v17.21.1) (2025-07-27)
+
+
+### 🩹 Fixes
+
+* **ci:** Ignore type test failures for types present in ESLint 8 that we removed in ESLint 9.31.0 ([#460](https://github.com/eslint-community/eslint-plugin-n/issues/460)) ([76f8150](https://github.com/eslint-community/eslint-plugin-n/commit/76f81500f2f5b15b3a01405ec65ebe29ffdacbc5))
+* **no-restricted-require:** Handle .. paths ([#458](https://github.com/eslint-community/eslint-plugin-n/issues/458)) ([34719e8](https://github.com/eslint-community/eslint-plugin-n/commit/34719e8b7efc8ccb95ab06841f3121c1aa6eb2a0))
+
 ## [17.21.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.20.0...v17.21.0) (2025-07-03)
 
 
