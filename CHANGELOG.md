@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.21.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.1...v17.21.2) (2025-07-27)
+
+
+### 🧹 Chores
+
+* remove minimatch dependency ([#462](https://github.com/eslint-community/eslint-plugin-n/issues/462)) ([92a24ac](https://github.com/eslint-community/eslint-plugin-n/commit/92a24accf83bdf40fbaef804cf764405c756a852))
+
 ## [17.21.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.0...v17.21.1) (2025-07-27)
 
 
