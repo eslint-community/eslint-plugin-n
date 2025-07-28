@@ -366,6 +366,12 @@ ruleTester.run("no-missing-import", rule, {
             options: [{ ignoreTypeImport: true }],
         },
 
+        // data import
+        {
+            filename: fixture("test.js"),
+            code: "import 'data:text/javascript,const x = 123;';",
+        },
+
         // import()
         ...(DynamicImportSupported
             ? [
