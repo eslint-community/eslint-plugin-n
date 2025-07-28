@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.21.3](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.2...v17.21.3) (2025-07-28)
+
+
+### 🩹 Fixes
+
+* **no-missing-import:** Support data imports ([#465](https://github.com/eslint-community/eslint-plugin-n/issues/465)) ([69ea12b](https://github.com/eslint-community/eslint-plugin-n/commit/69ea12b939fd600b5bd3593dc1382e3a45d320e5))
+
 ## [17.21.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.1...v17.21.2) (2025-07-27)
 
 
