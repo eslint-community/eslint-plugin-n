@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.21.4](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.3...v17.21.4) (2025-08-01)
+
+
+### 🩹 Fixes
+
+* **ci:** bump markdowncli-lint version ([#468](https://github.com/eslint-community/eslint-plugin-n/issues/468)) ([91a56d0](https://github.com/eslint-community/eslint-plugin-n/commit/91a56d01322d1f3da8571b5358fd641a15a1e42a))
+
 ## [17.21.3](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.2...v17.21.3) (2025-07-28)
 
 
