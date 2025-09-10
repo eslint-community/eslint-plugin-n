@@ -5478,7 +5478,7 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                     }
                 }),
                 ...[
-                    { version: "22.0.0" },
+                    { version: "22.16.0" },
                     { version: "21.2.0" },
                     { version: "20.11.0" },
                     { version: "20.10.0", ignores: ["import.meta.dirname"] },
@@ -5490,7 +5490,7 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                     }
                 }),
                 ...[
-                    { version: "22.0.0" },
+                    { version: "22.16.0" },
                     { version: "21.2.0" },
                     { version: "20.11.0" },
                     { version: "20.10.0", ignores: ["import.meta.filename"] },
@@ -5545,46 +5545,50 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                         ],
                     }
                 }),
-                ...[{ version: "21.1.0" }, { version: "20.10.0" }].map(
-                    option => {
-                        return {
-                            code: "import.meta.dirname;",
-                            options: [option],
-                            languageOptions: { ecmaVersion: "latest" },
-                            errors: [
-                                {
-                                    messageId: "not-supported-till",
-                                    data: {
-                                        name: "import.meta.dirname",
-                                        supported:
-                                            "21.2.0 (backported: ^20.11.0)",
-                                        version: option.version,
-                                    },
+                ...[
+                    { version: "22.0.0" },
+                    { version: "21.1.0" },
+                    { version: "20.10.0" },
+                ].map(option => {
+                    return {
+                        code: "import.meta.dirname;",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                        errors: [
+                            {
+                                messageId: "not-supported-till",
+                                data: {
+                                    name: "import.meta.dirname",
+                                    supported:
+                                        "22.16.0 (backported: ^21.2.0, ^20.11.0)",
+                                    version: option.version,
                                 },
-                            ],
-                        }
+                            },
+                        ],
                     }
-                ),
-                ...[{ version: "21.1.0" }, { version: "20.10.0" }].map(
-                    option => {
-                        return {
-                            code: "import.meta.filename;",
-                            options: [option],
-                            languageOptions: { ecmaVersion: "latest" },
-                            errors: [
-                                {
-                                    messageId: "not-supported-till",
-                                    data: {
-                                        name: "import.meta.filename",
-                                        supported:
-                                            "21.2.0 (backported: ^20.11.0)",
-                                        version: option.version,
-                                    },
+                }),
+                ...[
+                    { version: "22.0.0" },
+                    { version: "21.1.0" },
+                    { version: "20.10.0" },
+                ].map(option => {
+                    return {
+                        code: "import.meta.filename;",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                        errors: [
+                            {
+                                messageId: "not-supported-till",
+                                data: {
+                                    name: "import.meta.filename",
+                                    supported:
+                                        "22.16.0 (backported: ^21.2.0, ^20.11.0)",
+                                    version: option.version,
                                 },
-                            ],
-                        }
+                            },
+                        ],
                     }
-                ),
+                }),
             ],
         },
 
