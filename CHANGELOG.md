@@ -1,5 +1,19 @@
 # Changelog
 
+## [17.22.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.3...v17.22.0) (2025-09-13)
+
+
+### 🌟 Features
+
+* Add missing features from node 20.19.0 ([#473](https://github.com/eslint-community/eslint-plugin-n/issues/473)) ([fd0c192](https://github.com/eslint-community/eslint-plugin-n/commit/fd0c19271ba9a4592281c72dbcfe282a2ce01e20))
+* support latest node 22 ([#474](https://github.com/eslint-community/eslint-plugin-n/issues/474)) ([0ab562b](https://github.com/eslint-community/eslint-plugin-n/commit/0ab562b95ed98983308f107f4f2b679fc4d68701))
+
+
+### 🩹 Fixes
+
+* **ci:** bump markdowncli-lint version ([#468](https://github.com/eslint-community/eslint-plugin-n/issues/468)) ([91a56d0](https://github.com/eslint-community/eslint-plugin-n/commit/91a56d01322d1f3da8571b5358fd641a15a1e42a))
+* **no-unsupported:** `URL.createObjectURL`, `URL.revokeObjectURL` are supported ([#471](https://github.com/eslint-community/eslint-plugin-n/issues/471)) ([844155c](https://github.com/eslint-community/eslint-plugin-n/commit/844155c9e6f31ad915ba84e923fbc96cb72611c6))
+
 ## [17.21.3](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.2...v17.21.3) (2025-07-28)
 
 
