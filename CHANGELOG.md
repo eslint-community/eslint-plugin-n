@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.23.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.22.0...v17.23.0) (2025-09-15)
+
+
+### 🌟 Features
+
+* Support latest node v23.x ✨ ([#478](https://github.com/eslint-community/eslint-plugin-n/issues/478)) ([6516414](https://github.com/eslint-community/eslint-plugin-n/commit/6516414c61aeb3b43ee41983f7cdb45f6f9e867b))
+
 ## [17.22.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.3...v17.22.0) (2025-09-13)
 
 
