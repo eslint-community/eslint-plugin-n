@@ -146,8 +146,8 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [no-extraneous-import](docs/rules/no-extraneous-import.md)                                   | disallow `import` declarations which import extraneous modules              | 🟢 ✅ |    |    |
 | [no-extraneous-require](docs/rules/no-extraneous-require.md)                                 | disallow `require()` expressions which import extraneous modules            | 🟢 ✅ |    |    |
 | [no-hide-core-modules](docs/rules/no-hide-core-modules.md)                                   | disallow third-party modules which are hiding core modules                  |      |    | ❌  |
-| [no-missing-import](docs/rules/no-missing-import.md)                                         | disallow `import` declarations which import non-existing modules            | 🟢 ✅ |    |    |
-| [no-missing-require](docs/rules/no-missing-require.md)                                       | disallow `require()` expressions which import non-existing modules          | 🟢 ✅ |    |    |
+| [no-missing-import](docs/rules/no-missing-import.md)                                         | disallow `import` declarations which import missing modules            | 🟢 ✅ |    |    |
+| [no-missing-require](docs/rules/no-missing-require.md)                                       | disallow `require()` expressions which import missing modules          | 🟢 ✅ |    |    |
 | [no-mixed-requires](docs/rules/no-mixed-requires.md)                                         | disallow `require` calls to be mixed with regular variable declarations     |      |    |    |
 | [no-new-require](docs/rules/no-new-require.md)                                               | disallow `new` operators with calls to `require`                            |      |    |    |
 | [no-path-concat](docs/rules/no-path-concat.md)                                               | disallow string concatenation with `__dirname` and `__filename`             |      |    |    |
