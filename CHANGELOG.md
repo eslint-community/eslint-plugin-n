@@ -1,5 +1,17 @@
 # Changelog
 
+## [17.23.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.0...v17.23.1) (2025-09-18)
+
+
+### 🩹 Fixes
+
+* **node-builtins-modules/tls.js:** Update minimal version ([#484](https://github.com/eslint-community/eslint-plugin-n/issues/484)) ([fe94432](https://github.com/eslint-community/eslint-plugin-n/commit/fe94432306f35a3af53c2f9c9feb49259aa27f79))
+
+
+### 📚 Documentation
+
+* improve clarity of no-missing-import and no-missing-require ([#455](https://github.com/eslint-community/eslint-plugin-n/issues/455)) ([92ea876](https://github.com/eslint-community/eslint-plugin-n/commit/92ea876039dd42602da6a6e87129958552a8f3b7))
+
 ## [17.23.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.22.0...v17.23.0) (2025-09-15)
 
 
