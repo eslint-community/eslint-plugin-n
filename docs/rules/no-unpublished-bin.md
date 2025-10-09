@@ -4,6 +4,8 @@
 
 <!-- end auto-generated rule header -->
 
+Users can safely disable this rule if using npm v10 and later.
+
 We can publish CLI commands by `npm`. It uses `bin` field of `package.json`.
 
 ```json
