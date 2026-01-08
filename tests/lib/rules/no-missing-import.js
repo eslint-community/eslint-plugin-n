@@ -397,7 +397,7 @@ ruleTester.run("no-missing-import", rule, {
                     messageId: "notFound",
                     data: {
                         resolveError: [
-                            "Package path ./sub.mjs is not exported from package",
+                            '"./sub.mjs" is not exported under the conditions ["node","require","import"] from package',
                             fixture("node_modules/esm-module"),
                             `(see exports field in ${fixture(
                                 "node_modules/esm-module/package.json"
