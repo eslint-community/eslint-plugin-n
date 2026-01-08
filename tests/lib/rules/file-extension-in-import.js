@@ -224,6 +224,18 @@ new RuleTester({
         },
         {
             filename: fixture("test.js"),
+            code: "import { util } from './my-folder'",
+            output: "import { util } from './my-folder/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import { util } from './my-folder/'",
+            output: "import { util } from './my-folder/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
             code: "import './b'",
             output: "import './b.json'",
             errors: [{ messageId: "requireExt", data: { ext: ".json" } }],
