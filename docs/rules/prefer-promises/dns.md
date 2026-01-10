@@ -1,5 +1,7 @@
 # Enforce `require("dns").promises` (`n/prefer-promises/dns`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 Since Node.js v11.14.0, `require("dns").promises` API has been stable.

@@ -1,5 +1,7 @@
 # Enforce Node.js-style error-first callback pattern is followed (`n/no-callback-literal`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 When invoking a callback function which uses the Node.js error-first callback pattern, all of your errors should either use the `Error` class or a subclass of it. It is also acceptable to use `undefined` or `null` if there is no error.

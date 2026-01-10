@@ -1,5 +1,7 @@
 # Disallow `new` operators with calls to `require` (`n/no-new-require`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `require` function is used to include modules that exist in separate files, such as:

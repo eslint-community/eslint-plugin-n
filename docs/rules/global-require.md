@@ -1,5 +1,7 @@
 # Require `require()` calls to be placed at top-level module scope (`n/global-require`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 In Node.js, module dependencies are included using the `require()` function, such as:

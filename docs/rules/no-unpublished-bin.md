@@ -1,6 +1,6 @@
 # Disallow `bin` files that npm ignores (`n/no-unpublished-bin`)
 
-💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
+💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🌐 `all`, 🟢 `recommended-module`, ✅ `recommended-script`.
 
 <!-- end auto-generated rule header -->
 
