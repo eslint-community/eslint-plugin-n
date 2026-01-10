@@ -1,5 +1,7 @@
 # Enforce either global timer functions or `require("timers")` (`n/prefer-global/timers`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The timer functions `clearImmediate`, `clearInterval`, `clearTimeout`, `setImmediate`, `setInterval`, and `setTimeout` are defined as global variables but are also available in the `timers` module.

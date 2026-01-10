@@ -4,6 +4,7 @@
 const config = {
     ignoreConfig: [
         "recommended",
+        "mixed-esm-and-cjs",
         "flat/recommended-script",
         "flat/recommended-module",
         "flat/recommended",
@@ -14,11 +15,6 @@ const config = {
     configEmoji: [
         ["recommended-script", "✅"],
         ["recommended-module", "🟢"],
-        ["recommended", "☑️"],
-        ["flat/recommended-script", "✅"],
-        ["flat/recommended-module", "🟢"],
-        ["flat/recommended", "☑️"],
-        ["flat/mixed-esm-and-cjs", "🟠"],
     ],
     ruleDocSectionOptions: false,
 }

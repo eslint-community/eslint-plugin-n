@@ -1,5 +1,7 @@
 # Disallow top-level `await` in published modules (`n/no-top-level-await`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 Node.js v20.19 introduced `require(esm)`, but ES modules with top-level `await` cannot be loaded with `require(esm)`. It is a good idea to disallow top-level `await` to ensure interoperability of modules published as Node.js libraries.
