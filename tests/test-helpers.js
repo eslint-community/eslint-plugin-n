@@ -48,8 +48,8 @@ function getTsConfig(fixturePath) {
             parserOptions: {
                 tsconfigRootDir: path.join(__dirname, "fixtures", fixturePath),
                 projectService: {
-                    // Ensure we're not using the default project
-                    maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 0,
+                    // Allow virtual test files (file-*.ts) in default project
+                    allowDefaultProject: ["file-*.ts"],
                 },
             },
         },
@@ -112,14 +112,20 @@ function shouldRun(item) {
     return skip === void 0 || skip === false
 }
 
+// Counter for unique filenames to avoid singleRun cache issues in CI
+// (typescript-eslint uses isolated programs after first parse of same filename)
+let tsFileCounter = 0
+
 function setTsFilename(item) {
+    const filename = `file-${++tsFileCounter}.ts`
+
     if (typeof item === "string") {
         return {
             code: item,
-            filename: "file.ts",
+            filename,
         }
     }
 
-    item.filename ??= "file.ts"
+    item.filename ??= filename
     return item
 }

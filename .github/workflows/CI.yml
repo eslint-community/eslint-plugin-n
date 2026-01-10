@@ -63,7 +63,4 @@ jobs:
       - name: Install ESLint ${{ matrix.eslint }}
         run: npm install --no-save --force eslint@${{ matrix.eslint }}
       - name: Test
-        env:
-          # set CI to false to avoid false positives in some tests - see https://github.com/eslint-community/eslint-plugin-n/pull/501s
-          CI: false
         run: npm run -s test:tests
