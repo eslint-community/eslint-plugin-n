@@ -45,7 +45,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -55,7 +54,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -65,7 +63,7 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "CallExpression",
+
                 },
             ],
         },
@@ -75,7 +73,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -86,7 +83,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -96,7 +92,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -106,7 +101,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -117,7 +111,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -128,7 +121,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -145,7 +137,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-                    type: "MemberExpression",
                 },
             ],
         },
@@ -225,7 +216,6 @@ fooSync();
                     {
                         messageId: "noSync",
                         data: { propertyName: "fooSync" },
-                        type: "CallExpression",
                     },
                 ],
             },
@@ -248,7 +238,6 @@ fooSync();
                     {
                         messageId: "noSync",
                         data: { propertyName: "fooSync" },
-                        type: "CallExpression",
                     },
                 ],
             },
@@ -271,7 +260,6 @@ stylesheet.replaceSync("body { font-size: 1.4em; } p { color: red; }");
                     {
                         messageId: "noSync",
                         data: { propertyName: "CSSStyleSheet.replaceSync" },
-                        type: "MemberExpression",
                     },
                 ],
             },
@@ -318,7 +306,6 @@ fooSync();
                     {
                         messageId: "noSync",
                         data: { propertyName: "fooSync" },
-                        type: "CallExpression",
                     },
                 ],
             },

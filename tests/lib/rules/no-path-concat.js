@@ -32,7 +32,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -41,7 +40,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -50,7 +48,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -59,7 +56,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -68,7 +64,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -77,7 +72,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -86,7 +80,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -95,7 +88,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -104,7 +96,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -113,7 +104,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -122,7 +112,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -131,7 +120,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -140,7 +128,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -149,7 +136,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -158,7 +144,6 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },

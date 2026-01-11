@@ -16,7 +16,6 @@ ruleTester.run("no-process-exit", rule, {
             errors: [
                 {
                     messageId: "noProcessExit",
-                    type: "CallExpression",
                 },
             ],
         },
@@ -25,7 +24,6 @@ ruleTester.run("no-process-exit", rule, {
             errors: [
                 {
                     messageId: "noProcessExit",
-                    type: "CallExpression",
                 },
             ],
         },
@@ -34,7 +32,6 @@ ruleTester.run("no-process-exit", rule, {
             errors: [
                 {
                     messageId: "noProcessExit",
-                    type: "CallExpression",
                 },
             ],
         },

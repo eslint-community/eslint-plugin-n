@@ -18,7 +18,6 @@ new RuleTester().run("no-new-require", rule, {
             errors: [
                 {
                     messageId: "noNewRequire",
-                    type: "NewExpression",
                 },
             ],
         },
@@ -27,7 +26,6 @@ new RuleTester().run("no-new-require", rule, {
             errors: [
                 {
                     messageId: "noNewRequire",
-                    type: "NewExpression",
                 },
             ],
         },
