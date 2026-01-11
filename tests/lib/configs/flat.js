@@ -17,7 +17,7 @@ describe("flat configs", () => {
         assert(config.rules, "should have rules configured")
     })
 
-    it("should export flat/recommeded-script", () => {
+    it("should export flat/recommended-script", () => {
         const config = pkg.configs["flat/recommended-script"]
         assert.strictEqual(config.plugins.n, pkg)
         assert(config.rules, "should have rules configured")
