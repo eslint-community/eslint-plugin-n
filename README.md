@@ -30,7 +30,7 @@ npm install --save-dev eslint eslint-plugin-n
 
 ```js
 import node from "eslint-plugin-n"
-import {defineConfig} from "eslint"
+import {defineConfig} from "eslint/config"
 
 export default defineConfig([
     plugins: {n: node},
@@ -42,7 +42,7 @@ To setup without the recommended configs, you'll need to add the plugin:
 
 ```js
 import node from "eslint-plugin-n"
-import {defineConfig} from "eslint"
+import {defineConfig} from "eslint/config"
 
 export default defineConfig([
     plugins: {n: node},
@@ -184,7 +184,7 @@ These preset configs:
 
 ```js
 import node from "eslint-plugin-n"
-import {defineConfig} from "eslint"
+import {defineConfig} from "eslint/config"
 
 export default defineConfig([
     plugins: {n: node},
