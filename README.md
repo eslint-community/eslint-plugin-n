@@ -26,62 +26,30 @@ npm install --save-dev eslint eslint-plugin-n
 
 **Note:** It recommends a use of [the "engines" field of package.json](https://docs.npmjs.com/files/package.json#engines). The "engines" field is used by `n/no-unsupported-features/*` rules.
 
-### [`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files-new) (requires eslint>=v8.23.0)
+### [`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files)
 
 ```js
-const nodePlugin = require("eslint-plugin-n")
+import node from "eslint-plugin-n"
+import {defineConfig} from "eslint"
 
-module.exports = [
-    nodePlugin.configs["flat/recommended-script"],
-    {
-        rules: {
-            "n/exports-style": ["error", "module.exports"]
-        }
-    }
-]
+export default defineConfig([
+    plugins: {n: node},
+    extends: ["n/recommended-module"],
+])
 ```
 
 To setup without the recommended configs, you'll need to add the plugin:
 
 ```js
-const nodePlugin = require("eslint-plugin-n")
+import node from "eslint-plugin-n"
+import {defineConfig} from "eslint"
 
-module.exports = [
-    {
-        plugins: {n: nodePlugin},
-        rules: {
-            "n/exports-style": ["error", "module.exports"]
-        }
-    }
-]
-```
-
-### **[.eslintrc.json](https://eslint.org/docs/latest/use/configure/configuration-files)** (legacy example)
-
-```jsonc
-{
-    "extends": ["eslint:recommended", "plugin:n/recommended"],
-    "parserOptions": {
-        "ecmaVersion": 2021
+export default defineConfig([
+    plugins: {n: node},
+    rules: {
+        "n/no-unsupported-features/es-builtins": "error",
     },
-    "rules": {
-        "n/exports-style": ["error", "module.exports"]
-    }
-}
-```
-
-To setup without the recommended rules you'll need to add the plugin:
-
-```jsonc
-{
-    "parserOptions": {
-        "ecmaVersion": 2021
-    },
-    "plugins": ["n"],
-    "rules": {
-        "n/exports-style": ["error", "module.exports"]
-    }
-}
+])
 ```
 
 **package.json** (An example)
@@ -193,10 +161,10 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 
 About each config:
 
-- `recommended`: Considers both CommonJS and ES Modules. If [`"type":"module"` field](https://medium.com/@nodejs/announcing-a-new-experimental-modules-1be8d2d6c2ff#b023) existed in package.json then it considers files as ES Modules. Otherwise it considers files as CommonJS. In addition, it considers `*.mjs` files as ES Modules and `*.cjs` files as CommonJS.
 - `recommended-module`: Considers all files as ES Modules.
 - `recommended-script`: Considers all files as CommonJS.
-- `flat/all`: enables all of the rules shipped with the package. This configuration is **not recommended** for production use because it may change with every minor and major version. Use at your own risk.
+- `recommended`: Considers both CommonJS and ES Modules. If [`"type":"module"` field](https://medium.com/@nodejs/announcing-a-new-experimental-modules-1be8d2d6c2ff#b023) existed in package.json then it considers files as ES Modules. Otherwise it considers files as CommonJS. In addition, it considers `*.mjs` files as ES Modules and `*.cjs` files as CommonJS.
+- `all`: enables all of the rules shipped with the package. This configuration is **not recommended** for production use because it may change with every minor and major version. Use at your own risk.
 
 These preset configs:
 
@@ -211,20 +179,17 @@ These preset configs:
 - Q: The `no-missing-import` / `no-missing-require` rules don't work with nested folders in SublimeLinter-eslint
 - A: See [context.getFilename() in rule returns relative path](https://github.com/roadhump/SublimeLinter-eslint#contextgetfilename-in-rule-returns-relative-path) in the SublimeLinter-eslint FAQ.
 
-- Q: How to use the flat eslint config with mixed commonjs and es modules?
-- A: You can use the new exported flat config `flat/mixed-esm-and-cjs`, an example:
+- Q: How to use the eslint config with mixed commonjs and es modules?
+- A: You can use the new exported flat config `mixed-esm-and-cjs`, an example:
 
 ```js
-const nodePlugin = require("eslint-plugin-n");
+import node from "eslint-plugin-n"
+import {defineConfig} from "eslint"
 
-module.exports = [
-  ...nodePlugin.configs["flat/mixed-esm-and-cjs"],
-  {
-    rules: {
-      "n/exports-style": ["error", "module.exports"],
-    },
-  },
-]
+export default defineConfig([
+    plugins: {n: node},
+    extends: ["n/mixed-esm-and-cjs"],
+])
 ```
 
 ## 🚥 Semantic Versioning Policy
