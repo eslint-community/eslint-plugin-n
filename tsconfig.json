@@ -3,26 +3,24 @@
     "compilerOptions": {
         "rootDir": "./lib",
         "declarationDir": "./types",
-
         "target": "es2022",
-        "lib": ["es2023"],
+        "lib": [
+            "es2023"
+        ],
         "module": "nodenext",
         "moduleResolution": "nodenext",
         "declaration": true,
         "emitDeclarationOnly": true,
         "allowJs": true,
         "checkJs": true,
-
-        "allowSyntheticDefaultImports": false,
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-
         "resolveJsonModule": true,
         "inlineSourceMap": true,
         "inlineSources": true,
         "noEmitHelpers": true,
         "noEmitOnError": true,
         "forceConsistentCasingInFileNames": true,
-
         "strict": true,
         "allowUnusedLabels": false,
         "allowUnreachableCode": false,
@@ -31,11 +29,13 @@
         "noUncheckedIndexedAccess": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-
         "isolatedModules": true,
-
         "skipLibCheck": true
     },
-    "include": ["./lib/eslint-utils.d.ts"],
-    "files": ["./lib/index.js"]
+    "include": [
+        "./lib/eslint-utils.d.ts"
+    ],
+    "files": [
+        "./lib/index.js"
+    ]
 }
