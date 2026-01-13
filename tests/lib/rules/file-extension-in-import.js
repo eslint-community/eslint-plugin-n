@@ -363,9 +363,27 @@ new RuleTester({
             output: "import './utils.client.js'",
             errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
         },
+        {
+            filename: fixture("test.ts"),
+            code: "import './util.client'",
+            output: "import './util.client.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import './util.client'",
+            output: "import './util.client.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
         // Directories with dots in name (e.g. my-things.client/index.ts)
         {
             filename: fixture("test.ts"),
+            code: "import './my-things.client'",
+            output: "import './my-things.client/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
             code: "import './my-things.client'",
             output: "import './my-things.client/index.js'",
             errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
