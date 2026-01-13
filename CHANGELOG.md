@@ -1,5 +1,25 @@
 # Changelog
 
+## [17.23.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.1...v17.23.2) (2026-01-13)
+
+
+### 🩹 Fixes
+
+* avoid any type for no-top-level-await listener node (build issue) ([#498](https://github.com/eslint-community/eslint-plugin-n/issues/498)) ([f071703](https://github.com/eslint-community/eslint-plugin-n/commit/f071703b3a5d7025f4d51681c23d7a24f579d35c))
+* **file-extension-in-import:** handle directory index imports ([#499](https://github.com/eslint-community/eslint-plugin-n/issues/499)) ([754a1a6](https://github.com/eslint-community/eslint-plugin-n/commit/754a1a61cde5be01890cae2685bdecd9c4e2c06f))
+* **file-extension-in-import:** handle files with dots in basename ([#506](https://github.com/eslint-community/eslint-plugin-n/issues/506)) ([600f3f2](https://github.com/eslint-community/eslint-plugin-n/commit/600f3f2d58515b87f27d00487063561d3faee940))
+* **no-sync:** resolve full typed names for ignores ([#501](https://github.com/eslint-community/eslint-plugin-n/issues/501)) ([047301a](https://github.com/eslint-community/eslint-plugin-n/commit/047301adbac933a09848b25f722472d9bba67cb1))
+
+
+### 📚 Documentation
+
+* safely disable no-unpublished-bin npm v10+ ([#487](https://github.com/eslint-community/eslint-plugin-n/issues/487)) ([8af9c86](https://github.com/eslint-community/eslint-plugin-n/commit/8af9c8601755202f794c5b27401466dee7edc00a))
+
+
+### 🧹 Chores
+
+* **no-missing-import:** align fixture message with latest resolver output ([#500](https://github.com/eslint-community/eslint-plugin-n/issues/500)) ([a3719d2](https://github.com/eslint-community/eslint-plugin-n/commit/a3719d26be7278eca2562b935e22c3ecf0838af7))
+
 ## [17.23.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.0...v17.23.1) (2025-09-18)
 
 
