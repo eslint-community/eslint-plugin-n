@@ -1,6 +1,6 @@
 # Require correct usage of hashbang (`n/shebang`)
 
-❌ This rule is deprecated. It was replaced by [`n/hashbang`](hashbang.md).
+❌ This rule is deprecated.
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
