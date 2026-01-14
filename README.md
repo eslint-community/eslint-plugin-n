@@ -157,7 +157,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [no-restricted-require](docs/rules/no-restricted-require.md)                                 | disallow specified modules when loaded by `require`                         |      |    |    |
 | [no-sync](docs/rules/no-sync.md)                                                             | disallow synchronous methods                                                |      |    |    |
 | [no-top-level-await](docs/rules/no-top-level-await.md)                                       | disallow top-level `await` in published modules                             |      |    |    |
-| [no-unpublished-bin](docs/rules/no-unpublished-bin.md)                                       | disallow `bin` files that npm ignores                                       | 🟢 ✅ |    |    |
+| [no-unpublished-bin](docs/rules/no-unpublished-bin.md)                                       | disallow `bin` files that npm ignores                                       |      |    |    |
 | [no-unpublished-import](docs/rules/no-unpublished-import.md)                                 | disallow `import` declarations which import private modules                 | 🟢 ✅ |    |    |
 | [no-unpublished-require](docs/rules/no-unpublished-require.md)                               | disallow `require()` expressions which import private modules               | 🟢 ✅ |    |    |
 | [no-unsupported-features/es-builtins](docs/rules/no-unsupported-features/es-builtins.md)     | disallow unsupported ECMAScript built-ins on the specified version          | 🟢 ✅ |    |    |
