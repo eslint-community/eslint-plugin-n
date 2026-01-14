@@ -1,5 +1,7 @@
 # Require `return` statements after callbacks (`n/callback-return`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The callback pattern is at the heart of most I/O and event-driven programming

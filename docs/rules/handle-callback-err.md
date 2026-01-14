@@ -1,5 +1,7 @@
 # Require error handling in callbacks (`n/handle-callback-err`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 In Node.js, a common pattern for dealing with asynchronous behavior is called the callback pattern.
