@@ -1,5 +1,7 @@
 # Enforce either `TextDecoder` or `require("util").TextDecoder` (`n/prefer-global/text-decoder`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `TextDecoder` class of `util` module is defined as a global variable.

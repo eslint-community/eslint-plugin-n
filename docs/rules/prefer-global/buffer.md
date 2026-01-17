@@ -1,5 +1,7 @@
 # Enforce either `Buffer` or `require("buffer").Buffer` (`n/prefer-global/buffer`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `Buffer` class of `buffer` module is defined as a global variable.

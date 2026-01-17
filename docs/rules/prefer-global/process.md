@@ -1,5 +1,7 @@
 # Enforce either `process` or `require("process")` (`n/prefer-global/process`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `process` module is defined as a global variable.
