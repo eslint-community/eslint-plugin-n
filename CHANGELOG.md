@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.23.3](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.2...v17.23.3) (2026-01-17)
+
+
+### 🧹 Chores
+
+* add v17.x to release-please ([9c5e437](https://github.com/eslint-community/eslint-plugin-n/commit/9c5e43704b4b1395152a8f9e70b452d75f33476d))
+
 ## [17.23.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.1...v17.23.2) (2026-01-13)
 
 
