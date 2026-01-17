@@ -4,8 +4,6 @@
  */
 "use strict"
 
-/*eslint-env mocha */
-
 const assert = require("assert")
 const eslint = require("eslint")
 const rule = require("../../../lib/rules/process-exit-as-throw")
