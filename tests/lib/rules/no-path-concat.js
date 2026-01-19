@@ -28,7 +28,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -37,7 +36,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -46,7 +44,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -55,7 +52,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -64,7 +60,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -73,7 +68,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -82,7 +76,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -91,7 +84,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -100,7 +92,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -109,7 +100,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -118,7 +108,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -127,7 +116,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -136,7 +124,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "BinaryExpression",
                 },
             ],
         },
@@ -145,7 +132,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },
@@ -154,7 +140,6 @@ new RuleTester().run("no-path-concat", rule, {
             errors: [
                 {
                     messageId: "usePathFunctions",
-                    type: "TemplateLiteral",
                 },
             ],
         },

@@ -56,7 +56,15 @@ function runTests(patterns) {
         }
 
         // Add the invalid patterns with `ignores` option into the valid patterns.
-        tests.valid.push(...pattern.invalid.map(ignores(pattern.keyword)))
+        const additionalValid = pattern.invalid
+            .map(ignores(pattern.keyword))
+            .map(it => {
+                const item = { ...it }
+                delete item.errors
+                return item
+            })
+
+        tests.valid.push(...additionalValid)
 
         ruleTester.run("no-unsupported-features/es-builtins", rule, tests)
     }

@@ -1,5 +1,7 @@
 # Disallow specified modules when loaded by `import` declarations (`n/no-restricted-import`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 ## 📖 Rule Details

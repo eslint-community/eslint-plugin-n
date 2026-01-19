@@ -73,7 +73,14 @@ function runTests(patterns) {
 
         if (Array.isArray(pattern.keyword)) {
             for (const keyword of pattern.keyword) {
-                tests.valid.push(...pattern.invalid.map(ignores(keyword)))
+                const additionalValid = pattern.invalid
+                    .map(ignores(keyword))
+                    .map(it => {
+                        const item = { ...it }
+                        delete item.errors
+                        return item
+                    })
+                tests.valid.push(...additionalValid)
             }
         }
 
