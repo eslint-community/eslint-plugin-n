@@ -18,11 +18,11 @@ new RuleTester().run("prefer-global/crypto", rule, {
         },
         ...provideModuleMethods.flatMap(method => [
             {
-                code: `var { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
+                code: `const { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
                 options: ["never"],
             },
             {
-                code: `var { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
+                code: `const { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
                 options: ["never"],
             },
         ]),
@@ -30,20 +30,20 @@ new RuleTester().run("prefer-global/crypto", rule, {
     invalid: [
         ...provideModuleMethods.flatMap(method => [
             {
-                code: `var { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
+                code: `const { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
                 errors: [{ messageId: "preferGlobal" }],
             },
             {
-                code: `var { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
+                code: `const { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
                 errors: [{ messageId: "preferGlobal" }],
             },
             {
-                code: `var { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
+                code: `const { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
                 options: ["always"],
                 errors: [{ messageId: "preferGlobal" }],
             },
             {
-                code: `var { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
+                code: `const { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
                 options: ["always"],
                 errors: [{ messageId: "preferGlobal" }],
             },
