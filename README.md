@@ -165,6 +165,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [no-unsupported-features/node-builtins](docs/rules/no-unsupported-features/node-builtins.md) | disallow unsupported Node.js built-in APIs on the specified version         | 🟢 ✅ |    |    |
 | [prefer-global/buffer](docs/rules/prefer-global/buffer.md)                                   | enforce either `Buffer` or `require("buffer").Buffer`                       |      |    |    |
 | [prefer-global/console](docs/rules/prefer-global/console.md)                                 | enforce either `console` or `require("console")`                            |      |    |    |
+| [prefer-global/crypto](docs/rules/prefer-global/crypto.md)                                   | enforce either `crypto` or `require("crypto").webcrypto`                    |      |    |    |
 | [prefer-global/process](docs/rules/prefer-global/process.md)                                 | enforce either `process` or `require("process")`                            |      |    |    |
 | [prefer-global/text-decoder](docs/rules/prefer-global/text-decoder.md)                       | enforce either `TextDecoder` or `require("util").TextDecoder`               |      |    |    |
 | [prefer-global/text-encoder](docs/rules/prefer-global/text-encoder.md)                       | enforce either `TextEncoder` or `require("util").TextEncoder`               |      |    |    |
