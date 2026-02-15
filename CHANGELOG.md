@@ -1,5 +1,18 @@
 # Changelog
 
+## [17.24.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.2...v17.24.0) (2026-02-15)
+
+
+### 🌟 Features
+
+* add `prefer-global/crypto` rule ([#514](https://github.com/eslint-community/eslint-plugin-n/issues/514)) ([2ea0f22](https://github.com/eslint-community/eslint-plugin-n/commit/2ea0f22e74569b046675334ad1680dbd0e806057))
+* add `prefer-global/timers` rule ([#515](https://github.com/eslint-community/eslint-plugin-n/issues/515)) ([10b24ae](https://github.com/eslint-community/eslint-plugin-n/commit/10b24ae1b8db58045df818b574a16089429b7888))
+
+
+### 🧹 Chores
+
+* add v17.x to release-please ([9c5e437](https://github.com/eslint-community/eslint-plugin-n/commit/9c5e43704b4b1395152a8f9e70b452d75f33476d))
+
 ## [17.23.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.1...v17.23.2) (2026-01-13)
 
 
