@@ -169,6 +169,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [prefer-global/process](docs/rules/prefer-global/process.md)                                 | enforce either `process` or `require("process")`                            |      |    |    |
 | [prefer-global/text-decoder](docs/rules/prefer-global/text-decoder.md)                       | enforce either `TextDecoder` or `require("util").TextDecoder`               |      |    |    |
 | [prefer-global/text-encoder](docs/rules/prefer-global/text-encoder.md)                       | enforce either `TextEncoder` or `require("util").TextEncoder`               |      |    |    |
+| [prefer-global/timers](docs/rules/prefer-global/timers.md)                                   | enforce either global timer functions or `require("timers")`                |      |    |    |
 | [prefer-global/url](docs/rules/prefer-global/url.md)                                         | enforce either `URL` or `require("url").URL`                                |      |    |    |
 | [prefer-global/url-search-params](docs/rules/prefer-global/url-search-params.md)             | enforce either `URLSearchParams` or `require("url").URLSearchParams`        |      |    |    |
 | [prefer-node-protocol](docs/rules/prefer-node-protocol.md)                                   | enforce using the `node:` protocol when importing Node.js builtin modules.  |      | 🔧 |    |
