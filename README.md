@@ -20,6 +20,7 @@ npm install --save-dev eslint eslint-plugin-n
 
 | Version | Supported Node.js | Supported ESLint Version | Status |
 |---------|-------------------|---------------------------|--------|
+| 18.x   | `^20.19.0 \|\| ^22.13.0 \|\| >=24.0.0`  | `>=8.57.1`          | 🏃‍♂️actively maintained |
 | 17.x   | `^18.18.0 \|\| ^20.9.0 \|\| >=21.1.0`  | `>=8.23.0`          | 🏃‍♂️actively maintained |
 | 16.x   | `>=16.0.0`   | `>=7.0.0`          | ⚠️EOL |
 | 15.x   | `>=12.22.0`  | `>=7.0.0`          | ⚠️EOL |
