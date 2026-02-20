@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.24.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.24.0...v17.24.1) (2026-02-20)
+
+
+### 🧹 Chores
+
+* dedupe `prefer-global/timers` trace map ([#516](https://github.com/eslint-community/eslint-plugin-n/issues/516)) ([9d8d3cb](https://github.com/eslint-community/eslint-plugin-n/commit/9d8d3cbd30130ee16e1c1e95061d300b97c45508))
+
 ## [17.24.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.2...v17.24.0) (2026-02-15)
 
 
