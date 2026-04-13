@@ -5564,7 +5564,7 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                                 data: {
                                     name: "import.meta.dirname",
                                     supported:
-                                        "22.16.0 (backported: ^21.2.0, ^20.11.0)",
+                                        "24.0.0 (backported: ^22.16.0, ^21.2.0, ^20.11.0)",
                                     version: option.version,
                                 },
                             },
@@ -5586,7 +5586,7 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                                 data: {
                                     name: "import.meta.filename",
                                     supported:
-                                        "22.16.0 (backported: ^21.2.0, ^20.11.0)",
+                                        "24.0.0 (backported: ^22.16.0, ^21.2.0, ^20.11.0)",
                                     version: option.version,
                                 },
                             },
