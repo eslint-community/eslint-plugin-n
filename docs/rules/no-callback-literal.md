@@ -14,7 +14,6 @@ Examples of 👎 **incorrect** code for this rule:
 /*eslint n/no-callback-literal: "error" */
 
 cb('this is an error string');
-cb({ a: 1 });
 callback(0);
 ```
 
