@@ -183,5 +183,33 @@ new RuleTester({
                 { messageId: "preferPromises", data: { name: "readFile" } },
             ],
         },
+        {
+            code: "const fs = require('fs'); fs.cp()",
+            errors: [{ messageId: "preferPromises", data: { name: "cp" } }],
+        },
+        {
+            code: "const fs = require('fs'); fs.glob()",
+            errors: [{ messageId: "preferPromises", data: { name: "glob" } }],
+        },
+        {
+            code: "const fs = require('fs'); fs.lutimes()",
+            errors: [
+                { messageId: "preferPromises", data: { name: "lutimes" } },
+            ],
+        },
+        {
+            code: "const fs = require('fs'); fs.opendir()",
+            errors: [
+                { messageId: "preferPromises", data: { name: "opendir" } },
+            ],
+        },
+        {
+            code: "const fs = require('fs'); fs.rm()",
+            errors: [{ messageId: "preferPromises", data: { name: "rm" } }],
+        },
+        {
+            code: "const fs = require('fs'); fs.statfs()",
+            errors: [{ messageId: "preferPromises", data: { name: "statfs" } }],
+        },
     ],
 })
