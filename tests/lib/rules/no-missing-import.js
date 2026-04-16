@@ -340,10 +340,6 @@ ruleTester.run("no-missing-import", rule, {
 
         {
             filename: fixture("ts-allow-extension/test.ts"),
-            code: "import './file.js';",
-        },
-        {
-            filename: fixture("ts-allow-extension/test.ts"),
             code: "import './file.ts';",
         },
 
@@ -431,6 +427,13 @@ ruleTester.run("no-missing-import", rule, {
             filename: fixture("test.js"),
             code: "import a from './a.json';",
             errors: cantResolve("./a.json"),
+        },
+
+        // allowImportingTsExtensions: .js imports for .ts files fail
+        {
+            filename: fixture("ts-allow-extension/test.ts"),
+            code: "import './file.js';",
+            errors: cantResolve("./file.js", "ts-allow-extension"),
         },
 
         // Should work fine if the filename is relative.
