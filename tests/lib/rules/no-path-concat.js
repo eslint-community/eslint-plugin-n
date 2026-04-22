@@ -2,11 +2,11 @@
  * @author Nicholas C. Zakas
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-path-concat")
+
+import path from "node:path";
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-path-concat.js";
 
 new RuleTester().run("no-path-concat", rule, {
     valid: [

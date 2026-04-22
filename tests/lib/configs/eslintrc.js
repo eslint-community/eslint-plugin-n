@@ -1,8 +1,8 @@
-"use strict"
 
-const assert = require("assert")
-const path = require("path")
-const { LegacyESLint } = require("eslint/use-at-your-own-risk")
+
+import assert from "node:assert";
+import path from "node:path";
+import { LegacyESLint } from "eslint/use-at-your-own-risk";
 const originalCwd = process.cwd()
 
 // this is needed as `recommended` config was cached

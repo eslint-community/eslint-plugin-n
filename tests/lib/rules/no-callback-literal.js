@@ -2,11 +2,11 @@
  * @author Jamund Ferguson
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-callback-literal")
-const tsParser = require("@typescript-eslint/parser")
+
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-callback-literal.js";
+import tsParser from "@typescript-eslint/parser";
 
 const ruleTester = new RuleTester()
 ruleTester.run("no-callback-literal", rule, {

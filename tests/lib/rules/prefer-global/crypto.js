@@ -2,10 +2,10 @@
  * @author Pixel998
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../../lib/rules/prefer-global/crypto")
+
+import { RuleTester } from "#test-helpers";
+import rule from "../../../../lib/rules/prefer-global/crypto.js";
 
 const provideModuleMethods = ["require", "process.getBuiltinModule"]
 

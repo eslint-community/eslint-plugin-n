@@ -2,12 +2,12 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/no-extraneous-import")
+
+import path from "node:path";
+import { Linter } from "eslint";
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-extraneous-import.js";
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -134,13 +134,13 @@ ruleTester.run("no-extraneous-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                  {
-                      filename: fixture("dependencies/a.js"),
-                      code: "function f() { import('bbb') }",
-                      languageOptions: { ecmaVersion: 2020 },
-                      errors: ['"bbb" is extraneous.'],
-                  },
-              ]
+                {
+                    filename: fixture("dependencies/a.js"),
+                    code: "function f() { import('bbb') }",
+                    languageOptions: { ecmaVersion: 2020 },
+                    errors: ['"bbb" is extraneous.'],
+                },
+            ]
             : []),
     ],
 })

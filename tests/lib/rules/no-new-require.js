@@ -2,10 +2,10 @@
  * @author Wil Moore III
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-new-require")
+
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-new-require.js";
 
 new RuleTester().run("no-new-require", rule, {
     valid: [

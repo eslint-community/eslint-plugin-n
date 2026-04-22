@@ -1,5 +1,5 @@
-"use strict"
-const assert = require("assert/strict")
+
+import assert from "node:assert/strict";
 
 it("should export shebang as alias ", () => {
     const shebang = require("../../../lib/rules/shebang.js")

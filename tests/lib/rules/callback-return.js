@@ -2,10 +2,10 @@
  * @author Jamund Ferguson
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/callback-return")
+
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/callback-return.js";
 const ruleTester = new RuleTester()
 
 ruleTester.run("callback-return", rule, {
