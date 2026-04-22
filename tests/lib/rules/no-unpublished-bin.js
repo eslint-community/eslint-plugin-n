@@ -2,11 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-unpublished-bin")
+
+import path from "node:path";
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-unpublished-bin.js";
 
 /**
  * Makes a file path to a fixture.

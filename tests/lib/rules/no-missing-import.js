@@ -2,12 +2,12 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const { RuleTester, isCaseSensitiveFileSystem } = require("../../test-helpers")
-const rule = require("../../../lib/rules/no-missing-import")
+
+import path from "node:path";
+import { Linter } from "eslint";
+import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js";
+import rule from "../../../lib/rules/no-missing-import.js";
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -371,12 +371,12 @@ ruleTester.run("no-missing-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                  {
-                      filename: fixture("test.js"),
-                      code: "function f() { import(foo) }",
-                      languageOptions: { ecmaVersion: 2020 },
-                  },
-              ]
+                {
+                    filename: fixture("test.js"),
+                    code: "function f() { import(foo) }",
+                    languageOptions: { ecmaVersion: 2020 },
+                },
+            ]
             : []),
     ],
     invalid: [
@@ -492,13 +492,13 @@ ruleTester.run("no-missing-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                  {
-                      filename: fixture("test.js"),
-                      code: "function f() { import('no-exist-package-0') }",
-                      languageOptions: { ecmaVersion: 2020 },
-                      errors: cantResolve("no-exist-package-0"),
-                  },
-              ]
+                {
+                    filename: fixture("test.js"),
+                    code: "function f() { import('no-exist-package-0') }",
+                    languageOptions: { ecmaVersion: 2020 },
+                    errors: cantResolve("no-exist-package-0"),
+                },
+            ]
             : []),
 
         // virtual modules

@@ -2,13 +2,13 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-unpublished-import")
-const globals = require("globals")
+
+import path from "node:path";
+import { Linter } from "eslint";
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-unpublished-import.js";
+import globals from "globals";
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -312,13 +312,13 @@ ruleTester.run("no-unpublished-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                  {
-                      filename: fixture("2/test.js"),
-                      code: "function f() { import('./ignore1.js') }",
-                      languageOptions: { ecmaVersion: 2020 },
-                      errors: ['"./ignore1.js" is not published.'],
-                  },
-              ]
+                {
+                    filename: fixture("2/test.js"),
+                    code: "function f() { import('./ignore1.js') }",
+                    languageOptions: { ecmaVersion: 2020 },
+                    errors: ['"./ignore1.js" is not published.'],
+                },
+            ]
             : []),
 
         // https://github.com/eslint-community/eslint-plugin-n/issues/78

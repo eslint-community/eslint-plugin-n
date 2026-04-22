@@ -2,10 +2,10 @@
  * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/no-exports-assign.js")
+
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-exports-assign.js";
 
 new RuleTester({
     languageOptions: {

@@ -2,13 +2,14 @@
  * @author Matt DuVall <http://www.mattduvall.com>
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const { RuleTester, TsRuleTester } = require("#test-helpers")
-const Module = require("node:module")
-const assert = require("node:assert")
-const rule = require("../../../lib/rules/no-sync")
-const sinon = require("sinon")
+
+import _module_test_helpers_module from "#test-helpers";
+const { RuleTester, TsRuleTester } = _module_test_helpers_module;
+import Module from "node:module";
+import assert from "node:assert";
+import rule from "../../../lib/rules/no-sync.js";
+import sinon from "sinon";
 
 new RuleTester().run("no-sync", rule, {
     valid: [

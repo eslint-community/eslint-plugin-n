@@ -7,15 +7,15 @@
  * This rule was based on an invalid assumption.
  * No meaning.
  */
-"use strict"
+
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-hide-core-modules")
+import path from "node:path";
+import { RuleTester } from "#test-helpers";
+import rule from "../../../lib/rules/no-hide-core-modules.js";
 
 //------------------------------------------------------------------------------
 // Helpers

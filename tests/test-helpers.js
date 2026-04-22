@@ -2,27 +2,27 @@
  * @fileoverview Helpers for tests.
  * @author 唯然<weiran.zsd@outlook.com>
  */
-"use strict"
 
-const path = require("path")
-const eslintVersion = require("eslint/package.json").version
-const { RuleTester } = require("eslint")
-const { FlatRuleTester } = require("eslint/use-at-your-own-risk")
-const globals = require("globals")
-const semverSatisfies = require("semver/functions/satisfies")
-const os = require("os")
-const typescriptParser = require("@typescript-eslint/parser")
+
+import path from "node:path";
+import { version as eslintVersion } from "eslint/package.json" with { type: "json" };
+import { RuleTester } from "eslint";
+import { FlatRuleTester } from "eslint/use-at-your-own-risk";
+import globals from "globals";
+import semverSatisfies from "semver/functions/satisfies";
+import * as os from "node:os";
+import typescriptParser from "@typescript-eslint/parser";
 
 // greater than or equal to ESLint v9
-exports.gteEslintV9 = semverSatisfies(eslintVersion, ">=9", {
+export const gteEslintV9 = semverSatisfies(eslintVersion, ">=9", {
     includePrerelease: true,
 })
 
 const platform = os.platform()
-exports.isCaseSensitiveFileSystem =
-    platform === "linux" || platform === "freebsd" || platform === "openbsd"
+export const isCaseSensitiveFileSystem = platform === "linux" || platform === "freebsd" || platform === "openbsd"
 
-exports.FlatRuleTester = exports.gteEslintV9 ? RuleTester : FlatRuleTester
+const FlatRuleTesterExport = gteEslintV9 ? RuleTester : FlatRuleTester
+export { FlatRuleTesterExport as FlatRuleTester }
 
 // to support the `env:{ es6: true, node: true}` rule-tester (env has been away in flat config.)
 // * enabled by default as it's most commonly used in the package.
@@ -56,7 +56,7 @@ function getTsConfig(fixturePath) {
     }
 }
 
-exports.RuleTester = function (config = defaultConfig) {
+const RuleTesterExport = function (config = defaultConfig) {
     if (config.languageOptions.env?.node === false)
         config.languageOptions.globals = config.languageOptions.globals || {}
     delete config.languageOptions.env
@@ -67,7 +67,7 @@ exports.RuleTester = function (config = defaultConfig) {
         config.languageOptions
     )
 
-    const ruleTester = new exports.FlatRuleTester(config)
+    const ruleTester = new FlatRuleTesterExport(config)
     const $run = ruleTester.run.bind(ruleTester)
     ruleTester.run = function (name, rule, tests) {
         tests.valid = tests.valid.filter(shouldRun)
@@ -77,18 +77,19 @@ exports.RuleTester = function (config = defaultConfig) {
     }
     return ruleTester
 }
+export { RuleTesterExport as RuleTester }
 
 /**
  * @param {string | import('eslint').Linter.Config} configOrFixturePath
  * @returns
  */
-exports.TsRuleTester = function (configOrFixturePath) {
+export function TsRuleTester(configOrFixturePath) {
     const config =
         typeof configOrFixturePath === "object"
             ? configOrFixturePath
             : getTsConfig(configOrFixturePath)
 
-    const ruleTester = exports.RuleTester.call(this, config)
+    const ruleTester = RuleTesterExport.call(this, config)
     const $run = ruleTester.run.bind(ruleTester)
     ruleTester.run = function (name, rule, tests) {
         tests.valid = tests.valid.map(setTsFilename)
@@ -99,8 +100,8 @@ exports.TsRuleTester = function (configOrFixturePath) {
     return ruleTester
 }
 Object.setPrototypeOf(
-    exports.TsRuleTester.prototype,
-    exports.RuleTester.prototype
+    TsRuleTester.prototype,
+    RuleTesterExport.prototype
 )
 
 // support skip in tests

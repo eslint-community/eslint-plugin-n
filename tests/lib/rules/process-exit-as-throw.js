@@ -2,11 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const assert = require("assert")
-const eslint = require("eslint")
-const rule = require("../../../lib/rules/process-exit-as-throw")
+
+import assert from "node:assert";
+import eslint from "eslint";
+import rule from "../../../lib/rules/process-exit-as-throw.js";
 
 const supported = rule.meta.supported
 
@@ -21,65 +21,65 @@ describe("process-exit-as-throw", () => {
         }
         linter.defineRule("process-exit-as-throw", rule)
     })
-    ;(supported ? it : xit)(
-        "should get unreachable error after 'process.exit()'.",
-        () => {
-            const code = ["foo();", "process.exit(1);", "bar();"].join("\n")
+        ; (supported ? it : xit)(
+            "should get unreachable error after 'process.exit()'.",
+            () => {
+                const code = ["foo();", "process.exit(1);", "bar();"].join("\n")
 
-            const options = {
-                rules: {
-                    "no-unreachable": "error",
-                    "process-exit-as-throw": "error",
-                },
+                const options = {
+                    rules: {
+                        "no-unreachable": "error",
+                        "process-exit-as-throw": "error",
+                    },
+                }
+
+                const messages = linter.verify(code, options)
+
+                assert.strictEqual(messages.length, 1)
+                assert.strictEqual(messages[0].message, "Unreachable code.")
+                assert.strictEqual(messages[0].line, 3)
             }
+        )
+        ; (supported ? it : xit)(
+            "should get no unreachable error after 'process.exit()' if this rule is turned off.",
+            () => {
+                const code = ["foo();", "process.exit(1);", "bar();"].join("\n")
 
-            const messages = linter.verify(code, options)
+                const options = {
+                    rules: {
+                        "no-unreachable": "error",
+                        "process-exit-as-throw": "off",
+                    },
+                }
 
-            assert.strictEqual(messages.length, 1)
-            assert.strictEqual(messages[0].message, "Unreachable code.")
-            assert.strictEqual(messages[0].line, 3)
-        }
-    )
-    ;(supported ? it : xit)(
-        "should get no unreachable error after 'process.exit()' if this rule is turned off.",
-        () => {
-            const code = ["foo();", "process.exit(1);", "bar();"].join("\n")
+                const messages = linter.verify(code, options)
 
-            const options = {
-                rules: {
-                    "no-unreachable": "error",
-                    "process-exit-as-throw": "off",
-                },
+                assert.strictEqual(messages.length, 0)
             }
+        )
+        ; (supported ? it : xit)(
+            "should get no consistent-return error after 'process.exit()'.",
+            () => {
+                const code = [
+                    "function foo() {",
+                    "    if (a) {",
+                    "        return 1;",
+                    "    } else {",
+                    "        process.exit(1);",
+                    "    }",
+                    "}",
+                ].join("\n")
 
-            const messages = linter.verify(code, options)
+                const options = {
+                    rules: {
+                        "consistent-return": "error",
+                        "process-exit-as-throw": "error",
+                    },
+                }
 
-            assert.strictEqual(messages.length, 0)
-        }
-    )
-    ;(supported ? it : xit)(
-        "should get no consistent-return error after 'process.exit()'.",
-        () => {
-            const code = [
-                "function foo() {",
-                "    if (a) {",
-                "        return 1;",
-                "    } else {",
-                "        process.exit(1);",
-                "    }",
-                "}",
-            ].join("\n")
+                const messages = linter.verify(code, options)
 
-            const options = {
-                rules: {
-                    "consistent-return": "error",
-                    "process-exit-as-throw": "error",
-                },
+                assert.strictEqual(messages.length, 0)
             }
-
-            const messages = linter.verify(code, options)
-
-            assert.strictEqual(messages.length, 0)
-        }
-    )
+        )
 })

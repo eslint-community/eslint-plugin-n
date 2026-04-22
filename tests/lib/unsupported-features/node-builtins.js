@@ -1,11 +1,9 @@
-"use strict"
-const fs = require("fs")
-const path = require("path")
 
-const {
-    NodeBuiltinModules,
-} = require("../../../lib/unsupported-features/node-builtins")
-const assert = require("assert")
+import fs from "node:fs";
+import path from "node:path";
+
+import { NodeBuiltinModules } from "../../../lib/unsupported-features/node-builtins.js";
+import assert from "node:assert";
 
 const RESOURCES_ROOT = path.resolve(
     __dirname,

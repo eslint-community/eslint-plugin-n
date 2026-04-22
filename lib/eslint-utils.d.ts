@@ -1,5 +1,4 @@
 declare module "eslint-plugin-es-x" {
-    export const rules: NonNullable<import('eslint').ESLint.Plugin["rules"]>;
 }
 
 declare module "@eslint-community/eslint-utils" {

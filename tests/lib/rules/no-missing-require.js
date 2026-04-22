@@ -2,11 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { RuleTester, isCaseSensitiveFileSystem } = require("../../test-helpers")
-const rule = require("../../../lib/rules/no-missing-require")
+
+import path from "node:path";
+import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js";
+import rule from "../../../lib/rules/no-missing-require.js";
 
 const tsReactExtensionMap = [
     ["", ".js"],
