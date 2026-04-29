@@ -14,7 +14,7 @@ import rule from "../../../lib/rules/no-extraneous-require.js";
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/no-extraneous", name)
+    return path.resolve(import.meta.dirname, "../../fixtures/no-extraneous", name)
 }
 
 const tester = new RuleTester()

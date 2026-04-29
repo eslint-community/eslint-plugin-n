@@ -8,6 +8,7 @@ import path from "node:path";
 import { Linter } from "eslint";
 import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js";
 import rule from "../../../lib/rules/no-missing-import.js";
+import tsParser from "@typescript-eslint/parser";
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -36,7 +37,7 @@ const tsReactExtensionMap = [
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/no-missing", name)
+    return path.resolve(import.meta.dirname, "../../fixtures/no-missing", name)
 }
 
 function cantResolve(name, dir = "") {
@@ -184,7 +185,7 @@ ruleTester.run("no-missing-import", rule, {
             filename: fixture("test.js"),
             code: "import a from './fixtures/no-missing/a.js';",
             settings: {
-                node: { resolvePaths: [path.resolve(__dirname, "../../")] },
+                node: { resolvePaths: [path.resolve(import.meta.dirname, "../../")] },
             },
         },
         {
@@ -334,7 +335,7 @@ ruleTester.run("no-missing-import", rule, {
         {
             // name: 'Ensure type only packages can be imported',
             filename: fixture("test.ts"),
-            languageOptions: { parser: require("@typescript-eslint/parser") },
+            languageOptions: { parser: tsParser },
             code: "import type d from 'types-only';",
         },
 
@@ -358,7 +359,7 @@ ruleTester.run("no-missing-import", rule, {
         {
             filename: fixture("test.ts"),
             code: "import type missing from '@type/this-does-not-exists';",
-            languageOptions: { parser: require("@typescript-eslint/parser") },
+            languageOptions: { parser: tsParser },
             options: [{ ignoreTypeImport: true }],
         },
 

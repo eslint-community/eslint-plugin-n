@@ -15,7 +15,7 @@ import rule from "../../../../lib/rules/no-unsupported-features/es-syntax.js";
  */
 function fixture(name) {
     return path.resolve(
-        __dirname,
+        import.meta.dirname,
         "../../../fixtures/no-unsupported-features--ecma",
         name
     )

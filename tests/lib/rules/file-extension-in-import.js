@@ -32,7 +32,7 @@ const tsReactExtensionMap = [
 
 function fixture(filename) {
     return path.resolve(
-        __dirname,
+        import.meta.dirname,
         "../../fixtures/file-extension-in-import",
         filename
     )

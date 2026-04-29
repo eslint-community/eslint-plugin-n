@@ -8,14 +8,19 @@ import path from "node:path";
 import { RuleTester } from "#test-helpers";
 import rule from "../../../lib/rules/no-path-concat.js";
 
-new RuleTester().run("no-path-concat", rule, {
+new RuleTester({
+    languageOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
+    },
+}).run("no-path-concat", rule, {
     valid: [
         'var fullPath = dirname + "foo.js";',
-        'var fullPath = __dirname == "foo.js";',
-        "if (fullPath === __dirname) {}",
-        "if (__dirname === fullPath) {}",
+        'var fullPath = import.meta.dirname == "foo.js";',
+        "if (fullPath === import.meta.dirname) {}",
+        "if (import.meta.dirname === fullPath) {}",
         'var fullPath = "/foo.js" + __filename;',
-        'var fullPath = "/foo.js" + __dirname;',
+        'var fullPath = "/foo.js" + import.meta.dirname;',
         'var fullPath = __filename + ".map";',
         "var fullPath = `${__filename}.map`;",
         'var fullPath = __filename + (test ? ".js" : ".ts");',
@@ -24,7 +29,7 @@ new RuleTester().run("no-path-concat", rule, {
 
     invalid: [
         {
-            code: 'var fullPath = __dirname + "/foo.js";',
+            code: 'var fullPath = import.meta.dirname + "/foo.js";',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -42,7 +47,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: "var fullPath = `${__dirname}/foo.js`;",
+            code: "var fullPath = `${import.meta.dirname}/foo.js`;",
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -60,7 +65,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: 'var path = require("path"); var fullPath = `${__dirname}${path.sep}foo.js`;',
+            code: 'var path = require("path"); var fullPath = `${import.meta.dirname}${path.sep}foo.js`;',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -78,7 +83,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: 'var path = require("path"); var fullPath = __dirname + path.sep + `foo.js`;',
+            code: 'var path = require("path"); var fullPath = import.meta.dirname + path.sep + `foo.js`;',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -87,7 +92,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: 'var fullPath = __dirname + "/" + "foo.js";',
+            code: 'var fullPath = import.meta.dirname + "/" + "foo.js";',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -96,7 +101,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: 'var fullPath = __dirname + ("/" + "foo.js");',
+            code: 'var fullPath = import.meta.dirname + ("/" + "foo.js");',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -105,7 +110,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: 'var fullPath = __dirname + (test ? "/foo.js" : "/bar.js");',
+            code: 'var fullPath = import.meta.dirname + (test ? "/foo.js" : "/bar.js");',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -114,7 +119,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: 'var fullPath = __dirname + (extraPath || "/default.js");',
+            code: 'var fullPath = import.meta.dirname + (extraPath || "/default.js");',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -123,7 +128,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: `var fullPath = __dirname + "\\${path.sep}foo.js";`,
+            code: `var fullPath = import.meta.dirname + "\\${path.sep}foo.js";`,
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -141,7 +146,7 @@ new RuleTester().run("no-path-concat", rule, {
             ],
         },
         {
-            code: `var fullPath = \`\${__dirname}\\${path.sep}foo.js\`;`,
+            code: `var fullPath = \`\${import.meta.dirname}\\${path.sep}foo.js\`;`,
             errors: [
                 {
                     messageId: "usePathFunctions",
