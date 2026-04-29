@@ -1,4 +1,6 @@
-# Enforce either `TextEncoder` or `require("util").TextEncoder` (`n/prefer-global/text-encoder`)
+# n/prefer-global/text-encoder
+
+📝 Enforce either `TextEncoder` or `require("util").TextEncoder`.
 
 <!-- end auto-generated rule header -->
 

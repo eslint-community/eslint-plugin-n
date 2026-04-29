@@ -1,4 +1,6 @@
-# Require correct usage of hashbang (`n/shebang`)
+# n/shebang
+
+📝 Require correct usage of hashbang.
 
 ❌ This rule is deprecated. It was replaced by [`n/hashbang`](hashbang.md).
 

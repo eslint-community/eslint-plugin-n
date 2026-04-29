@@ -1,4 +1,6 @@
-# Disallow the assignment to `exports` (`n/no-exports-assign`)
+# n/no-exports-assign
+
+📝 Disallow the assignment to `exports`.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

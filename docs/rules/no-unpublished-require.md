@@ -1,4 +1,6 @@
-# Disallow `require()` expressions which import private modules (`n/no-unpublished-require`)
+# n/no-unpublished-require
+
+📝 Disallow `require()` expressions which import private modules.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

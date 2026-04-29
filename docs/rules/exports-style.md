@@ -1,4 +1,6 @@
-# Enforce either `module.exports` or `exports` (`n/exports-style`)
+# n/exports-style
+
+📝 Enforce either `module.exports` or `exports`.
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
