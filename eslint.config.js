@@ -41,7 +41,7 @@ export default [
         },
     },
     {
-        files: ["tests/**/*.js"],
+        files: ["{tests,scripts}/**/*.js"],
         rules: {
             "n/no-unsupported-features/node-builtins": 0, // import.meta.dirname is used in tests, and it is supported in all supported Node versions
         }

@@ -5,8 +5,7 @@ const originalCwd = process.cwd()
 
 // this is needed as `recommended` config was cached
 function clearRequireCache() {
-    for (const k in require.cache) {
-        // eslint-disable-line
+    for (const k in require.cache) { // eslint-disable-line
         delete require.cache[k] // eslint-disable-line
     }
 }
