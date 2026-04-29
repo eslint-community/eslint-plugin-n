@@ -4,8 +4,7 @@
  */
 
 
-import _module_test_helpers_module from "#test-helpers";
-const { RuleTester, TsRuleTester } = _module_test_helpers_module;
+import { RuleTester, TsRuleTester } from "#test-helpers";
 import Module from "node:module";
 import assert from "node:assert";
 import rule from "../../../lib/rules/no-sync.js";
@@ -154,197 +153,194 @@ new RuleTester().run("no-sync", rule, {
     ],
 })
 
-new (TsRuleTester("no-sync/base").run)("no-sync", rule, {
-    valid: [
-        {
-            code: `
-declare function fooSync(): void;
-fooSync();
-`,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "file",
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            code: `
-declare function fooSync(): void;
-fooSync();
-`,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "file",
-                            name: ["fooSync"],
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            code: `
-const stylesheet = new CSSStyleSheet();
-stylesheet.replaceSync("body { font-size: 1.4em; } p { color: red; }");
-`,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "lib",
-                            name: ["CSSStyleSheet.replaceSync"],
-                        },
-                    ],
-                },
-            ],
-        },
-    ],
-    invalid: [
-        {
-            code: `
-declare function fooSync(): void;
-fooSync();
-`,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "file",
-                            path: "**/bar.ts",
-                        },
-                    ],
-                },
-            ],
-            errors: [
-                {
-                    messageId: "noSync",
-                    data: { propertyName: "fooSync" },
-                    type: "CallExpression",
-                },
-            ],
-        },
-        {
-            code: `
-declare function fooSync(): void;
-fooSync();
-`,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "file",
-                            name: ["barSync"],
-                        },
-                    ],
-                },
-            ],
-            errors: [
-                {
-                    messageId: "noSync",
-                    data: { propertyName: "fooSync" },
-                    type: "CallExpression",
-                },
-            ],
-        },
-        {
-            code: `
-const stylesheet = new CSSStyleSheet();
-stylesheet.replaceSync("body { font-size: 1.4em; } p { color: red; }");
-`,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "file",
-                            name: ["CSSStyleSheet.replaceSync"],
-                        },
-                    ],
-                },
-            ],
-            errors: [
-                {
-                    messageId: "noSync",
-                    data: { propertyName: "CSSStyleSheet.replaceSync" },
-                    type: "MemberExpression",
-                },
-            ],
-        },
-    ],
-})
+describe("no-sync type-aware cases", function () {
+    this.timeout(10000)
 
-new (TsRuleTester("no-sync/ignore-package").run)("no-sync", rule, {
-    valid: [
-        {
-            code: `
+    new (TsRuleTester("no-sync/base").run)("no-sync", rule, {
+        valid: [
+            {
+                code: `
+declare function fooSync(): void;
+fooSync();
+`,
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "file",
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                code: `
+declare function fooSync(): void;
+fooSync();
+`,
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "file",
+                                name: ["fooSync"],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                code: `
+const stylesheet = new CSSStyleSheet();
+stylesheet.replaceSync("body { font-size: 1.4em; } p { color: red; }");
+`,
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "lib",
+                                name: ["CSSStyleSheet.replaceSync"],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+        invalid: [
+            {
+                code: `
+declare function fooSync(): void;
+fooSync();
+`,
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "file",
+                                path: "**/bar.ts",
+                            },
+                        ],
+                    },
+                ],
+                errors: [
+                    {
+                        messageId: "noSync",
+                        data: { propertyName: "fooSync" },
+                        type: "CallExpression",
+                    },
+                ],
+            },
+            {
+                code: `
+declare function fooSync(): void;
+fooSync();
+`,
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "file",
+                                name: ["barSync"],
+                            },
+                        ],
+                    },
+                ],
+                errors: [
+                    {
+                        messageId: "noSync",
+                        data: { propertyName: "fooSync" },
+                        type: "CallExpression",
+                    },
+                ],
+            },
+            {
+                code: `
+const stylesheet = new CSSStyleSheet();
+stylesheet.replaceSync("body { font-size: 1.4em; } p { color: red; }");
+`,
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "file",
+                                name: ["CSSStyleSheet.replaceSync"],
+                            },
+                        ],
+                    },
+                ],
+                errors: [
+                    {
+                        messageId: "noSync",
+                        data: { propertyName: "CSSStyleSheet.replaceSync" },
+                        type: "MemberExpression",
+                    },
+                ],
+            },
+        ],
+    })
+
+    new (TsRuleTester("no-sync/ignore-package").run)("no-sync", rule, {
+        valid: [
+            {
+                code: `
 import { fooSync } from "aaa";
 fooSync();
 `,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "package",
-                            package: "aaa",
-                            name: ["fooSync"],
-                        },
-                    ],
-                },
-            ],
-        },
-    ],
-    invalid: [
-        {
-            code: `
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "package",
+                                package: "aaa",
+                                name: ["fooSync"],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+        invalid: [
+            {
+                code: `
 import { fooSync } from "aaa";
 fooSync();
 `,
-            options: [
-                {
-                    ignores: [
-                        {
-                            from: "file",
-                            name: ["fooSync"],
-                        },
-                    ],
-                },
-            ],
-            errors: [
-                {
-                    messageId: "noSync",
-                    data: { propertyName: "fooSync" },
-                    type: "CallExpression",
-                },
-            ],
-        },
-    ],
+                options: [
+                    {
+                        ignores: [
+                            {
+                                from: "file",
+                                name: ["fooSync"],
+                            },
+                        ],
+                    },
+                ],
+                errors: [
+                    {
+                        messageId: "noSync",
+                        data: { propertyName: "fooSync" },
+                        type: "CallExpression",
+                    },
+                ],
+            },
+        ],
+    })
 })
 
 describe("no-sync rule with missing dependencies", () => {
-    const originalRequire = module.require
+    const originalRequire = Module.prototype.require
     let mockRequire
-    let originalModules = {}
+    let importCounter = 0
 
-    /**
-     * Helper function to mock a module.
-     * - Assigns a module object to `require.cache` with the provided mock exports to prevent TypeScript errors when the module is required, as TypeScript expects the module to exist in the cache with an 'exports' property.
-     *
-     * @param {string} modulePath - The path to the module.
-     * @param {*} mockExports - The mock exports to use.
-     */
-    function mockModule(modulePath, mockExports) {
-        const resolvedPath = require.resolve(modulePath)
-
-        // Store original module if not already stored.
-        if (!originalModules[resolvedPath] && require.cache[resolvedPath]) {
-            originalModules[resolvedPath] = require.cache[resolvedPath]
-        }
-
-        require.cache[resolvedPath] = { exports: mockExports }
+    async function loadFreshRule() {
+        return (
+            await import(
+                new URL(
+                    `../../../lib/rules/no-sync.js?test=${importCounter++}`,
+                    import.meta.url
+                ).href
+            )
+        ).default
     }
 
     /**
@@ -356,7 +352,7 @@ describe("no-sync rule with missing dependencies", () => {
      * @param {boolean} options.mockTypeScriptServices - Whether to mock TypeScript services as missing.
      * @param {RegExp} options.expectedError - The expected error message pattern.
      */
-    function testWithMissingDependency(options) {
+    async function testWithMissingDependency(options) {
         const mockModules = {}
 
         if (options.mockTsDeclarationLocation) {
@@ -377,21 +373,8 @@ describe("no-sync rule with missing dependencies", () => {
                 return originalRequire.apply(this, arguments)
             })
 
-        if (options.mockTypeScriptServices) {
-            const mockGetParserServices = function () {
-                return null
-            }
+        const testRule = await loadFreshRule()
 
-            mockModule(
-                "../../../lib/util/get-parser-services",
-                mockGetParserServices
-            )
-        }
-
-        // Directly create and test the rule.
-        const rule = require("../../../lib/rules/no-sync")
-
-        // Context with required fields to satisfy TypeScript parser requirements.
         const context = {
             options: [
                 {
@@ -402,6 +385,9 @@ describe("no-sync rule with missing dependencies", () => {
                     ],
                 },
             ],
+            sourceCode: {
+                parserServices: options.mockTypeScriptServices ? null : {},
+            },
         }
 
         // Node that triggers the rule.
@@ -412,7 +398,7 @@ describe("no-sync rule with missing dependencies", () => {
         // Test if the rule throws the expected error.
         let errorThrown = false
         try {
-            const ruleListener = rule.create(context)
+            const ruleListener = testRule.create(context)
             const selectors = Object.keys(ruleListener)
 
             for (const selector of selectors) {
@@ -441,40 +427,32 @@ describe("no-sync rule with missing dependencies", () => {
         )
     }
 
-    beforeEach(() => {
-        delete require.cache[require.resolve("../../../lib/rules/no-sync")]
-        delete require.cache[
-            require.resolve("../../../lib/util/get-parser-services")
-        ]
-    })
-
     afterEach(() => {
         if (mockRequire && typeof mockRequire.restore === "function") {
             mockRequire.restore()
         }
 
         sinon.restore()
-        module.require = originalRequire
     })
 
-    it("should throw if `ts-declaration-location` is not installed", function () {
-        testWithMissingDependency({
+    it("should throw if `ts-declaration-location` is not installed", async function () {
+        await testWithMissingDependency({
             mockTsDeclarationLocation: true,
             mockTypeScriptServices: false,
             expectedError: /ts-declaration-location not available/,
         })
     })
 
-    it("should throw if TypeScript parser services are not available", function () {
-        testWithMissingDependency({
+    it("should throw if TypeScript parser services are not available", async function () {
+        await testWithMissingDependency({
             mockTsDeclarationLocation: false,
             mockTypeScriptServices: true,
             expectedError: /TypeScript parser services not available/,
         })
     })
 
-    it("should throw if both `ts-declaration-location` and `typescript` are not available", function () {
-        testWithMissingDependency({
+    it("should throw if both `ts-declaration-location` and `typescript` are not available", async function () {
+        await testWithMissingDependency({
             mockTsDeclarationLocation: true,
             mockTypeScriptServices: true,
             expectedError:

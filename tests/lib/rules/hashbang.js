@@ -14,7 +14,7 @@ import rule from "../../../lib/rules/shebang.js";
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/shebang", name)
+    return path.resolve(import.meta.dirname, "../../fixtures/shebang", name)
 }
 
 /** @type {import('eslint').RuleTester} */

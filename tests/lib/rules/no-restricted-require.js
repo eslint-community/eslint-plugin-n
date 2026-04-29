@@ -50,9 +50,9 @@ new RuleTester().run("no-restricted-require", rule, {
             options: [[{ name: "@foo/bar" }]],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'require("../foo");',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
         },
         {
             code: 'require("foo/bar/baz")',
@@ -183,9 +183,9 @@ new RuleTester().run("no-restricted-require", rule, {
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/test.js"),
             code: 'require("../foo");',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
             errors: [
                 {
                     messageId: "restricted",
@@ -194,9 +194,9 @@ new RuleTester().run("no-restricted-require", rule, {
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'require("../../foo");',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
             errors: [
                 {
                     messageId: "restricted",
@@ -205,7 +205,7 @@ new RuleTester().run("no-restricted-require", rule, {
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'require("../../foo");',
             options: [[{ name: "**/foo" }]],
             errors: [

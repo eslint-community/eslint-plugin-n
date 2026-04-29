@@ -5,24 +5,25 @@
 
 
 import path from "node:path";
-import { version as eslintVersion } from "eslint/package.json" with { type: "json" };
+import eslintPkg from "eslint/package.json" with { type: "json" };
 import { RuleTester } from "eslint";
-import { FlatRuleTester } from "eslint/use-at-your-own-risk";
+// import { FlatRuleTester } from "eslint/use-at-your-own-risk";
 import globals from "globals";
-import semverSatisfies from "semver/functions/satisfies";
+import semverSatisfies from "semver/functions/satisfies.js";
 import * as os from "node:os";
 import typescriptParser from "@typescript-eslint/parser";
 
+const version = eslintPkg.version
 // greater than or equal to ESLint v9
-export const gteEslintV9 = semverSatisfies(eslintVersion, ">=9", {
+export const gteEslintV9 = semverSatisfies(version, ">=9", {
     includePrerelease: true,
 })
 
 const platform = os.platform()
 export const isCaseSensitiveFileSystem = platform === "linux" || platform === "freebsd" || platform === "openbsd"
 
-const FlatRuleTesterExport = gteEslintV9 ? RuleTester : FlatRuleTester
-export { FlatRuleTesterExport as FlatRuleTester }
+const FlatRuleTesterExport = RuleTester
+export { RuleTester as FlatRuleTester }
 
 // to support the `env:{ es6: true, node: true}` rule-tester (env has been away in flat config.)
 // * enabled by default as it's most commonly used in the package.
@@ -46,7 +47,7 @@ function getTsConfig(fixturePath) {
         languageOptions: {
             parser: typescriptParser,
             parserOptions: {
-                tsconfigRootDir: path.join(__dirname, "fixtures", fixturePath),
+                tsconfigRootDir: path.join(import.meta.dirname, "fixtures", fixturePath),
                 projectService: {
                     // Allow virtual test files (file-*.ts) in default project
                     allowDefaultProject: ["file-*.ts"],

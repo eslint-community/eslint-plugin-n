@@ -63,9 +63,9 @@ new RuleTester({
             options: [[{ name: "@foo/bar" }]],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'import "../foo";',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
         },
 
         // import()
@@ -243,9 +243,9 @@ new RuleTester({
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/test.js"),
             code: 'import "../foo";',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
             errors: [
                 {
                     messageId: "restricted",
@@ -254,9 +254,9 @@ new RuleTester({
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'import "../../foo";',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
             errors: [
                 {
                     messageId: "restricted",

@@ -22,15 +22,15 @@ import rule from "../../../lib/rules/no-hide-core-modules.js";
 //------------------------------------------------------------------------------
 
 const THIRD_PERTY = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "../../fixtures/no-hide-core-modules/thirdparty/test.js"
 )
 const NO_THIRD_PERTY = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "../../fixtures/no-hide-core-modules/no-thirdparty/test.js"
 )
 const INDIRECT_THIRD_PERTY = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "../../fixtures/no-hide-core-modules/indirect-thirdparty/test.js"
 )
 
