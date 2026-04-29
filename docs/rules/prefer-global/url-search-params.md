@@ -1,5 +1,7 @@
 # Enforce either `URLSearchParams` or `require("url").URLSearchParams` (`n/prefer-global/url-search-params`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `URLSearchParams` class of `url` module is defined as a global variable.

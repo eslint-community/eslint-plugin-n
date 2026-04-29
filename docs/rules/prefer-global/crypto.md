@@ -1,5 +1,7 @@
 # Enforce either `crypto` or `require("crypto").webcrypto` (`n/prefer-global/crypto`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 An implementation of the Web Crypto API is defined as a global variable.

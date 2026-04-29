@@ -1,6 +1,6 @@
 # Disallow `import` declarations which import private modules (`n/no-unpublished-import`)
 
-💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
+💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🌐 `all`, 🟢 `recommended-module`, ✅ `recommended-script`.
 
 <!-- end auto-generated rule header -->
 

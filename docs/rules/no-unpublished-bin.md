@@ -1,5 +1,7 @@
 # Disallow `bin` files that npm ignores (`n/no-unpublished-bin`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 Users can safely disable this rule if using npm v10 and later.

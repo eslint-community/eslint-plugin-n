@@ -1,5 +1,7 @@
 # Enforce `require("fs").promises` (`n/prefer-promises/fs`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 Since Node.js v11.14.0, `require("fs").promises` API has been stable.

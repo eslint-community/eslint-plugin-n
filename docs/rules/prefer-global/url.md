@@ -1,5 +1,7 @@
 # Enforce either `URL` or `require("url").URL` (`n/prefer-global/url`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `URL` class of `url` module is defined as a global variable.

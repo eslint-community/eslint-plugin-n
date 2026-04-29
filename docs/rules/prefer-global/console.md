@@ -1,5 +1,7 @@
 # Enforce either `console` or `require("console")` (`n/prefer-global/console`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 The `console` module is defined as a global variable.

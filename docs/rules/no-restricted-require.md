@@ -1,5 +1,7 @@
 # Disallow specified modules when loaded by `require` (`n/no-restricted-require`)
 
+💼 This rule is enabled in the 🌐 `all` [config](https://github.com/eslint-community/eslint-plugin-n#-configs).
+
 <!-- end auto-generated rule header -->
 
 A module in Node.js is a simple or complex functionality organized in a JavaScript file which can be reused throughout the Node.js
