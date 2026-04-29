@@ -1,13 +1,13 @@
+import fs from "node:fs"
+import path from "node:path"
+import { pathToFileURL } from "node:url"
 
-import fs from "node:fs";
-import path from "node:path";
-import { pathToFileURL } from "node:url";
-
-import { NodeBuiltinModules } from "../../../lib/unsupported-features/node-builtins.js";
-import assert from "node:assert";
+import { NodeBuiltinModules } from "../../../lib/unsupported-features/node-builtins.js"
+import assert from "node:assert"
 
 const RESOURCES_ROOT = path.resolve(
-    import.meta.dirname, "../../../lib/unsupported-features/node-builtins-modules"
+    import.meta.dirname,
+    "../../../lib/unsupported-features/node-builtins-modules"
 )
 
 describe("unsupported-features/node-builtins", () => {

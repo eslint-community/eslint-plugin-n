@@ -3,9 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/exports-style.js";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/exports-style.js"
 
 new RuleTester({ languageOptions: { ecmaVersion: 11 } }).run(
     "exports-style",

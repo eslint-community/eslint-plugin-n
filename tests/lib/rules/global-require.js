@@ -3,9 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/global-require.js";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/global-require.js"
 
 const ERROR = { messageId: "unexpected", type: "CallExpression" }
 

@@ -1,7 +1,5 @@
-
-
-import assert from "node:assert";
-import pkg from "eslint-plugin-n";
+import assert from "node:assert"
+import pkg from "eslint-plugin-n"
 
 describe("flat configs", () => {
     it("should correctly export the plugin", () => {

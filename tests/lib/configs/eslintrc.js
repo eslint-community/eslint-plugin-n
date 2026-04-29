@@ -1,20 +1,22 @@
-
-
-import assert from "node:assert";
-import path from "node:path";
-import { LegacyESLint } from "eslint/use-at-your-own-risk";
+import assert from "node:assert"
+import path from "node:path"
+import { LegacyESLint } from "eslint/use-at-your-own-risk"
 const originalCwd = process.cwd()
 
 // this is needed as `recommended` config was cached
 function clearRequireCache() {
     for (const k in require.cache) {
-        delete require.cache[k]
+        // eslint-disable-line
+        delete require.cache[k] // eslint-disable-line
     }
 }
 
 describe.skip("node/recommended config", () => {
     describe("in CJS directory", () => {
-        const root = path.resolve(import.meta.dirname, "../../fixtures/configs/cjs/")
+        const root = path.resolve(
+            import.meta.dirname,
+            "../../fixtures/configs/cjs/"
+        )
 
         /** @type {Linter} */
         let linter = null
@@ -92,7 +94,10 @@ describe.skip("node/recommended config", () => {
     })
 
     describe("in ESM directory", () => {
-        const root = path.resolve(import.meta.dirname, "../../fixtures/configs/esm/")
+        const root = path.resolve(
+            import.meta.dirname,
+            "../../fixtures/configs/esm/"
+        )
 
         /** @type {Linter} */
         let linter = null

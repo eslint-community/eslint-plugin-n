@@ -3,9 +3,9 @@
  * See LICENSE file in root directory for full license.
  */
 
-import { RuleTester } from "#test-helpers";
-import rule from "../../../../lib/rules/no-unsupported-features/es-builtins.js";
-import globals from "globals";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/no-unsupported-features/es-builtins.js"
+import globals from "globals"
 
 /**
  * Clone given invalid patterns with adding `ignores` option.

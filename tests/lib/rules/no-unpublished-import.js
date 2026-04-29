@@ -3,13 +3,12 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { createRequire } from "node:module";
-import { Linter } from "eslint";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-unpublished-import.js";
-import globals from "globals";
+import path from "node:path"
+import { createRequire } from "node:module"
+import { Linter } from "eslint"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-unpublished-import.js"
+import globals from "globals"
 
 const require = createRequire(import.meta.url)
 
@@ -22,7 +21,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -32,7 +31,11 @@ if (!DynamicImportSupported) {
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(import.meta.dirname, "../../fixtures/no-unpublished", name)
+    return path.resolve(
+        import.meta.dirname,
+        "../../fixtures/no-unpublished",
+        name
+    )
 }
 
 const ruleTester = new RuleTester({
@@ -315,13 +318,13 @@ ruleTester.run("no-unpublished-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                {
-                    filename: fixture("2/test.js"),
-                    code: "function f() { import('./ignore1.js') }",
-                    languageOptions: { ecmaVersion: 2020 },
-                    errors: ['"./ignore1.js" is not published.'],
-                },
-            ]
+                  {
+                      filename: fixture("2/test.js"),
+                      code: "function f() { import('./ignore1.js') }",
+                      languageOptions: { ecmaVersion: 2020 },
+                      errors: ['"./ignore1.js" is not published.'],
+                  },
+              ]
             : []),
 
         // https://github.com/eslint-community/eslint-plugin-n/issues/78

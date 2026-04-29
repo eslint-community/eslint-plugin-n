@@ -3,15 +3,14 @@
  * @author 唯然<weiran.zsd@outlook.com>
  */
 
-
-import path from "node:path";
-import eslintPkg from "eslint/package.json" with { type: "json" };
-import { RuleTester } from "eslint";
+import path from "node:path"
+import eslintPkg from "eslint/package.json" with { type: "json" }
+import { RuleTester } from "eslint"
 // import { FlatRuleTester } from "eslint/use-at-your-own-risk";
-import globals from "globals";
-import semverSatisfies from "semver/functions/satisfies.js";
-import * as os from "node:os";
-import typescriptParser from "@typescript-eslint/parser";
+import globals from "globals"
+import semverSatisfies from "semver/functions/satisfies.js"
+import * as os from "node:os"
+import typescriptParser from "@typescript-eslint/parser"
 
 const version = eslintPkg.version
 // greater than or equal to ESLint v9
@@ -20,7 +19,8 @@ export const gteEslintV9 = semverSatisfies(version, ">=9", {
 })
 
 const platform = os.platform()
-export const isCaseSensitiveFileSystem = platform === "linux" || platform === "freebsd" || platform === "openbsd"
+export const isCaseSensitiveFileSystem =
+    platform === "linux" || platform === "freebsd" || platform === "openbsd"
 
 const FlatRuleTesterExport = RuleTester
 export { RuleTester as FlatRuleTester }
@@ -47,7 +47,11 @@ function getTsConfig(fixturePath) {
         languageOptions: {
             parser: typescriptParser,
             parserOptions: {
-                tsconfigRootDir: path.join(import.meta.dirname, "fixtures", fixturePath),
+                tsconfigRootDir: path.join(
+                    import.meta.dirname,
+                    "fixtures",
+                    fixturePath
+                ),
                 projectService: {
                     // Allow virtual test files (file-*.ts) in default project
                     allowDefaultProject: ["file-*.ts"],
@@ -100,10 +104,7 @@ export function TsRuleTester(configOrFixturePath) {
     }
     return ruleTester
 }
-Object.setPrototypeOf(
-    TsRuleTester.prototype,
-    RuleTesterExport.prototype
-)
+Object.setPrototypeOf(TsRuleTester.prototype, RuleTesterExport.prototype)
 
 // support skip in tests
 function shouldRun(item) {

@@ -3,10 +3,9 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js";
-import rule from "../../../lib/rules/no-missing-require.js";
+import path from "node:path"
+import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js"
+import rule from "../../../lib/rules/no-missing-require.js"
 
 const tsReactExtensionMap = [
     ["", ".js"],
@@ -117,13 +116,17 @@ ruleTester.run("no-missing-require", rule, {
             filename: fixture("test.js"),
             code: "require('./fixtures/no-missing/a');",
             settings: {
-                node: { resolvePaths: [path.resolve(import.meta.dirname, "../../")] },
+                node: {
+                    resolvePaths: [path.resolve(import.meta.dirname, "../../")],
+                },
             },
         },
         {
             filename: fixture("test.js"),
             code: "require('./fixtures/no-missing/a');",
-            options: [{ resolvePaths: [path.resolve(import.meta.dirname, "../../")] }],
+            options: [
+                { resolvePaths: [path.resolve(import.meta.dirname, "../../")] },
+            ],
         },
         {
             filename: fixture("test.js"),

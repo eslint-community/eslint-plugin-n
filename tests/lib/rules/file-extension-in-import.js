@@ -3,11 +3,10 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { Linter } from "eslint";
-import { RuleTester } from "../../test-helpers.js";
-import rule from "../../../lib/rules/file-extension-in-import.js";
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester } from "../../test-helpers.js"
+import rule from "../../../lib/rules/file-extension-in-import.js"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +17,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -392,26 +391,26 @@ new RuleTester({
         // import()
         ...(DynamicImportSupported
             ? [
-                {
-                    filename: fixture("test.js"),
-                    code: "function f() { import('./a') }",
-                    output: "function f() { import('./a.js') }",
-                    languageOptions: { ecmaVersion: 2020 },
-                    errors: [
-                        { messageId: "requireExt", data: { ext: ".js" } },
-                    ],
-                },
-                {
-                    filename: fixture("test.js"),
-                    code: "function f() { import('./a.js') }",
-                    output: "function f() { import('./a') }",
-                    options: ["never"],
-                    languageOptions: { ecmaVersion: 2020 },
-                    errors: [
-                        { messageId: "forbidExt", data: { ext: ".js" } },
-                    ],
-                },
-            ]
+                  {
+                      filename: fixture("test.js"),
+                      code: "function f() { import('./a') }",
+                      output: "function f() { import('./a.js') }",
+                      languageOptions: { ecmaVersion: 2020 },
+                      errors: [
+                          { messageId: "requireExt", data: { ext: ".js" } },
+                      ],
+                  },
+                  {
+                      filename: fixture("test.js"),
+                      code: "function f() { import('./a.js') }",
+                      output: "function f() { import('./a') }",
+                      options: ["never"],
+                      languageOptions: { ecmaVersion: 2020 },
+                      errors: [
+                          { messageId: "forbidExt", data: { ext: ".js" } },
+                      ],
+                  },
+              ]
             : []),
     ],
 })

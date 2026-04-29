@@ -3,11 +3,10 @@
  * See LICENSE file in root directory for full license.
  */
 
-
 /** @import { Linter } from 'eslint' */
 
-import { RuleTester } from "../../../test-helpers.js";
-import rule from "../../../../lib/rules/no-unsupported-features/node-builtins.js";
+import { RuleTester } from "../../../test-helpers.js"
+import rule from "../../../../lib/rules/no-unsupported-features/node-builtins.js"
 
 /**
  * @typedef ValidTestCase

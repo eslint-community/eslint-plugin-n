@@ -3,9 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/handle-callback-err.js";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/handle-callback-err.js"
 const ruleTester = new RuleTester()
 
 const EXPECTED_DECL_ERROR = {

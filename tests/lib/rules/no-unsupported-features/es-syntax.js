@@ -3,10 +3,9 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../../lib/rules/no-unsupported-features/es-syntax.js";
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/no-unsupported-features/es-syntax.js"
 
 /**
  * Makes a file path to a fixture.

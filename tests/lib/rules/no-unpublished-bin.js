@@ -3,10 +3,9 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-unpublished-bin.js";
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-unpublished-bin.js"
 
 /**
  * Makes a file path to a fixture.
@@ -14,7 +13,11 @@ import rule from "../../../lib/rules/no-unpublished-bin.js";
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(import.meta.dirname, "../../fixtures/no-unpublished-bin", name)
+    return path.resolve(
+        import.meta.dirname,
+        "../../fixtures/no-unpublished-bin",
+        name
+    )
 }
 
 new RuleTester().run("no-unpublished-bin", rule, {

@@ -3,10 +3,9 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-path-concat.js";
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-path-concat.js"
 
 new RuleTester({
     languageOptions: {

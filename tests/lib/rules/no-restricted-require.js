@@ -3,10 +3,9 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-restricted-require.js";
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-restricted-require.js"
 
 new RuleTester().run("no-restricted-require", rule, {
     valid: [
