@@ -2,12 +2,11 @@
  * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const glob = require("fast-glob")
-const rootDir = path.resolve(__dirname, "../lib/rules/")
-const { pluginName } = require("./utils")
+import path from "path"
+import glob from "fast-glob"
+const rootDir = path.resolve(import.meta.dirname, "../lib/rules/")
+import { pluginName } from "./utils"
 
 /**
  * @typedef RuleInfo
@@ -35,7 +34,7 @@ const rules = glob
     .map(filename => {
         const filePath = path.join(rootDir, filename)
         const name = filename.slice(0, -3)
-        const { meta } = require(filePath)
+        const { meta } = require(filePath) // eslint-disable-line --- to be fixed.
         return Object.assign(
             {
                 filePath,
@@ -59,4 +58,4 @@ const categories = [
     rules: rules.filter(rule => rule.category === id && !rule.deprecated),
 }))
 
-module.exports = { rules, categories }
+export default { rules, categories }
