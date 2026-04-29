@@ -42,6 +42,7 @@
         "@types/estree": "^1.0.6",
         "@types/globrex": "^0.1.4",
         "@types/node": "^25.6.0",
+        "@types/semver": "^7.7.1",
         "@typescript-eslint/parser": "^8.26.1",
         "@typescript-eslint/typescript-estree": "^8.26.1",
         "eslint": "^9.31.0",
