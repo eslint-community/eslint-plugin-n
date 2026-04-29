@@ -8,14 +8,13 @@
  * No meaning.
  */
 
-
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-import path from "node:path";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-hide-core-modules.js";
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-hide-core-modules.js"
 
 //------------------------------------------------------------------------------
 // Helpers

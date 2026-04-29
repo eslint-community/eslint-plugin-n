@@ -3,12 +3,11 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester, TsRuleTester } from "#test-helpers";
-import Module from "node:module";
-import assert from "node:assert";
-import rule from "../../../lib/rules/no-sync.js";
-import sinon from "sinon";
+import { RuleTester, TsRuleTester } from "#test-helpers"
+import Module from "node:module"
+import assert from "node:assert"
+import rule from "../../../lib/rules/no-sync.js"
+import sinon from "sinon"
 
 new RuleTester().run("no-sync", rule, {
     valid: [

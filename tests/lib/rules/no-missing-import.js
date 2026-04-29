@@ -3,12 +3,11 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { Linter } from "eslint";
-import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js";
-import rule from "../../../lib/rules/no-missing-import.js";
-import tsParser from "@typescript-eslint/parser";
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js"
+import rule from "../../../lib/rules/no-missing-import.js"
+import tsParser from "@typescript-eslint/parser"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -19,7 +18,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -185,7 +184,9 @@ ruleTester.run("no-missing-import", rule, {
             filename: fixture("test.js"),
             code: "import a from './fixtures/no-missing/a.js';",
             settings: {
-                node: { resolvePaths: [path.resolve(import.meta.dirname, "../../")] },
+                node: {
+                    resolvePaths: [path.resolve(import.meta.dirname, "../../")],
+                },
             },
         },
         {
@@ -372,12 +373,12 @@ ruleTester.run("no-missing-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                {
-                    filename: fixture("test.js"),
-                    code: "function f() { import(foo) }",
-                    languageOptions: { ecmaVersion: 2020 },
-                },
-            ]
+                  {
+                      filename: fixture("test.js"),
+                      code: "function f() { import(foo) }",
+                      languageOptions: { ecmaVersion: 2020 },
+                  },
+              ]
             : []),
     ],
     invalid: [
@@ -493,13 +494,13 @@ ruleTester.run("no-missing-import", rule, {
         // import()
         ...(DynamicImportSupported
             ? [
-                {
-                    filename: fixture("test.js"),
-                    code: "function f() { import('no-exist-package-0') }",
-                    languageOptions: { ecmaVersion: 2020 },
-                    errors: cantResolve("no-exist-package-0"),
-                },
-            ]
+                  {
+                      filename: fixture("test.js"),
+                      code: "function f() { import('no-exist-package-0') }",
+                      languageOptions: { ecmaVersion: 2020 },
+                      errors: cantResolve("no-exist-package-0"),
+                  },
+              ]
             : []),
 
         // virtual modules

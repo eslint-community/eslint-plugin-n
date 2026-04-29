@@ -1,7 +1,6 @@
-
-import assert from "node:assert/strict";
-import shebang from "../../../lib/rules/shebang.js";
-import hashbang from "../../../lib/rules/hashbang.js";
+import assert from "node:assert/strict"
+import shebang from "../../../lib/rules/shebang.js"
+import hashbang from "../../../lib/rules/hashbang.js"
 
 it("should export shebang as alias ", () => {
     assert.strictEqual(shebang.meta.deprecated, true)

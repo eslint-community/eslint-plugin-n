@@ -3,9 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/prefer-node-protocol.js";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/prefer-node-protocol.js"
 
 new RuleTester({
     languageOptions: {

@@ -3,9 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-process-env.js";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-process-env.js"
 
 new RuleTester().run("no-process-env", rule, {
     valid: [

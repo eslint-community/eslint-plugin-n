@@ -3,11 +3,10 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import path from "node:path";
-import { Linter } from "eslint";
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-restricted-import.js";
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-restricted-import.js"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +17,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -71,12 +70,12 @@ new RuleTester({
         // import()
         ...(DynamicImportSupported
             ? [
-                {
-                    code: "import(fs)",
-                    options: [["fs"]],
-                    languageOptions: { ecmaVersion: 2020 },
-                },
-            ]
+                  {
+                      code: "import(fs)",
+                      options: [["fs"]],
+                      languageOptions: { ecmaVersion: 2020 },
+                  },
+              ]
             : []),
     ],
     invalid: [
@@ -268,18 +267,18 @@ new RuleTester({
         // import()
         ...(DynamicImportSupported
             ? [
-                {
-                    code: 'import("fs")',
-                    options: [["fs"]],
-                    languageOptions: { ecmaVersion: 2020 },
-                    errors: [
-                        {
-                            messageId: "restricted",
-                            data: { name: "fs", customMessage: "" },
-                        },
-                    ],
-                },
-            ]
+                  {
+                      code: 'import("fs")',
+                      options: [["fs"]],
+                      languageOptions: { ecmaVersion: 2020 },
+                      errors: [
+                          {
+                              messageId: "restricted",
+                              data: { name: "fs", customMessage: "" },
+                          },
+                      ],
+                  },
+              ]
             : []),
     ],
 })

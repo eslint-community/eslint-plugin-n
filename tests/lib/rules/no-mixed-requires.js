@@ -3,9 +3,8 @@
  * See LICENSE file in root directory for full license.
  */
 
-
-import { RuleTester } from "#test-helpers";
-import rule from "../../../lib/rules/no-mixed-requires.js";
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-mixed-requires.js"
 const ruleTester = new RuleTester()
 
 ruleTester.run("no-mixed-requires", rule, {
