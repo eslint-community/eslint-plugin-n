@@ -1,4 +1,6 @@
-# Require correct usage of hashbang (`n/hashbang`)
+# n/hashbang
+
+📝 Require correct usage of hashbang.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

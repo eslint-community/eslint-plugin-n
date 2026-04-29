@@ -1,4 +1,6 @@
-# Enforce either `URL` or `require("url").URL` (`n/prefer-global/url`)
+# n/prefer-global/url
+
+📝 Enforce either `URL` or `require("url").URL`.
 
 <!-- end auto-generated rule header -->
 

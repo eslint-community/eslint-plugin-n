@@ -1,4 +1,6 @@
-# Enforce either global timer functions or `require("timers")` (`n/prefer-global/timers`)
+# n/prefer-global/timers
+
+📝 Enforce either global timer functions or `require("timers")`.
 
 <!-- end auto-generated rule header -->
 

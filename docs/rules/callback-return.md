@@ -1,4 +1,6 @@
-# Require `return` statements after callbacks (`n/callback-return`)
+# n/callback-return
+
+📝 Require `return` statements after callbacks.
 
 <!-- end auto-generated rule header -->
 

@@ -1,4 +1,6 @@
-# Enforce either `crypto` or `require("crypto").webcrypto` (`n/prefer-global/crypto`)
+# n/prefer-global/crypto
+
+📝 Enforce either `crypto` or `require("crypto").webcrypto`.
 
 <!-- end auto-generated rule header -->
 

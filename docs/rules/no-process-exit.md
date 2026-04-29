@@ -1,4 +1,6 @@
-# Disallow the use of `process.exit()` (`n/no-process-exit`)
+# n/no-process-exit
+
+📝 Disallow the use of `process.exit()`.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

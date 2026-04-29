@@ -1,4 +1,6 @@
-# Disallow `new` operators with calls to `require` (`n/no-new-require`)
+# n/no-new-require
+
+📝 Disallow `new` operators with calls to `require`.
 
 <!-- end auto-generated rule header -->
 
