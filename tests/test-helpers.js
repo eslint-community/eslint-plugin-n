@@ -6,7 +6,7 @@
 import path from "node:path"
 import eslintPkg from "eslint/package.json" with { type: "json" }
 import { RuleTester } from "eslint"
-// import { FlatRuleTester } from "eslint/use-at-your-own-risk";
+import unsupportedApi from "eslint/use-at-your-own-risk";
 import globals from "globals"
 import semverSatisfies from "semver/functions/satisfies.js"
 import * as os from "node:os"
@@ -22,7 +22,7 @@ const platform = os.platform()
 export const isCaseSensitiveFileSystem =
     platform === "linux" || platform === "freebsd" || platform === "openbsd"
 
-const FlatRuleTesterExport = RuleTester
+const FlatRuleTesterExport = gteEslintV9 ? RuleTester : unsupportedApi.FlatRuleTester
 export { RuleTester as FlatRuleTester }
 
 // to support the `env:{ es6: true, node: true}` rule-tester (env has been away in flat config.)
