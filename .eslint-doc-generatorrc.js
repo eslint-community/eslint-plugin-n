@@ -23,4 +23,4 @@ const config = {
     ruleDocSectionOptions: false,
 }
 
-module.exports = config
+export default config
