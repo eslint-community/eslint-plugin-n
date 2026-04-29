@@ -5,7 +5,7 @@
 
 import fs from "fs"
 import path from "path"
-import { rules } from "./rules"
+import { rules } from "./rules.js"
 const footerPattern = /\n+## 🔎 Implementation[\s\S]*$/u
 const ruleRoot = path.resolve(import.meta.dirname, "../lib/rules")
 const testRoot = path.resolve(import.meta.dirname, "../tests/lib/rules")
