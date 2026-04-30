@@ -5482,8 +5482,9 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 }),
                 ...[
                     { version: "22.16.0" },
-                    { version: "21.2.0" },
-                    { version: "20.11.0" },
+                    { version: "22.0.0", allowExperimental: true },
+                    { version: "21.2.0", allowExperimental: true },
+                    { version: "20.11.0", allowExperimental: true },
                     { version: "20.10.0", ignores: ["import.meta.dirname"] },
                 ].map(option => {
                     return {
@@ -5494,8 +5495,9 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 }),
                 ...[
                     { version: "22.16.0" },
-                    { version: "21.2.0" },
-                    { version: "20.11.0" },
+                    { version: "22.0.0", allowExperimental: true },
+                    { version: "21.2.0", allowExperimental: true },
+                    { version: "20.11.0", allowExperimental: true },
                     { version: "20.10.0", ignores: ["import.meta.filename"] },
                 ].map(option => {
                     return {
@@ -5562,8 +5564,28 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                                 messageId: "not-supported-till",
                                 data: {
                                     name: "import.meta.dirname",
-                                    supported:
-                                        "22.16.0 (backported: ^21.2.0, ^20.11.0)",
+                                    supported: "24.0.0 (backported: ^22.16.0)",
+                                    version: option.version,
+                                },
+                            },
+                        ],
+                    }
+                }),
+                ...[
+                    { version: "21.1.0", allowExperimental: true },
+                    { version: "20.10.0", allowExperimental: true },
+                ].map(option => {
+                    return {
+                        code: "import.meta.dirname;",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                        errors: [
+                            {
+                                messageId: "not-experimental-till",
+                                data: {
+                                    name: "import.meta.dirname",
+                                    experimental:
+                                        "21.2.0 (backported: ^20.11.0)",
                                     version: option.version,
                                 },
                             },
@@ -5584,8 +5606,28 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                                 messageId: "not-supported-till",
                                 data: {
                                     name: "import.meta.filename",
-                                    supported:
-                                        "22.16.0 (backported: ^21.2.0, ^20.11.0)",
+                                    supported: "24.0.0 (backported: ^22.16.0)",
+                                    version: option.version,
+                                },
+                            },
+                        ],
+                    }
+                }),
+                ...[
+                    { version: "21.1.0", allowExperimental: true },
+                    { version: "20.10.0", allowExperimental: true },
+                ].map(option => {
+                    return {
+                        code: "import.meta.filename;",
+                        options: [option],
+                        languageOptions: { ecmaVersion: "latest" },
+                        errors: [
+                            {
+                                messageId: "not-experimental-till",
+                                data: {
+                                    name: "import.meta.filename",
+                                    experimental:
+                                        "21.2.0 (backported: ^20.11.0)",
                                     version: option.version,
                                 },
                             },
