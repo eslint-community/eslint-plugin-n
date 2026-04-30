@@ -2,10 +2,9 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../../lib/rules/prefer-promises/fs")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/prefer-promises/fs.js"
 
 new RuleTester({
     languageOptions: { sourceType: "module" },

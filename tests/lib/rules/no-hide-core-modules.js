@@ -7,30 +7,29 @@
  * This rule was based on an invalid assumption.
  * No meaning.
  */
-"use strict"
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-hide-core-modules")
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-hide-core-modules.js"
 
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------
 
 const THIRD_PERTY = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "../../fixtures/no-hide-core-modules/thirdparty/test.js"
 )
 const NO_THIRD_PERTY = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "../../fixtures/no-hide-core-modules/no-thirdparty/test.js"
 )
 const INDIRECT_THIRD_PERTY = path.resolve(
-    __dirname,
+    import.meta.dirname,
     "../../fixtures/no-hide-core-modules/indirect-thirdparty/test.js"
 )
 

@@ -2,12 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const RuleTester = require("../../test-helpers").RuleTester
-const rule = require("../../../lib/rules/file-extension-in-import")
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester } from "../../test-helpers.js"
+import rule from "../../../lib/rules/file-extension-in-import.js"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +17,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -32,7 +31,7 @@ const tsReactExtensionMap = [
 
 function fixture(filename) {
     return path.resolve(
-        __dirname,
+        import.meta.dirname,
         "../../fixtures/file-extension-in-import",
         filename
     )

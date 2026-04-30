@@ -2,10 +2,9 @@
  * @author Nicholas C. Zakas
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-process-exit")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-process-exit.js"
 const ruleTester = new RuleTester()
 
 ruleTester.run("no-process-exit", rule, {

@@ -2,10 +2,10 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../../lib/rules/no-unsupported-features/es-builtins")
-const globals = require("globals")
+
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/no-unsupported-features/es-builtins.js"
+import globals from "globals"
 
 /**
  * Clone given invalid patterns with adding `ignores` option.

@@ -2,13 +2,17 @@
  * @author Nicholas C. Zakas
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-path-concat")
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-path-concat.js"
 
-new RuleTester().run("no-path-concat", rule, {
+new RuleTester({
+    languageOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
+    },
+}).run("no-path-concat", rule, {
     valid: [
         'var fullPath = dirname + "foo.js";',
         'var fullPath = __dirname == "foo.js";',

@@ -1,4 +1,6 @@
-# Disallow `require()` expressions which import missing modules (`n/no-missing-require`)
+# n/no-missing-require
+
+📝 Disallow `require()` expressions which import missing modules.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

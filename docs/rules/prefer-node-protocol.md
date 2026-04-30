@@ -1,4 +1,6 @@
-# Enforce using the `node:` protocol when importing Node.js builtin modules (`n/prefer-node-protocol`)
+# n/prefer-node-protocol
+
+📝 Enforce using the `node:` protocol when importing Node.js builtin modules.
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 

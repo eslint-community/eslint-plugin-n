@@ -1,4 +1,6 @@
-# Enforce `require("dns").promises` (`n/prefer-promises/dns`)
+# n/prefer-promises/dns
+
+📝 Enforce `require("dns").promises`.
 
 <!-- end auto-generated rule header -->
 

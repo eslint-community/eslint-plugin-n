@@ -1,4 +1,6 @@
-# Disallow `import` declarations which import extraneous modules (`n/no-extraneous-import`)
+# n/no-extraneous-import
+
+📝 Disallow `import` declarations which import extraneous modules.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

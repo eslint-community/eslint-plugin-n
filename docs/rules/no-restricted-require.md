@@ -1,4 +1,6 @@
-# Disallow specified modules when loaded by `require` (`n/no-restricted-require`)
+# n/no-restricted-require
+
+📝 Disallow specified modules when loaded by `require`.
 
 <!-- end auto-generated rule header -->
 

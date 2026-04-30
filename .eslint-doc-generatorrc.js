@@ -1,5 +1,3 @@
-"use strict"
-
 /** @type {import('eslint-doc-generator').GenerateOptions} */
 const config = {
     ignoreConfig: [
@@ -23,4 +21,4 @@ const config = {
     ruleDocSectionOptions: false,
 }
 
-module.exports = config
+export default config

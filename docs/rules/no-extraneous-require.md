@@ -1,4 +1,6 @@
-# Disallow `require()` expressions which import extraneous modules (`n/no-extraneous-require`)
+# n/no-extraneous-require
+
+📝 Disallow `require()` expressions which import extraneous modules.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

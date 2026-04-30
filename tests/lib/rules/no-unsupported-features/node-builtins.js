@@ -2,12 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
 /** @import { Linter } from 'eslint' */
 
-const RuleTester = require("../../../test-helpers").RuleTester
-const rule = require("../../../../lib/rules/no-unsupported-features/node-builtins")
+import { RuleTester } from "../../../test-helpers.js"
+import rule from "../../../../lib/rules/no-unsupported-features/node-builtins.js"
 
 /**
  * @typedef ValidTestCase
