@@ -28,7 +28,7 @@ new RuleTester({
 
     invalid: [
         {
-            code: 'var fullPath = import.meta.dirname + "/foo.js";',
+            code: 'var fullPath = __dirname + "/foo.js";',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -46,7 +46,7 @@ new RuleTester({
             ],
         },
         {
-            code: "var fullPath = `${import.meta.dirname}/foo.js`;",
+            code: "var fullPath = `${__dirname}/foo.js`;",
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -64,7 +64,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var path = require("path"); var fullPath = `${import.meta.dirname}${path.sep}foo.js`;',
+            code: 'var path = require("path"); var fullPath = `$__dirname}${path.sep}foo.js`;',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -82,7 +82,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var path = require("path"); var fullPath = import.meta.dirname + path.sep + `foo.js`;',
+            code: 'var path = require("path"); var fullPath = __dirname + path.sep + `foo.js`;',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -91,7 +91,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var fullPath = import.meta.dirname + "/" + "foo.js";',
+            code: 'var fullPath = __dirname + "/" + "foo.js";',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -100,7 +100,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var fullPath = import.meta.dirname + ("/" + "foo.js");',
+            code: 'var fullPath = __dirname + ("/" + "foo.js");',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -109,7 +109,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var fullPath = import.meta.dirname + (test ? "/foo.js" : "/bar.js");',
+            code: 'var fullPath = __dirname + (test ? "/foo.js" : "/bar.js");',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -118,7 +118,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var fullPath = import.meta.dirname + (extraPath || "/default.js");',
+            code: 'var fullPath = __dirname + (extraPath || "/default.js");',
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -127,7 +127,7 @@ new RuleTester({
             ],
         },
         {
-            code: `var fullPath = import.meta.dirname + "\\${path.sep}foo.js";`,
+            code: `var fullPath = __dirname + "\\${path.sep}foo.js";`,
             errors: [
                 {
                     messageId: "usePathFunctions",
@@ -145,7 +145,7 @@ new RuleTester({
             ],
         },
         {
-            code: `var fullPath = \`\${import.meta.dirname}\\${path.sep}foo.js\`;`,
+            code: `var fullPath = \`\${__dirname}\\${path.sep}foo.js\`;`,
             errors: [
                 {
                     messageId: "usePathFunctions",
