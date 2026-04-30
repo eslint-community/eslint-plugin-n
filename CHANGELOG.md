@@ -1,5 +1,44 @@
 # Changelog
 
+## [18.0.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.24.0...v18.0.0) (2026-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate commonjs to esm ([#510](https://github.com/eslint-community/eslint-plugin-n/issues/510))
+* **no-sync:** move `ts-declaration-location` to `peerDependencies`
+* **no-unpublished-bin:** disallow extra properties in options ([#456](https://github.com/eslint-community/eslint-plugin-n/issues/456))
+* remove no-unpublished-bin from recommended ([#485](https://github.com/eslint-community/eslint-plugin-n/issues/485))
+* requires node.js >=20 & eslint >= 8.57.1 ([#503](https://github.com/eslint-community/eslint-plugin-n/issues/503))
+
+### 🌟 Features
+
+* migrate commonjs to esm ([#510](https://github.com/eslint-community/eslint-plugin-n/issues/510)) ([db64bd1](https://github.com/eslint-community/eslint-plugin-n/commit/db64bd1d3112c0fbc97addae68c9d8de030f47e1))
+* **no-sync:** move `ts-declaration-location` to `peerDependencies` ([4729438](https://github.com/eslint-community/eslint-plugin-n/commit/472943856633544a744ae5dc8045071457d72c0a))
+* **node-builtins:** add support data for Node.js 22.20–22.21 and 24.0–24.12 ([#496](https://github.com/eslint-community/eslint-plugin-n/issues/496)) ([e8e0b00](https://github.com/eslint-community/eslint-plugin-n/commit/e8e0b00b80c19383866fcc439ae753c5a8546f6b))
+* requires node.js &gt;=20 & eslint &gt;= 8.57.1 ([#503](https://github.com/eslint-community/eslint-plugin-n/issues/503)) ([1d6770e](https://github.com/eslint-community/eslint-plugin-n/commit/1d6770ee665196ddac79da7bcbc0368838fbd0df))
+
+
+### 🩹 Fixes
+
+* Add explicit mapping for TypeScript extensions ([#521](https://github.com/eslint-community/eslint-plugin-n/issues/521)) ([1ad05c5](https://github.com/eslint-community/eslint-plugin-n/commit/1ad05c5d374e5b53792e807be4a39deb9757c476))
+* **no-unpublished-bin:** disallow extra properties in options ([#456](https://github.com/eslint-community/eslint-plugin-n/issues/456)) ([6da92b1](https://github.com/eslint-community/eslint-plugin-n/commit/6da92b1f3be86f2e408575f676afa143eaedf98c))
+* **prefer-promises/fs:** add missing fs.promises APIs ([#519](https://github.com/eslint-community/eslint-plugin-n/issues/519)) ([2164cd5](https://github.com/eslint-community/eslint-plugin-n/commit/2164cd548676157a2417dcae447b9bdf411c9240))
+* remove no-unpublished-bin from recommended ([#485](https://github.com/eslint-community/eslint-plugin-n/issues/485)) ([f95aae7](https://github.com/eslint-community/eslint-plugin-n/commit/f95aae7a6f6860c8d49c3e59187f1462f6503a58))
+
+
+### 📚 Documentation
+
+* update README for new ESLint config usage and examples ([4daac0c](https://github.com/eslint-community/eslint-plugin-n/commit/4daac0c26fcbc3f753416e00d62dc6b7f76b15cf))
+
+
+### 🧹 Chores
+
+* dedupe `prefer-global/timers` trace map ([#516](https://github.com/eslint-community/eslint-plugin-n/issues/516)) ([9d8d3cb](https://github.com/eslint-community/eslint-plugin-n/commit/9d8d3cbd30130ee16e1c1e95061d300b97c45508))
+* remove unnecessary type properties from error objects in rule tests ([f3d02b0](https://github.com/eslint-community/eslint-plugin-n/commit/f3d02b0c47a241ba8b87e22e3f760da60618d978))
+* rm eslint-compat.js ([#513](https://github.com/eslint-community/eslint-plugin-n/issues/513)) ([235a6d7](https://github.com/eslint-community/eslint-plugin-n/commit/235a6d749c3a2bde5d865488e80f7ff6e9687f47))
+* simplify valid patterns handling in no-unsupported-features tests ([52664e6](https://github.com/eslint-community/eslint-plugin-n/commit/52664e637220e09e1d85edf99ef844be6164fe43))
+
 ## [17.24.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.2...v17.24.0) (2026-02-15)
 
 
