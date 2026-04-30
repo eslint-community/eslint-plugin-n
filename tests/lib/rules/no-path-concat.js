@@ -15,11 +15,11 @@ new RuleTester({
 }).run("no-path-concat", rule, {
     valid: [
         'var fullPath = dirname + "foo.js";',
-        'var fullPath = import.meta.dirname == "foo.js";',
-        "if (fullPath === import.meta.dirname) {}",
-        "if (import.meta.dirname === fullPath) {}",
+        'var fullPath = __dirname == "foo.js";',
+        "if (fullPath === __dirname) {}",
+        "if (__dirname === fullPath) {}",
         'var fullPath = "/foo.js" + __filename;',
-        'var fullPath = "/foo.js" + import.meta.dirname;',
+        'var fullPath = "/foo.js" + __dirname;',
         'var fullPath = __filename + ".map";',
         "var fullPath = `${__filename}.map`;",
         'var fullPath = __filename + (test ? ".js" : ".ts");',
