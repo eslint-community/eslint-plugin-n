@@ -64,7 +64,7 @@ new RuleTester({
             ],
         },
         {
-            code: 'var path = require("path"); var fullPath = `$__dirname}${path.sep}foo.js`;',
+            code: 'var path = require("path"); var fullPath = `${__dirname}${path.sep}foo.js`;',
             errors: [
                 {
                     messageId: "usePathFunctions",
