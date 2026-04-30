@@ -1,4 +1,6 @@
-# Enforce either `console` or `require("console")` (`n/prefer-global/console`)
+# n/prefer-global/console
+
+📝 Enforce either `console` or `require("console")`.
 
 <!-- end auto-generated rule header -->
 

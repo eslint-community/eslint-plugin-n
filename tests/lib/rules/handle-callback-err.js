@@ -2,10 +2,9 @@
  * @author Jamund Ferguson
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/handle-callback-err")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/handle-callback-err.js"
 const ruleTester = new RuleTester()
 
 const EXPECTED_DECL_ERROR = {

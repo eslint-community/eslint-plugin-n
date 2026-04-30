@@ -2,12 +2,11 @@
  * @author Yosuke Ota <https://github.com/ota-meshi>
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/no-top-level-await.js")
-const path = require("path")
-const tsParser = require("@typescript-eslint/parser")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-top-level-await.js"
+import path from "node:path"
+import tsParser from "@typescript-eslint/parser"
 
 /**
  * Makes a file path to a fixture.
@@ -15,7 +14,11 @@ const tsParser = require("@typescript-eslint/parser")
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/no-top-level-await", name)
+    return path.resolve(
+        import.meta.dirname,
+        "../../fixtures/no-top-level-await",
+        name
+    )
 }
 
 new RuleTester({

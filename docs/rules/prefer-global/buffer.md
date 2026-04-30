@@ -1,4 +1,6 @@
-# Enforce either `Buffer` or `require("buffer").Buffer` (`n/prefer-global/buffer`)
+# n/prefer-global/buffer
+
+📝 Enforce either `Buffer` or `require("buffer").Buffer`.
 
 <!-- end auto-generated rule header -->
 

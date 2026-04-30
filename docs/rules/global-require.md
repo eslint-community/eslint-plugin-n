@@ -1,4 +1,6 @@
-# Require `require()` calls to be placed at top-level module scope (`n/global-require`)
+# n/global-require
+
+📝 Require `require()` calls to be placed at top-level module scope.
 
 <!-- end auto-generated rule header -->
 

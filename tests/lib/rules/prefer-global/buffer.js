@@ -2,10 +2,9 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../../lib/rules/prefer-global/buffer")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/prefer-global/buffer.js"
 
 const provideModuleMethods = ["require", "process.getBuiltinModule"]
 

@@ -1,4 +1,6 @@
-# Disallow synchronous methods (`n/no-sync`)
+# n/no-sync
+
+📝 Disallow synchronous methods.
 
 <!-- end auto-generated rule header -->
 

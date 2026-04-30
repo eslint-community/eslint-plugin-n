@@ -2,10 +2,9 @@
  * @author Yusuke Iinuma
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/prefer-node-protocol.js")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/prefer-node-protocol.js"
 
 new RuleTester({
     languageOptions: {

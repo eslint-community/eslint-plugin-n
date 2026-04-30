@@ -2,10 +2,9 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../../lib/rules/prefer-promises/fs")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/prefer-promises/fs.js"
 
 new RuleTester({
     languageOptions: { sourceType: "module" },
@@ -182,6 +181,34 @@ new RuleTester({
             errors: [
                 { messageId: "preferPromises", data: { name: "readFile" } },
             ],
+        },
+        {
+            code: "const fs = require('fs'); fs.cp()",
+            errors: [{ messageId: "preferPromises", data: { name: "cp" } }],
+        },
+        {
+            code: "const fs = require('fs'); fs.glob()",
+            errors: [{ messageId: "preferPromises", data: { name: "glob" } }],
+        },
+        {
+            code: "const fs = require('fs'); fs.lutimes()",
+            errors: [
+                { messageId: "preferPromises", data: { name: "lutimes" } },
+            ],
+        },
+        {
+            code: "const fs = require('fs'); fs.opendir()",
+            errors: [
+                { messageId: "preferPromises", data: { name: "opendir" } },
+            ],
+        },
+        {
+            code: "const fs = require('fs'); fs.rm()",
+            errors: [{ messageId: "preferPromises", data: { name: "rm" } }],
+        },
+        {
+            code: "const fs = require('fs'); fs.statfs()",
+            errors: [{ messageId: "preferPromises", data: { name: "statfs" } }],
         },
     ],
 })

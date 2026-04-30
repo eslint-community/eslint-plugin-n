@@ -1,4 +1,6 @@
-# Enforce the style of file extensions in `import` declarations (`n/file-extension-in-import`)
+# n/file-extension-in-import
+
+📝 Enforce the style of file extensions in `import` declarations.
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 

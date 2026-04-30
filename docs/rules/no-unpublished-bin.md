@@ -1,4 +1,6 @@
-# Disallow `bin` files that npm ignores (`n/no-unpublished-bin`)
+# n/no-unpublished-bin
+
+📝 Disallow `bin` files that npm ignores.
 
 <!-- end auto-generated rule header -->
 

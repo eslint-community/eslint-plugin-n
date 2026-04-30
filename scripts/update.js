@@ -2,7 +2,6 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-require("./update-rule-docs")
-// require("./update-lib-index") // TODO: the script needs to be updated.
+import "./update-rule-docs.js"
+// import "./update-lib-index.js" // TODO: the script needs to be updated.

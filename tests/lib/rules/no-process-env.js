@@ -2,10 +2,9 @@
  * @author Vignesh Anand
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-process-env")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-process-env.js"
 
 new RuleTester().run("no-process-env", rule, {
     valid: [

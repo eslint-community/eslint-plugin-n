@@ -1,15 +1,15 @@
 /**
  * @author 唯然<weiran.zsd@outlook.com>
  */
-"use strict"
 
-const js = require("@eslint/js")
-const globals = require("globals")
-const nodeRecommended = require("eslint-plugin-n/configs/recommended-script")
-const eslintPluginConfig = require("eslint-plugin-eslint-plugin/configs/recommended")
-const prettierConfig = require("eslint-config-prettier")
 
-module.exports = [
+import js from "@eslint/js";
+import globals from "globals";
+import nodePlugin from "eslint-plugin-n";
+import eslintPlugin from "eslint-plugin-eslint-plugin";
+import prettierConfig from "eslint-config-prettier";
+
+export default [
     {
         languageOptions: { globals: globals.mocha },
         linterOptions: { reportUnusedDisableDirectives: true },
@@ -24,8 +24,8 @@ module.exports = [
         ],
     },
     js.configs.recommended,
-    nodeRecommended,
-    eslintPluginConfig,
+    nodePlugin.configs["flat/recommended"],
+    eslintPlugin.configs["flat/recommended"],
     prettierConfig,
     {
         rules: {
@@ -40,4 +40,10 @@ module.exports = [
             "eslint-plugin/no-unused-message-ids": 0,
         },
     },
+    {
+        files: ["{tests,scripts}/**/*.js"],
+        rules: {
+            "n/no-unsupported-features/node-builtins": 0, // import.meta.dirname is used in tests, and it is supported in all supported Node versions
+        }
+    }
 ]

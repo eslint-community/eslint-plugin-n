@@ -1,5 +1,5 @@
 function x() {
-  return true;
+    return true
 }
 
-export default x;
+export default x

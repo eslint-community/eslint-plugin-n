@@ -2,12 +2,12 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const { RuleTester, isCaseSensitiveFileSystem } = require("../../test-helpers")
-const rule = require("../../../lib/rules/no-missing-import")
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js"
+import rule from "../../../lib/rules/no-missing-import.js"
+import tsParser from "@typescript-eslint/parser"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +18,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -36,7 +36,7 @@ const tsReactExtensionMap = [
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/no-missing", name)
+    return path.resolve(import.meta.dirname, "../../fixtures/no-missing", name)
 }
 
 function cantResolve(name, dir = "") {
@@ -184,7 +184,9 @@ ruleTester.run("no-missing-import", rule, {
             filename: fixture("test.js"),
             code: "import a from './fixtures/no-missing/a.js';",
             settings: {
-                node: { resolvePaths: [path.resolve(__dirname, "../../")] },
+                node: {
+                    resolvePaths: [path.resolve(import.meta.dirname, "../../")],
+                },
             },
         },
         {
@@ -334,14 +336,10 @@ ruleTester.run("no-missing-import", rule, {
         {
             // name: 'Ensure type only packages can be imported',
             filename: fixture("test.ts"),
-            languageOptions: { parser: require("@typescript-eslint/parser") },
+            languageOptions: { parser: tsParser },
             code: "import type d from 'types-only';",
         },
 
-        {
-            filename: fixture("ts-allow-extension/test.ts"),
-            code: "import './file.js';",
-        },
         {
             filename: fixture("ts-allow-extension/test.ts"),
             code: "import './file.ts';",
@@ -362,7 +360,7 @@ ruleTester.run("no-missing-import", rule, {
         {
             filename: fixture("test.ts"),
             code: "import type missing from '@type/this-does-not-exists';",
-            languageOptions: { parser: require("@typescript-eslint/parser") },
+            languageOptions: { parser: tsParser },
             options: [{ ignoreTypeImport: true }],
         },
 
@@ -431,6 +429,13 @@ ruleTester.run("no-missing-import", rule, {
             filename: fixture("test.js"),
             code: "import a from './a.json';",
             errors: cantResolve("./a.json"),
+        },
+
+        // allowImportingTsExtensions: .js imports for .ts files fail
+        {
+            filename: fixture("ts-allow-extension/test.ts"),
+            code: "import './file.js';",
+            errors: cantResolve("./file.js", "ts-allow-extension"),
         },
 
         // Should work fine if the filename is relative.
