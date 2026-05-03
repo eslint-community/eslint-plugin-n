@@ -45,7 +45,7 @@
         "@types/semver": "^7.7.1",
         "@typescript-eslint/parser": "^8.26.1",
         "@typescript-eslint/typescript-estree": "^8.26.1",
-        "eslint": "^9.31.0",
+        "eslint": "^10.2.1",
         "eslint-config-prettier": "^9.1.0",
         "eslint-doc-generator": "^3.3.2",
         "eslint-plugin-eslint-plugin": "^6.3.1",

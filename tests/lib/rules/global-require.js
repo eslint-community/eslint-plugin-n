@@ -6,7 +6,7 @@
 import { RuleTester } from "#test-helpers"
 import rule from "../../../lib/rules/global-require.js"
 
-const ERROR = { messageId: "unexpected", type: "CallExpression" }
+const ERROR = { messageId: "unexpected" }
 
 new RuleTester().run("global-require", rule, {
     valid: [

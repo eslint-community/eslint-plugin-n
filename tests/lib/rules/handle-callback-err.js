@@ -9,11 +9,9 @@ const ruleTester = new RuleTester()
 
 const EXPECTED_DECL_ERROR = {
     messageId: "expected",
-    type: "FunctionDeclaration",
 }
 const EXPECTED_FUNC_ERROR = {
     messageId: "expected",
-    type: "FunctionExpression",
 }
 
 ruleTester.run("handle-callback-err", rule, {
