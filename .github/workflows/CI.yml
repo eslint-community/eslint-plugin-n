@@ -34,14 +34,14 @@ jobs:
         eslint: ["10.x"]
         node: ["20.19.0", "20.x", "22.x", "24.x", "25.x"]
         include:
-          - os: ubuntu-latest
-            node: "lts/*"
+          - os: [ubuntu-latest]
+            node: ["lts/*"]
             eslint: ["8.57.1", "9.x"]
-          - os: macOS-latest
-            node: "lts/*"
+          - os: [macOS-latest]
+            node: ["lts/*"]
             eslint: ["8.57.1", "9.x"]
           - os: [windows-latest, macOS-latest]
-            node: "lts/*"
+            node: ["lts/*"]
             eslint: ["10.x"]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
