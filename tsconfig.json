@@ -4,9 +4,8 @@
         "rootDir": "./lib",
         "declarationDir": "./types",
         "target": "esnext",
-        "lib": [
-            "esnext"
-        ],
+        "lib": ["esnext"],
+        "types": ["node"],
         "module": "nodenext",
         "moduleResolution": "nodenext",
         "declaration": true,
@@ -32,10 +31,6 @@
         "isolatedModules": true,
         "skipLibCheck": true
     },
-    "include": [
-        "./lib/eslint-utils.d.ts"
-    ],
-    "files": [
-        "./lib/index.js"
-    ]
+    "include": ["./lib/eslint-utils.d.ts"],
+    "files": ["./lib/index.js"]
 }
