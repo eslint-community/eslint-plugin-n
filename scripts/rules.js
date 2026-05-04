@@ -2,12 +2,13 @@
  * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const glob = require("fast-glob")
-const rootDir = path.resolve(__dirname, "../lib/rules/")
-const { pluginName } = require("./utils")
+import path from "path"
+import { pathToFileURL } from "url"
+import glob from "fast-glob"
+import { pluginName } from "./utils.js"
+
+const rootDir = path.resolve(import.meta.dirname, "../lib/rules/")
 
 /**
  * @typedef RuleInfo
@@ -29,25 +30,28 @@ const { pluginName } = require("./utils")
  */
 
 /** @type {RuleInfo[]} */
-const rules = glob
-    .sync("**/*.js", { cwd: rootDir })
-    .sort()
-    .map(filename => {
-        const filePath = path.join(rootDir, filename)
-        const name = filename.slice(0, -3)
-        const { meta } = require(filePath)
-        return Object.assign(
-            {
-                filePath,
-                id: `${pluginName}/${name}`,
-                name,
-                deprecated: Boolean(meta.deprecated),
-                fixable: Boolean(meta.fixable),
-                replacedBy: [],
-            },
-            meta.docs
-        )
-    })
+const rules = await Promise.all(
+    glob
+        .sync("**/*.js", { cwd: rootDir })
+        .sort()
+        .map(async filename => {
+            const filePath = path.join(rootDir, filename)
+            const name = filename.slice(0, -3)
+            const { default: rule } = await import(pathToFileURL(filePath).href)
+            const { meta } = rule
+            return Object.assign(
+                {
+                    filePath,
+                    id: `${pluginName}/${name}`,
+                    name,
+                    deprecated: Boolean(meta.deprecated),
+                    fixable: Boolean(meta.fixable),
+                    replacedBy: [],
+                },
+                meta.docs
+            )
+        })
+)
 
 /** @type {CategoryInfo[]} */
 const categories = [
@@ -59,4 +63,5 @@ const categories = [
     rules: rules.filter(rule => rule.category === id && !rule.deprecated),
 }))
 
-module.exports = { rules, categories }
+export { rules, categories }
+export default { rules, categories }

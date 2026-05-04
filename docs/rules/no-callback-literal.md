@@ -1,4 +1,6 @@
-# Enforce Node.js-style error-first callback pattern is followed (`n/no-callback-literal`)
+# n/no-callback-literal
+
+📝 Enforce Node.js-style error-first callback pattern is followed.
 
 <!-- end auto-generated rule header -->
 

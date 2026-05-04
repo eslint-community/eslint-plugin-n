@@ -2,10 +2,9 @@
  * @author Raphael Pigulla
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/no-mixed-requires")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-mixed-requires.js"
 const ruleTester = new RuleTester()
 
 ruleTester.run("no-mixed-requires", rule, {
@@ -64,7 +63,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixRequire",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -74,7 +72,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixRequire",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -84,7 +81,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -94,7 +90,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -104,7 +99,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -114,7 +108,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -124,7 +117,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -134,7 +126,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -144,7 +135,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
-                    type: "VariableDeclaration",
                 },
             ],
         },
@@ -154,7 +144,6 @@ ruleTester.run("no-mixed-requires", rule, {
             errors: [
                 {
                     messageId: "noMixRequire",
-                    type: "VariableDeclaration",
                 },
             ],
         },

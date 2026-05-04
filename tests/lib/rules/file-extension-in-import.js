@@ -2,12 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const RuleTester = require("../../test-helpers").RuleTester
-const rule = require("../../../lib/rules/file-extension-in-import")
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester } from "../../test-helpers.js"
+import rule from "../../../lib/rules/file-extension-in-import.js"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +17,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -32,7 +31,7 @@ const tsReactExtensionMap = [
 
 function fixture(filename) {
     return path.resolve(
-        __dirname,
+        import.meta.dirname,
         "../../fixtures/file-extension-in-import",
         filename
     )
@@ -224,6 +223,18 @@ new RuleTester({
         },
         {
             filename: fixture("test.js"),
+            code: "import { util } from './my-folder'",
+            output: "import { util } from './my-folder/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import { util } from './my-folder/'",
+            output: "import { util } from './my-folder/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
             code: "import './b'",
             output: "import './b.json'",
             errors: [{ messageId: "requireExt", data: { ext: ".json" } }],
@@ -340,6 +351,41 @@ new RuleTester({
             output: null,
             options: ["never"],
             errors: [{ messageId: "forbidExt", data: { ext: ".json" } }],
+        },
+
+        // Files with dots in basename (e.g. utils.client.ts)
+        // The specifier "utils.client" looks like it has an extension but doesn't
+        // Rule should require the actual extension ".js" (mapped from .ts)
+        {
+            filename: fixture("test.ts"),
+            code: "import './utils.client'",
+            output: "import './utils.client.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './util.client'",
+            output: "import './util.client.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import './util.client'",
+            output: "import './util.client.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        // Directories with dots in name (e.g. my-things.client/index.ts)
+        {
+            filename: fixture("test.ts"),
+            code: "import './my-things.client'",
+            output: "import './my-things.client/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import './my-things.client'",
+            output: "import './my-things.client/index.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
         },
 
         // import()

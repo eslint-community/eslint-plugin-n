@@ -1,4 +1,6 @@
-# Enforce either `URLSearchParams` or `require("url").URLSearchParams` (`n/prefer-global/url-search-params`)
+# n/prefer-global/url-search-params
+
+📝 Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
 
 <!-- end auto-generated rule header -->
 

@@ -1,4 +1,6 @@
-# Disallow the use of `process.env` (`n/no-process-env`)
+# n/no-process-env
+
+📝 Disallow the use of `process.env`.
 
 <!-- end auto-generated rule header -->
 

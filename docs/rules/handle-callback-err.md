@@ -1,4 +1,6 @@
-# Require error handling in callbacks (`n/handle-callback-err`)
+# n/handle-callback-err
+
+📝 Require error handling in callbacks.
 
 <!-- end auto-generated rule header -->
 

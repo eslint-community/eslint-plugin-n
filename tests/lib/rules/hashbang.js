@@ -2,11 +2,10 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/shebang")
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/shebang.js"
 
 /**
  * Makes a file path to a fixture.
@@ -14,7 +13,7 @@ const rule = require("../../../lib/rules/shebang")
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/shebang", name)
+    return path.resolve(import.meta.dirname, "../../fixtures/shebang", name)
 }
 
 /** @type {import('eslint').RuleTester} */

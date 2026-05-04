@@ -2,10 +2,9 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/exports-style")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/exports-style.js"
 
 new RuleTester({ languageOptions: { ecmaVersion: 11 } }).run(
     "exports-style",

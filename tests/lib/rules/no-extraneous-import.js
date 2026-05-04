@@ -2,12 +2,11 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/no-extraneous-import")
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-extraneous-import.js"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +17,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -28,7 +27,11 @@ if (!DynamicImportSupported) {
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/no-extraneous", name)
+    return path.resolve(
+        import.meta.dirname,
+        "../../fixtures/no-extraneous",
+        name
+    )
 }
 
 const ruleTester = new RuleTester({

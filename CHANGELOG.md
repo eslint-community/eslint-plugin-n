@@ -1,5 +1,117 @@
 # Changelog
 
+## [17.24.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.2...v17.24.0) (2026-02-15)
+
+
+### 🌟 Features
+
+* add `prefer-global/crypto` rule ([#514](https://github.com/eslint-community/eslint-plugin-n/issues/514)) ([2ea0f22](https://github.com/eslint-community/eslint-plugin-n/commit/2ea0f22e74569b046675334ad1680dbd0e806057))
+* add `prefer-global/timers` rule ([#515](https://github.com/eslint-community/eslint-plugin-n/issues/515)) ([10b24ae](https://github.com/eslint-community/eslint-plugin-n/commit/10b24ae1b8db58045df818b574a16089429b7888))
+
+
+### 🧹 Chores
+
+* add v17.x to release-please ([9c5e437](https://github.com/eslint-community/eslint-plugin-n/commit/9c5e43704b4b1395152a8f9e70b452d75f33476d))
+
+## [17.23.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.1...v17.23.2) (2026-01-13)
+
+
+### 🩹 Fixes
+
+* avoid any type for no-top-level-await listener node (build issue) ([#498](https://github.com/eslint-community/eslint-plugin-n/issues/498)) ([f071703](https://github.com/eslint-community/eslint-plugin-n/commit/f071703b3a5d7025f4d51681c23d7a24f579d35c))
+* **file-extension-in-import:** handle directory index imports ([#499](https://github.com/eslint-community/eslint-plugin-n/issues/499)) ([754a1a6](https://github.com/eslint-community/eslint-plugin-n/commit/754a1a61cde5be01890cae2685bdecd9c4e2c06f))
+* **file-extension-in-import:** handle files with dots in basename ([#506](https://github.com/eslint-community/eslint-plugin-n/issues/506)) ([600f3f2](https://github.com/eslint-community/eslint-plugin-n/commit/600f3f2d58515b87f27d00487063561d3faee940))
+* **no-sync:** resolve full typed names for ignores ([#501](https://github.com/eslint-community/eslint-plugin-n/issues/501)) ([047301a](https://github.com/eslint-community/eslint-plugin-n/commit/047301adbac933a09848b25f722472d9bba67cb1))
+
+
+### 📚 Documentation
+
+* safely disable no-unpublished-bin npm v10+ ([#487](https://github.com/eslint-community/eslint-plugin-n/issues/487)) ([8af9c86](https://github.com/eslint-community/eslint-plugin-n/commit/8af9c8601755202f794c5b27401466dee7edc00a))
+
+
+### 🧹 Chores
+
+* **no-missing-import:** align fixture message with latest resolver output ([#500](https://github.com/eslint-community/eslint-plugin-n/issues/500)) ([a3719d2](https://github.com/eslint-community/eslint-plugin-n/commit/a3719d26be7278eca2562b935e22c3ecf0838af7))
+
+## [17.23.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.23.0...v17.23.1) (2025-09-18)
+
+
+### 🩹 Fixes
+
+* **node-builtins-modules/tls.js:** Update minimal version ([#484](https://github.com/eslint-community/eslint-plugin-n/issues/484)) ([fe94432](https://github.com/eslint-community/eslint-plugin-n/commit/fe94432306f35a3af53c2f9c9feb49259aa27f79))
+
+
+### 📚 Documentation
+
+* improve clarity of no-missing-import and no-missing-require ([#455](https://github.com/eslint-community/eslint-plugin-n/issues/455)) ([92ea876](https://github.com/eslint-community/eslint-plugin-n/commit/92ea876039dd42602da6a6e87129958552a8f3b7))
+
+## [17.23.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.22.0...v17.23.0) (2025-09-15)
+
+
+### 🌟 Features
+
+* Support latest node v23.x ✨ ([#478](https://github.com/eslint-community/eslint-plugin-n/issues/478)) ([6516414](https://github.com/eslint-community/eslint-plugin-n/commit/6516414c61aeb3b43ee41983f7cdb45f6f9e867b))
+
+## [17.22.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.3...v17.22.0) (2025-09-13)
+
+
+### 🌟 Features
+
+* Add missing features from node 20.19.0 ([#473](https://github.com/eslint-community/eslint-plugin-n/issues/473)) ([fd0c192](https://github.com/eslint-community/eslint-plugin-n/commit/fd0c19271ba9a4592281c72dbcfe282a2ce01e20))
+* support latest node 22 ([#474](https://github.com/eslint-community/eslint-plugin-n/issues/474)) ([0ab562b](https://github.com/eslint-community/eslint-plugin-n/commit/0ab562b95ed98983308f107f4f2b679fc4d68701))
+
+
+### 🩹 Fixes
+
+* **ci:** bump markdowncli-lint version ([#468](https://github.com/eslint-community/eslint-plugin-n/issues/468)) ([91a56d0](https://github.com/eslint-community/eslint-plugin-n/commit/91a56d01322d1f3da8571b5358fd641a15a1e42a))
+* **no-unsupported:** `URL.createObjectURL`, `URL.revokeObjectURL` are supported ([#471](https://github.com/eslint-community/eslint-plugin-n/issues/471)) ([844155c](https://github.com/eslint-community/eslint-plugin-n/commit/844155c9e6f31ad915ba84e923fbc96cb72611c6))
+
+## [17.21.3](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.2...v17.21.3) (2025-07-28)
+
+
+### 🩹 Fixes
+
+* **no-missing-import:** Support data imports ([#465](https://github.com/eslint-community/eslint-plugin-n/issues/465)) ([69ea12b](https://github.com/eslint-community/eslint-plugin-n/commit/69ea12b939fd600b5bd3593dc1382e3a45d320e5))
+
+## [17.21.2](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.1...v17.21.2) (2025-07-27)
+
+
+### 🧹 Chores
+
+* remove minimatch dependency ([#462](https://github.com/eslint-community/eslint-plugin-n/issues/462)) ([92a24ac](https://github.com/eslint-community/eslint-plugin-n/commit/92a24accf83bdf40fbaef804cf764405c756a852))
+
+## [17.21.1](https://github.com/eslint-community/eslint-plugin-n/compare/v17.21.0...v17.21.1) (2025-07-27)
+
+
+### 🩹 Fixes
+
+* **ci:** Ignore type test failures for types present in ESLint 8 that we removed in ESLint 9.31.0 ([#460](https://github.com/eslint-community/eslint-plugin-n/issues/460)) ([76f8150](https://github.com/eslint-community/eslint-plugin-n/commit/76f81500f2f5b15b3a01405ec65ebe29ffdacbc5))
+* **no-restricted-require:** Handle .. paths ([#458](https://github.com/eslint-community/eslint-plugin-n/issues/458)) ([34719e8](https://github.com/eslint-community/eslint-plugin-n/commit/34719e8b7efc8ccb95ab06841f3121c1aa6eb2a0))
+
+## [17.21.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.20.0...v17.21.0) (2025-07-03)
+
+
+### 🌟 Features
+
+* add config "flat/all" ([#401](https://github.com/eslint-community/eslint-plugin-n/issues/401)) ([b6a0d71](https://github.com/eslint-community/eslint-plugin-n/commit/b6a0d7115015827b868e8fd4528c1722faf64fd3))
+
+
+### 🩹 Fixes
+
+* correctly handle version ranges in prefer-node-protocol ([#454](https://github.com/eslint-community/eslint-plugin-n/issues/454)) ([d60439d](https://github.com/eslint-community/eslint-plugin-n/commit/d60439d83b48717e56a44de89e2b6beaf6ea05bf))
+
+
+### 🧹 Chores
+
+* **no-sync:** remove `@typescript-eslint/utils` ([#449](https://github.com/eslint-community/eslint-plugin-n/issues/449)) ([45e2803](https://github.com/eslint-community/eslint-plugin-n/commit/45e28036dfde635fc4a66143de2e5131eae6da3f))
+
+## [17.20.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.19.0...v17.20.0) (2025-06-12)
+
+
+### 🌟 Features
+
+* **no-top-level-await:** add support for `await using` ([#447](https://github.com/eslint-community/eslint-plugin-n/issues/447)) ([88dea92](https://github.com/eslint-community/eslint-plugin-n/commit/88dea92e099edfdab5a2b89a2bbde8c297f880dd))
+
 ## [17.19.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.18.0...v17.19.0) (2025-06-02)
 
 

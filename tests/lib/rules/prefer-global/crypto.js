@@ -1,0 +1,56 @@
+/**
+ * @author Pixel998
+ * See LICENSE file in root directory for full license.
+ */
+
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/prefer-global/crypto.js"
+
+const provideModuleMethods = ["require", "process.getBuiltinModule"]
+
+new RuleTester().run("prefer-global/crypto", rule, {
+    valid: [
+        "crypto.randomUUID()",
+        {
+            code: "crypto.randomUUID()",
+            options: ["always"],
+        },
+        ...provideModuleMethods.flatMap(method => [
+            {
+                code: `const { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
+                options: ["never"],
+            },
+            {
+                code: `const { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
+                options: ["never"],
+            },
+        ]),
+    ],
+    invalid: [
+        ...provideModuleMethods.flatMap(method => [
+            {
+                code: `const { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `const { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `const { webcrypto } = ${method}('crypto'); webcrypto.randomUUID()`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+            {
+                code: `const { webcrypto } = ${method}('node:crypto'); webcrypto.randomUUID()`,
+                options: ["always"],
+                errors: [{ messageId: "preferGlobal" }],
+            },
+        ]),
+        {
+            code: "crypto.randomUUID()",
+            options: ["never"],
+            errors: [{ messageId: "preferModule" }],
+        },
+    ],
+})

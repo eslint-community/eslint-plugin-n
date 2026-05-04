@@ -1,4 +1,6 @@
-# Disallow string concatenation with `__dirname` and `__filename` (`n/no-path-concat`)
+# n/no-path-concat
+
+📝 Disallow string concatenation with `__dirname` and `__filename`.
 
 <!-- end auto-generated rule header -->
 

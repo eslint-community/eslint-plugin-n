@@ -2,11 +2,10 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../../lib/rules/no-unsupported-features/es-syntax")
+import path from "node:path"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/no-unsupported-features/es-syntax.js"
 
 /**
  * Makes a file path to a fixture.
@@ -15,7 +14,7 @@ const rule = require("../../../../lib/rules/no-unsupported-features/es-syntax")
  */
 function fixture(name) {
     return path.resolve(
-        __dirname,
+        import.meta.dirname,
         "../../../fixtures/no-unsupported-features--ecma",
         name
     )
@@ -73,7 +72,14 @@ function runTests(patterns) {
 
         if (Array.isArray(pattern.keyword)) {
             for (const keyword of pattern.keyword) {
-                tests.valid.push(...pattern.invalid.map(ignores(keyword)))
+                const additionalValid = pattern.invalid
+                    .map(ignores(keyword))
+                    .map(it => {
+                        const item = { ...it }
+                        delete item.errors
+                        return item
+                    })
+                tests.valid.push(...additionalValid)
             }
         }
 

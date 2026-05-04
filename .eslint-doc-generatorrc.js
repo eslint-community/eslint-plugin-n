@@ -1,5 +1,3 @@
-"use strict"
-
 /** @type {import('eslint-doc-generator').GenerateOptions} */
 const config = {
     ignoreConfig: [
@@ -8,6 +6,7 @@ const config = {
         "flat/recommended-module",
         "flat/recommended",
         "flat/mixed-esm-and-cjs",
+        "flat/all",
     ],
     urlConfigs: "https://github.com/eslint-community/eslint-plugin-n#-configs",
     configEmoji: [
@@ -22,4 +21,4 @@ const config = {
     ruleDocSectionOptions: false,
 }
 
-module.exports = config
+export default config

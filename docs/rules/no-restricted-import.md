@@ -1,4 +1,6 @@
-# Disallow specified modules when loaded by `import` declarations (`n/no-restricted-import`)
+# n/no-restricted-import
+
+📝 Disallow specified modules when loaded by `import` declarations.
 
 <!-- end auto-generated rule header -->
 

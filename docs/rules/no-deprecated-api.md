@@ -1,4 +1,6 @@
-# Disallow deprecated APIs (`n/no-deprecated-api`)
+# n/no-deprecated-api
+
+📝 Disallow deprecated APIs.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

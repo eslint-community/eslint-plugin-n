@@ -1,4 +1,6 @@
-# Disallow unsupported Node.js built-in APIs on the specified version (`n/no-unsupported-features/node-builtins`)
+# n/no-unsupported-features/node-builtins
+
+📝 Disallow unsupported Node.js built-in APIs on the specified version.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

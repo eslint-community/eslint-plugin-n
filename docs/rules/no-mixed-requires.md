@@ -1,4 +1,6 @@
-# Disallow `require` calls to be mixed with regular variable declarations (`n/no-mixed-requires`)
+# n/no-mixed-requires
+
+📝 Disallow `require` calls to be mixed with regular variable declarations.
 
 <!-- end auto-generated rule header -->
 

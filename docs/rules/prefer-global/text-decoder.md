@@ -1,4 +1,6 @@
-# Enforce either `TextDecoder` or `require("util").TextDecoder` (`n/prefer-global/text-decoder`)
+# n/prefer-global/text-decoder
+
+📝 Enforce either `TextDecoder` or `require("util").TextDecoder`.
 
 <!-- end auto-generated rule header -->
 

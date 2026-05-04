@@ -1,4 +1,6 @@
-# Enforce either `process` or `require("process")` (`n/prefer-global/process`)
+# n/prefer-global/process
+
+📝 Enforce either `process` or `require("process")`.
 
 <!-- end auto-generated rule header -->
 

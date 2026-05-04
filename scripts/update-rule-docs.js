@@ -2,15 +2,14 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const fs = require("fs")
-const path = require("path")
-const { rules } = require("./rules")
+import fs from "fs"
+import path from "path"
+import { rules } from "./rules.js"
 const footerPattern = /\n+## 🔎 Implementation[\s\S]*$/u
-const ruleRoot = path.resolve(__dirname, "../lib/rules")
-const testRoot = path.resolve(__dirname, "../tests/lib/rules")
-const docsRoot = path.resolve(__dirname, "../docs/rules")
+const ruleRoot = path.resolve(import.meta.dirname, "../lib/rules")
+const testRoot = path.resolve(import.meta.dirname, "../tests/lib/rules")
+const docsRoot = path.resolve(import.meta.dirname, "../docs/rules")
 
 /** @typedef {import("./rules").RuleInfo} RuleInfo */
 

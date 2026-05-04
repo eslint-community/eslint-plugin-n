@@ -2,11 +2,10 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { RuleTester, isCaseSensitiveFileSystem } = require("../../test-helpers")
-const rule = require("../../../lib/rules/no-missing-require")
+import path from "node:path"
+import { RuleTester, isCaseSensitiveFileSystem } from "../../test-helpers.js"
+import rule from "../../../lib/rules/no-missing-require.js"
 
 const tsReactExtensionMap = [
     ["", ".js"],
@@ -22,7 +21,7 @@ const tsReactExtensionMap = [
  * @returns {string} A file path to a fixture.
  */
 function fixture(name) {
-    return path.resolve(__dirname, "../../fixtures/no-missing", name)
+    return path.resolve(import.meta.dirname, "../../fixtures/no-missing", name)
 }
 
 function cantResolve(name, dir = "") {
@@ -117,13 +116,17 @@ ruleTester.run("no-missing-require", rule, {
             filename: fixture("test.js"),
             code: "require('./fixtures/no-missing/a');",
             settings: {
-                node: { resolvePaths: [path.resolve(__dirname, "../../")] },
+                node: {
+                    resolvePaths: [path.resolve(import.meta.dirname, "../../")],
+                },
             },
         },
         {
             filename: fixture("test.js"),
             code: "require('./fixtures/no-missing/a');",
-            options: [{ resolvePaths: [path.resolve(__dirname, "../../")] }],
+            options: [
+                { resolvePaths: [path.resolve(import.meta.dirname, "../../")] },
+            ],
         },
         {
             filename: fixture("test.js"),
@@ -462,6 +465,14 @@ ruleTester.run("no-missing-require", rule, {
             filename: fixture("test.js"),
             code: "require('virtual:package-scope/name');",
             errors: cantResolve("virtual:package-scope/name"),
+        },
+
+        // Sanity test for (wrong) attempt to require data
+        // (this should only be supported in imports)
+        {
+            filename: fixture("test.js"),
+            code: "require('data:text/javascript,const x = 123;');",
+            errors: cantResolve("data:text/javascript,const x = 123;"),
         },
     ],
 })

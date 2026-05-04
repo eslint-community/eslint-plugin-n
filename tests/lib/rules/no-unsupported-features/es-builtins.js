@@ -2,10 +2,10 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../../lib/rules/no-unsupported-features/es-builtins")
-const globals = require("globals")
+
+import { RuleTester } from "#test-helpers"
+import rule from "../../../../lib/rules/no-unsupported-features/es-builtins.js"
+import globals from "globals"
 
 /**
  * Clone given invalid patterns with adding `ignores` option.
@@ -56,7 +56,15 @@ function runTests(patterns) {
         }
 
         // Add the invalid patterns with `ignores` option into the valid patterns.
-        tests.valid.push(...pattern.invalid.map(ignores(pattern.keyword)))
+        const additionalValid = pattern.invalid
+            .map(ignores(pattern.keyword))
+            .map(it => {
+                const item = { ...it }
+                delete item.errors
+                return item
+            })
+
+        tests.valid.push(...additionalValid)
 
         ruleTester.run("no-unsupported-features/es-builtins", rule, tests)
     }

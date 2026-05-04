@@ -1,4 +1,6 @@
-# Enforce `require("fs").promises` (`n/prefer-promises/fs`)
+# n/prefer-promises/fs
+
+📝 Enforce `require("fs").promises`.
 
 <!-- end auto-generated rule header -->
 

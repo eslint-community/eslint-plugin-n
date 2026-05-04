@@ -2,13 +2,10 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-/*eslint-env mocha */
-
-const assert = require("assert")
-const eslint = require("eslint")
-const rule = require("../../../lib/rules/process-exit-as-throw")
+import assert from "node:assert"
+import eslint from "eslint"
+import rule from "../../../lib/rules/process-exit-as-throw.js"
 
 const supported = rule.meta.supported
 

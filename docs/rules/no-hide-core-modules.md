@@ -1,4 +1,6 @@
-# Disallow third-party modules which are hiding core modules (`n/no-hide-core-modules`)
+# n/no-hide-core-modules
+
+📝 Disallow third-party modules which are hiding core modules.
 
 ❌ This rule is deprecated.
 

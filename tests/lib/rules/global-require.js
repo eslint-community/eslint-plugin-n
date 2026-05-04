@@ -2,12 +2,11 @@
  * @author Jamund Ferguson
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const RuleTester = require("#test-helpers").RuleTester
-const rule = require("../../../lib/rules/global-require")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/global-require.js"
 
-const ERROR = { messageId: "unexpected", type: "CallExpression" }
+const ERROR = { messageId: "unexpected" }
 
 new RuleTester().run("global-require", rule, {
     valid: [

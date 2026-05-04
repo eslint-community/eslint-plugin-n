@@ -1,4 +1,6 @@
-# Disallow `import` declarations which import non-existence modules (`n/no-missing-import`)
+# n/no-missing-import
+
+📝 Disallow `import` declarations which import missing modules.
 
 💼 This rule is enabled in the following [configs](https://github.com/eslint-community/eslint-plugin-n#-configs): 🟢 `recommended-module`, ✅ `recommended-script`.
 

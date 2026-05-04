@@ -1,4 +1,6 @@
-# Disallow top-level `await` in published modules (`n/no-top-level-await`)
+# n/no-top-level-await
+
+📝 Disallow top-level `await` in published modules.
 
 <!-- end auto-generated rule header -->
 

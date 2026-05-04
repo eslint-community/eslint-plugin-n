@@ -2,12 +2,11 @@
  * @author Christian Schulz
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const path = require("path")
-const { Linter } = require("eslint")
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/no-restricted-import")
+import path from "node:path"
+import { Linter } from "eslint"
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/no-restricted-import.js"
 
 const DynamicImportSupported = (() => {
     const config = { languageOptions: { ecmaVersion: 2020 } }
@@ -18,7 +17,7 @@ const DynamicImportSupported = (() => {
 if (!DynamicImportSupported) {
     console.warn(
         "[%s] Skip tests for 'import()'",
-        path.basename(__filename, ".js")
+        path.basename(import.meta.filename, ".js")
     )
 }
 
@@ -63,9 +62,9 @@ new RuleTester({
             options: [[{ name: "@foo/bar" }]],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'import "../foo";',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
         },
 
         // import()
@@ -243,9 +242,9 @@ new RuleTester({
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/test.js"),
             code: 'import "../foo";',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
             errors: [
                 {
                     messageId: "restricted",
@@ -254,9 +253,9 @@ new RuleTester({
             ],
         },
         {
-            filename: path.resolve(__dirname, "lib/sub/test.js"),
+            filename: path.resolve(import.meta.dirname, "lib/sub/test.js"),
             code: 'import "../../foo";',
-            options: [[{ name: path.resolve(__dirname, "foo") }]],
+            options: [[{ name: path.resolve(import.meta.dirname, "foo") }]],
             errors: [
                 {
                     messageId: "restricted",

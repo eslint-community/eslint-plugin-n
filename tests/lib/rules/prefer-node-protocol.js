@@ -2,10 +2,9 @@
  * @author Yusuke Iinuma
  * See LICENSE file in root directory for full license.
  */
-"use strict"
 
-const { RuleTester } = require("#test-helpers")
-const rule = require("../../../lib/rules/prefer-node-protocol.js")
+import { RuleTester } from "#test-helpers"
+import rule from "../../../lib/rules/prefer-node-protocol.js"
 
 new RuleTester({
     languageOptions: {
@@ -57,6 +56,10 @@ new RuleTester({
         'const fs = require("eslint-plugin-n");',
 
         // check disabling by supported Node.js versions
+        {
+            options: [{ version: ">=10.13.0" }],
+            code: 'import fs from "fs";',
+        },
         {
             options: [{ version: "12.19.1" }],
             code: 'import fs from "fs";',
