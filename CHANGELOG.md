@@ -1,5 +1,12 @@
 # Changelog
 
+## [18.0.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.0.0...v18.0.1) (2026-05-05)
+
+
+### 🩹 Fixes
+
+* Update TypeScript peer dependency version constraint ([8906195](https://github.com/eslint-community/eslint-plugin-n/commit/89061952f61c44487b3e3d57692712f57edbec95))
+
 ## [18.0.0](https://github.com/eslint-community/eslint-plugin-n/compare/v17.24.0...v18.0.0) (2026-05-04)
 
 
