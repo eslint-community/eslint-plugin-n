@@ -16,7 +16,7 @@
     "peerDependencies": {
         "eslint": ">=8.57.1",
         "ts-declaration-location": "^1.0.6",
-        "typescript": "^5.0.0"
+        "typescript": ">=5.0.0"
     },
     "peerDependenciesMeta": {
         "ts-declaration-location": {
