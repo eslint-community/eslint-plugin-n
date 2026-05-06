@@ -34,8 +34,10 @@ import node from "eslint-plugin-n"
 import {defineConfig} from "eslint/config"
 
 export default defineConfig([
-    plugins: {n: node},
-    extends: ["n/recommended-module"],
+    {
+        plugins: {n: node},
+        extends: ["n/recommended-module"],
+    }
 ])
 ```
 
@@ -46,10 +48,12 @@ import node from "eslint-plugin-n"
 import {defineConfig} from "eslint/config"
 
 export default defineConfig([
-    plugins: {n: node},
-    rules: {
-        "n/no-unsupported-features/es-builtins": "error",
-    },
+    {
+        plugins: {n: node},
+        rules: {
+            "n/no-unsupported-features/es-builtins": "error",
+        },
+    }
 ])
 ```
 
@@ -188,8 +192,10 @@ import node from "eslint-plugin-n"
 import {defineConfig} from "eslint/config"
 
 export default defineConfig([
-    plugins: {n: node},
-    extends: ["n/mixed-esm-and-cjs"],
+    {
+        plugins: {n: node},
+        extends: ["n/mixed-esm-and-cjs"],
+    },
 ])
 ```
 
