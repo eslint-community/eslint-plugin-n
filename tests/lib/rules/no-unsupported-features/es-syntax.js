@@ -3166,6 +3166,10 @@ runTests([
                 filename: fixture("without-node/a.js"),
                 code: "var a = () => 1",
             },
+            {
+                filename: fixture("dev-engines-non-node-only/a.js"),
+                code: "var a = async () => 1",
+            },
         ],
         invalid: [
             {
