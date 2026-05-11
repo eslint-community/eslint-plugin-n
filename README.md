@@ -80,7 +80,7 @@ The rules get the supported Node.js version range from the following, falling ba
 4. `package.json` [`devEngines.runtime`](https://docs.npmjs.com/cli/v11/configuring-npm/package-json#devengines) field (when `name` is `"node"`)
 5. `>=16.0.0`
 
-If you omit the [engines] field, this rule chooses `>=16.0.0` as the configured Node.js version since `16` is the maintained lts (see also [Node.js Release Working Group](https://github.com/nodejs/Release#readme)).
+If you omit both the [engines] field and the `devEngines.runtime` field (with `name` set to `"node"`), this rule chooses `>=16.0.0` as the configured Node.js version since `16` is the maintained lts (see also [Node.js Release Working Group](https://github.com/nodejs/Release#readme)).
 
 For Node.js packages, using the [`engines`] field is recommended because it's the official way to indicate support:
 
