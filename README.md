@@ -77,7 +77,8 @@ The rules get the supported Node.js version range from the following, falling ba
 1. Rule configuration `version`
 2. ESLint [shared setting](http://eslint.org/docs/user-guide/configuring.html#adding-shared-settings) `node.version`
 3. `package.json` [`engines`] field
-4. `>=16.0.0`
+4. `package.json` [`devEngines.runtime`](https://docs.npmjs.com/cli/v11/configuring-npm/package-json#devengines) field (when `name` is `"node"`)
+5. `>=16.0.0`
 
 If you omit the [engines] field, this rule chooses `>=16.0.0` as the configured Node.js version since `16` is the maintained lts (see also [Node.js Release Working Group](https://github.com/nodejs/Release#readme)).
 

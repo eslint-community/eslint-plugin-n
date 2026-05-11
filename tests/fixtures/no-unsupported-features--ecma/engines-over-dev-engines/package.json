@@ -1,0 +1,12 @@
+{
+    "name": "test",
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "devEngines": {
+        "runtime": {
+            "name": "node",
+            "version": ">=7.5.0"
+        }
+    }
+}

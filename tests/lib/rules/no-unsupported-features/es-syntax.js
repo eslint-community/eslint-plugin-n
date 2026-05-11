@@ -3255,6 +3255,62 @@ runTests([
                 ],
             },
             {
+                filename: fixture("dev-engines-gte-7.5.0/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=7.5.0",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("dev-engines-array-gte-7.5.0/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=7.5.0",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("engines-over-dev-engines/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=4.0.0",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("dev-engines-non-node/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=7.5.0",
+                        },
+                    },
+                ],
+            },
+            {
                 code: "var a = async () => 1",
                 options: [{ version: "7.1.0" }],
                 errors: [
