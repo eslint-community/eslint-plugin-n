@@ -3166,6 +3166,10 @@ runTests([
                 filename: fixture("without-node/a.js"),
                 code: "var a = () => 1",
             },
+            {
+                filename: fixture("dev-engines-non-node-only/a.js"),
+                code: "var a = async () => 1",
+            },
         ],
         invalid: [
             {
@@ -3250,6 +3254,62 @@ runTests([
                             featureName: "block-scoped-variables",
                             supported: ">=4.0.0",
                             version: "*",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("dev-engines-gte-7.5.0/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=7.5.0",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("dev-engines-array-gte-7.5.0/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=7.5.0",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("engines-over-dev-engines/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=4.0.0",
+                        },
+                    },
+                ],
+            },
+            {
+                filename: fixture("dev-engines-non-node/a.js"),
+                code: "var a = async () => 1",
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "async-functions",
+                            supported: ">=7.6.0",
+                            version: ">=7.5.0",
                         },
                     },
                 ],

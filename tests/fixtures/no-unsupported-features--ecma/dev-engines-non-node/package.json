@@ -1,0 +1,12 @@
+{
+    "name": "test",
+    "engines": {
+        "node": ">=7.5.0"
+    },
+    "devEngines": {
+        "runtime": {
+            "name": "deno",
+            "version": ">=1.0.0"
+        }
+    }
+}

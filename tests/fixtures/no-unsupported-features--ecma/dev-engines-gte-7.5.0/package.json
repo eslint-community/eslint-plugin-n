@@ -1,0 +1,9 @@
+{
+    "name": "test",
+    "devEngines": {
+        "runtime": {
+            "name": "node",
+            "version": ">=7.5.0"
+        }
+    }
+}
