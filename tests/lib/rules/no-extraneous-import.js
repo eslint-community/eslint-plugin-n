@@ -4,6 +4,7 @@
  */
 
 import path from "node:path"
+import typescriptParser from "@typescript-eslint/parser"
 import { Linter } from "eslint"
 import { RuleTester } from "#test-helpers"
 import rule from "../../../lib/rules/no-extraneous-import.js"
@@ -145,5 +146,36 @@ ruleTester.run("no-extraneous-import", rule, {
                   },
               ]
             : []),
+    ],
+})
+
+const tsRuleTester = new RuleTester({
+    languageOptions: {
+        parser: typescriptParser,
+        sourceType: "module",
+    },
+})
+tsRuleTester.run("no-extraneous-import/typescript", rule, {
+    valid: [
+        {
+            filename: fixture("typesOnly/a.ts"),
+            code: "import type { Glob } from 'picomatch'",
+        },
+        {
+            filename: fixture("typesOnly/a.ts"),
+            code: "export type { Glob } from 'picomatch'",
+        },
+    ],
+    invalid: [
+        {
+            filename: fixture("typesOnly/a.ts"),
+            code: "import { scan } from 'picomatch'",
+            errors: ['"picomatch" is extraneous.'],
+        },
+        {
+            filename: fixture("typesOnly/a.ts"),
+            code: "export { scan } from 'picomatch'",
+            errors: ['"picomatch" is extraneous.'],
+        },
     ],
 })
