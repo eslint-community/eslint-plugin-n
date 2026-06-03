@@ -10,7 +10,7 @@ Additional ESLint rules for Node.js
 
 ## 🎨 Playground
 
-[online-playground](https://eslint-online-playground.netlify.app/#eNp1jzEOwjAMRa9SeWFpYS8rOwtiIQxRalWBxIniFIFQ747bCASV2BK/Lz//J3AyG7xrHx2uLwwtWB9DytXKW2ZLfVP+q60iqGGN7CzlZCQbSNJPRVWlAO8ZqWMFbXWS3xxqE5rgvcyxU1BLKrqht9TS5oec67Kj0PcO+gI6MaZ9zDYUPEtnrfH6iIkFTHMFTmfkLLZ3gsOQDB4eEUvAh25w8p74qGiUTlGbq+6n9t+NOrztME4nkrG40M79/hgLbEqbZnHXRzu+APYwfks=)
+[online-playground](https://eslint-online-playground.netlify.app/#eNptjzFuwzAMRa8icGqB2NndtbcoOxgybaiVSUGSgxSG717KUoAMWSiReJ//c4cU7ZXu4xo89T8JBrDCSbTxsryFKJZS6olv7x/IcAFK3nHuFZrdUgVuDRKzYTNHWQ02pAt+Wxx3jKBKZLqf1ETzuPlsvpCN2UsxppJpMLsuOS51GDdPZVQ7o3v5ytK1RJ0mQhiKW4wSESp2lEfLdw0bRvs7LuUuYQ167kLIf4GqdpVJXRBOS4SJbp8UiCdi6ygVptk/jqoyP2ZK+m9JX1z8TLVIBxz/MqF45g==)
 
 ## 💿 Install & Usage
 
