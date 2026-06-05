@@ -42,6 +42,11 @@ const ruleTester = new RuleTester({
         },
     },
 })
+const workspaceResolveSettings = {
+    n: {
+        tryExtensions: [".js", ".json", ".node", ".mjs", ".cjs"],
+    },
+}
 ruleTester.run("no-extraneous-import", rule, {
     valid: [
         {
@@ -79,6 +84,28 @@ ruleTester.run("no-extraneous-import", rule, {
         {
             filename: fixture("import-map/a.js"),
             code: "import '#b'",
+        },
+        {
+            filename: fixture("workspace/packages/app/src/index.js"),
+            code: "import rootDep from 'root-dep'",
+            settings: workspaceResolveSettings,
+        },
+        {
+            filename: fixture("workspace/packages/app/src/index.js"),
+            code: "import rootDevDep from 'root-dev-dep'",
+            settings: workspaceResolveSettings,
+        },
+        {
+            filename: fixture("workspace-object/packages/app/src/index.js"),
+            code: "import rootDep from 'root-dep'",
+            settings: workspaceResolveSettings,
+        },
+        {
+            filename: fixture(
+                "workspace-nested/inner/packages/app/src/index.js"
+            ),
+            code: "import rootDep from 'root-dep'",
+            settings: workspaceResolveSettings,
         },
 
         // missing packages are warned by no-missing-import
@@ -132,6 +159,22 @@ ruleTester.run("no-extraneous-import", rule, {
             filename: fixture("optionalDependencies/a.js"),
             code: "import bbb from 'bbb'",
             errors: ['"bbb" is extraneous.'],
+        },
+        {
+            filename: fixture(
+                "workspace-negated/packages/excluded/src/index.js"
+            ),
+            code: "import rootDep from 'root-dep'",
+            settings: workspaceResolveSettings,
+            errors: ['"root-dep" is extraneous.'],
+        },
+        {
+            filename: fixture(
+                "workspace-nested/inner/packages/app/src/index.js"
+            ),
+            code: "import outerDep from 'outer-dep'",
+            settings: workspaceResolveSettings,
+            errors: ['"outer-dep" is extraneous.'],
         },
 
         // import()

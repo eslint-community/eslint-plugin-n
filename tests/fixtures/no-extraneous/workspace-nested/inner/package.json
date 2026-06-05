@@ -1,0 +1,11 @@
+{
+    "name": "workspace-inner-root",
+    "version": "0.0.0",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "dependencies": {
+        "root-dep": "0.0.0"
+    }
+}
