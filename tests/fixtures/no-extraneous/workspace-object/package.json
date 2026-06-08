@@ -1,0 +1,13 @@
+{
+    "name": "workspace-object-root",
+    "version": "0.0.0",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "@(packages|apps)/*"
+        ]
+    },
+    "dependencies": {
+        "root-dep": "0.0.0"
+    }
+}

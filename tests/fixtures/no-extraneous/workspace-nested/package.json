@@ -1,0 +1,11 @@
+{
+    "name": "workspace-outer-root",
+    "version": "0.0.0",
+    "private": true,
+    "workspaces": [
+        "**"
+    ],
+    "dependencies": {
+        "outer-dep": "0.0.0"
+    }
+}
