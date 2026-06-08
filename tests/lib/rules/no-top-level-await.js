@@ -60,6 +60,22 @@ new RuleTester({
             code: "for await (const e of asyncIterate()) { /* ... */ }",
         },
         {
+            filename: fixture("dot-slash-files/src/a.js"),
+            code: "const foo = await import('foo')",
+        },
+        {
+            filename: fixture("dot-slash-files/src/a.js"),
+            code: "for await (const e of asyncIterate()) { /* ... */ }",
+        },
+        {
+            filename: fixture("slash-files/src/a.js"),
+            code: "const foo = await import('foo')",
+        },
+        {
+            filename: fixture("slash-files/src/a.js"),
+            code: "for await (const e of asyncIterate()) { /* ... */ }",
+        },
+        {
             filename: fixture("simple-npmignore/src/a.js"),
             code: "const foo = await import('foo')",
         },
@@ -142,6 +158,54 @@ new RuleTester({
         },
         {
             filename: fixture("simple-files/lib/a.js"),
+            code: "for await (const e of asyncIterate()) { /* ... */ }",
+            errors: [
+                {
+                    message:
+                        "Top-level `await` is forbidden in published modules.",
+                    line: 1,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            filename: fixture("dot-slash-files/lib/a.js"),
+            code: "const foo = await import('foo')",
+            errors: [
+                {
+                    message:
+                        "Top-level `await` is forbidden in published modules.",
+                    line: 1,
+                    column: 13,
+                },
+            ],
+        },
+        {
+            filename: fixture("dot-slash-files/lib/a.js"),
+            code: "for await (const e of asyncIterate()) { /* ... */ }",
+            errors: [
+                {
+                    message:
+                        "Top-level `await` is forbidden in published modules.",
+                    line: 1,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            filename: fixture("slash-files/lib/a.js"),
+            code: "const foo = await import('foo')",
+            errors: [
+                {
+                    message:
+                        "Top-level `await` is forbidden in published modules.",
+                    line: 1,
+                    column: 13,
+                },
+            ],
+        },
+        {
+            filename: fixture("slash-files/lib/a.js"),
             code: "for await (const e of asyncIterate()) { /* ... */ }",
             errors: [
                 {
