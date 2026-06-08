@@ -1,5 +1,26 @@
 # Changelog
 
+## [18.1.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.0.1...v18.1.0) (2026-06-08)
+
+
+### 🌟 Features
+
+* Allow workspace root dependencies for no-extraneous-import ([#536](https://github.com/eslint-community/eslint-plugin-n/issues/536)) ([fd4f84e](https://github.com/eslint-community/eslint-plugin-n/commit/fd4f84e6a17814e091ef71bbac8b25b296c3ee45))
+* support `devEngines.runtime` from package.json ([#530](https://github.com/eslint-community/eslint-plugin-n/issues/530)) ([9ef3c32](https://github.com/eslint-community/eslint-plugin-n/commit/9ef3c32b3c2bcbd1f6ad8dc57513b20674a1b130))
+
+
+### 🩹 Fixes
+
+* Allow leading forwardslash in package.json "files" field ([#534](https://github.com/eslint-community/eslint-plugin-n/issues/534)) ([#535](https://github.com/eslint-community/eslint-plugin-n/issues/535)) ([5fde036](https://github.com/eslint-community/eslint-plugin-n/commit/5fde0364a0939b0d3d18e46f5ddc85505e7e2082))
+* no-extraneous-import for type-only [@types](https://github.com/types) dependencies ([#533](https://github.com/eslint-community/eslint-plugin-n/issues/533)) ([63a90ef](https://github.com/eslint-community/eslint-plugin-n/commit/63a90ef4e6358cd9e25391623bc7dfc11da3b4bb))
+* **prefer-promises/fs:** add missing fs.promises APIs (cp, glob, lutimes, opendir, rm, statfs) ([#532](https://github.com/eslint-community/eslint-plugin-n/issues/532)) ([75fbe34](https://github.com/eslint-community/eslint-plugin-n/commit/75fbe3480bcf115f9528b6e32e702f208bc1a8fc))
+
+
+### 📚 Documentation
+
+* fix usage in README.md ([c1b1b84](https://github.com/eslint-community/eslint-plugin-n/commit/c1b1b8427e94f751b4e4ffa9d77cbe2d6b4412c9))
+* Update online playground link in README ([058916a](https://github.com/eslint-community/eslint-plugin-n/commit/058916a2dbb3f2d1981edcf89b937a46d051c305))
+
 ## [18.0.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.0.0...v18.0.1) (2026-05-05)
 
 
