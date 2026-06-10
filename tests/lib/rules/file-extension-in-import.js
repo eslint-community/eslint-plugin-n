@@ -89,6 +89,15 @@ new RuleTester({
             code: "import './d.js'",
         },
         {
+            // https://github.com/eslint-community/eslint-plugin-n/issues/405
+            // "./d" only resolves to "./d.ts", so the ".ts" override must
+            // apply even though the resolver falls back to an extensionless
+            // path.
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            options: ["always", { ".ts": "never", ".js": "never" }],
+        },
+        {
             filename: fixture("test.js"),
             code: "import './a.js'",
             options: ["always"],
@@ -218,6 +227,16 @@ new RuleTester({
         {
             filename: fixture("test.ts"),
             code: "import './d'",
+            output: "import './d.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            // https://github.com/eslint-community/eslint-plugin-n/issues/405
+            // An extension override must also apply when the import resolves
+            // to a TypeScript file through the extensionless fallback path.
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            options: ["never", { ".ts": "always" }],
             output: "import './d.js'",
             errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
         },
