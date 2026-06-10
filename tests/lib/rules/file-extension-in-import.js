@@ -98,6 +98,14 @@ new RuleTester({
             options: ["always", { ".ts": "never", ".js": "never" }],
         },
         {
+            // A declaration file (foo.d.ts) is not a runtime ".ts"
+            // implementation, so a ".ts" override must not force a report
+            // through the fallback path.
+            filename: fixture("test.ts"),
+            code: "import './foo'",
+            options: ["never", { ".ts": "always" }],
+        },
+        {
             filename: fixture("test.js"),
             code: "import './a.js'",
             options: ["always"],
@@ -238,6 +246,16 @@ new RuleTester({
             code: "import './d'",
             options: ["never", { ".ts": "always" }],
             output: "import './d.js'",
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            // A declaration file (foo.d.ts) is not a runtime ".ts"
+            // implementation: the ".ts" override must not swallow the
+            // default-style report through the fallback path.
+            filename: fixture("test.ts"),
+            code: "import './foo'",
+            options: ["always", { ".ts": "never", ".js": "never" }],
+            output: "import './foo.js'",
             errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
         },
         {
