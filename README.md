@@ -109,6 +109,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | Name                                                                                         | Description                                                                 | 💼   | 🔧 | ❌  |
 | :------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------- | :--- | :- | :- |
 | [callback-return](docs/rules/callback-return.md)                                             | require `return` statements after callbacks                                 |      |    |    |
+| [consistent-fs-deletion](docs/rules/consistent-fs-deletion.md)                               | enforce `fs.rm` over `fs.unlink` and `fs.rmdir`                             |      |    |    |
 | [exports-style](docs/rules/exports-style.md)                                                 | enforce either `module.exports` or `exports`                                |      | 🔧 |    |
 | [file-extension-in-import](docs/rules/file-extension-in-import.md)                           | enforce the style of file extensions in `import` declarations               |      | 🔧 |    |
 | [global-require](docs/rules/global-require.md)                                               | require `require()` calls to be placed at top-level module scope            |      |    |    |
