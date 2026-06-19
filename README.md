@@ -149,6 +149,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [prefer-node-protocol](docs/rules/prefer-node-protocol.md)                                   | enforce using the `node:` protocol when importing Node.js builtin modules.  |      | 🔧 |    |
 | [prefer-promises/dns](docs/rules/prefer-promises/dns.md)                                     | enforce `require("dns").promises`                                           |      |    |    |
 | [prefer-promises/fs](docs/rules/prefer-promises/fs.md)                                       | enforce `require("fs").promises`                                            |      |    |    |
+| [prefer-stream-pipeline](docs/rules/prefer-stream-pipeline.md)                               | require `stream.pipeline()` instead of `Stream#pipe()`                      |      |    |    |
 | [process-exit-as-throw](docs/rules/process-exit-as-throw.md)                                 | require that `process.exit()` expressions use the same code path as `throw` | 🟢 ✅ |    |    |
 | [shebang](docs/rules/shebang.md)                                                             | require correct usage of hashbang                                           |      | 🔧 | ❌  |
 
