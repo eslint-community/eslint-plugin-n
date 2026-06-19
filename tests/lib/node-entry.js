@@ -37,15 +37,4 @@ describe("node-entry", () => {
             undefined
         )
     })
-
-    it("should not drop other plugins if they exist", () => {
-        plugin.configs["test-config"] = {
-            plugins: { n: plugin, other: {} },
-        }
-        // Re-evaluate node-entry mapping logic
-        // This is slightly hacky because node-entry is evaluated once,
-        // but we can just check if any existing config had other plugins.
-        // As a proxy, let's manually call the map function if it were exported,
-        // but since we can't, we know from the implementation that it spreads plugins.
-    })
 })
