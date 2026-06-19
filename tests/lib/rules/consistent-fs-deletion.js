@@ -58,5 +58,21 @@ new RuleTester({
                 { messageId: "preferFsRmPromises", data: { name: "unlink" } },
             ],
         },
+        {
+            code: "const { unlink } = require('fs'); unlink()",
+            errors: [{ messageId: "preferFsRm", data: { name: "unlink" } }],
+        },
+        {
+            code: "const { unlink } = require('node:fs/promises'); unlink()",
+            errors: [
+                { messageId: "preferFsRmPromises", data: { name: "unlink" } },
+            ],
+        },
+        {
+            code: "import { unlink } from 'fs/promises'; unlink()",
+            errors: [
+                { messageId: "preferFsRmPromises", data: { name: "unlink" } },
+            ],
+        },
     ],
 })
