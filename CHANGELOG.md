@@ -1,5 +1,12 @@
 # Changelog
 
+## [18.2.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.1.0...v18.2.0) (2026-06-25)
+
+
+### 🌟 Features
+
+* add `module.exports` for `require(esm)` interop ([#542](https://github.com/eslint-community/eslint-plugin-n/issues/542)) ([04c99df](https://github.com/eslint-community/eslint-plugin-n/commit/04c99dfafa53482dcfb307d966f3c9996e707011))
+
 ## [18.1.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.0.1...v18.1.0) (2026-06-08)
 
 
