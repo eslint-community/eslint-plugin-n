@@ -79,7 +79,7 @@
         "lint:js": "eslint .",
         "new": "node scripts/new-rule",
         "postversion": "git push && git push --tags",
-        "prepack": "tsc --emitDeclarationOnly && ts-ignore-import 'types/**/*.d.ts' --allow=@eslint-community/eslint-utils --allow=semver --allow=get-tsconfig",
+        "prepack": "tsc --emitDeclarationOnly && node scripts/patch-types.js && ts-ignore-import 'types/**/*.d.ts' --allow=@eslint-community/eslint-utils --allow=semver --allow=get-tsconfig",
         "prepare": "husky",
         "preversion": "npm test",
         "test": "run-p lint:* test:types test:tests",
