@@ -1,5 +1,12 @@
 # Changelog
 
+## [18.2.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.0...v18.2.1) (2026-06-26)
+
+
+### 🩹 Fixes
+
+* ensure types have valid syntax ([#544](https://github.com/eslint-community/eslint-plugin-n/issues/544)) ([a0d7819](https://github.com/eslint-community/eslint-plugin-n/commit/a0d78197665a0587c3f45f171835eaa8d18c7fc9))
+
 ## [18.2.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.1.0...v18.2.0) (2026-06-25)
 
 
