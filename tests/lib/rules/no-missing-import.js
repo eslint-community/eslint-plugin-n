@@ -369,6 +369,14 @@ ruleTester.run("no-missing-import", rule, {
             filename: fixture("test.js"),
             code: "import 'data:text/javascript,const x = 123;';",
         },
+        {
+            filename: fixture("test.js"),
+            code: "import 'https://example.com/module.js';",
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import 'http://localhost/module.js';",
+        },
 
         // import()
         ...(DynamicImportSupported
