@@ -5840,5 +5840,37 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 },
             ],
         },
+
+        //----------------------------------------------------------------------
+        // globalThis.crypto (WebCrypto global) - stable since Node.js 19
+        //----------------------------------------------------------------------
+        {
+            valid: [
+                {
+                    code: "crypto.getRandomValues(new Uint8Array(10))",
+                    options: [{ version: ">=19.0.0" }],
+                },
+                {
+                    code: "crypto.getRandomValues(new Uint8Array(10))",
+                    options: [{ version: ">=22.0.0" }],
+                },
+            ],
+            invalid: [
+                {
+                    code: "crypto.getRandomValues(new Uint8Array(10))",
+                    options: [{ version: ">=18.0.0" }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "crypto",
+                                supported: "19.0.0",
+                                version: ">=18.0.0",
+                            },
+                        },
+                    ],
+                },
+            ],
+        },
     ])
 )
