@@ -1,5 +1,13 @@
 # Changelog
 
+## [18.2.2](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.1...v18.2.2) (2026-07-11)
+
+
+### 🩹 Fixes
+
+* Ignore HTTP imports in no-missing-import ([#547](https://github.com/eslint-community/eslint-plugin-n/issues/547)) ([3ff929d](https://github.com/eslint-community/eslint-plugin-n/commit/3ff929dc6145055b97f147b2ee371a831f44b73a))
+* **no-callback-literal:** report object, array, and template literals ([#552](https://github.com/eslint-community/eslint-plugin-n/issues/552)) ([dca2330](https://github.com/eslint-community/eslint-plugin-n/commit/dca23307d9af2cb07c13192e5bf9192ff7ff8981))
+
 ## [18.2.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.0...v18.2.1) (2026-06-26)
 
 
