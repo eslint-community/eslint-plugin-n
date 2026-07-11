@@ -106,6 +106,33 @@ ruleTester.run("no-callback-literal", rule, {
             ],
         },
         {
+            code: "cb({ a: 1 })",
+            errors: [
+                {
+                    message:
+                        "Unexpected literal in error position of callback.",
+                },
+            ],
+        },
+        {
+            code: "cb([])",
+            errors: [
+                {
+                    message:
+                        "Unexpected literal in error position of callback.",
+                },
+            ],
+        },
+        {
+            code: "cb(`message ${value}`)",
+            errors: [
+                {
+                    message:
+                        "Unexpected literal in error position of callback.",
+                },
+            ],
+        },
+        {
             code: "callback((a, 1), data)",
             errors: [
                 {
