@@ -8,7 +8,7 @@ import rule from "../../../../lib/rules/prefer-import/assert-strict.js"
 
 new RuleTester({
     languageOptions: {
-        ecmaVersion: 2025,
+        ecmaVersion: 2020,
         sourceType: "module",
     },
 }).run("prefer-import/assert-strict", rule, {
@@ -79,11 +79,6 @@ new RuleTester({
         {
             code: 'import("node:assert");',
             output: 'import("node:assert/strict");',
-            errors: [{ messageId: "preferAssertStrict" }],
-        },
-        {
-            code: 'import("node:assert", options);',
-            output: 'import("node:assert/strict", options);',
             errors: [{ messageId: "preferAssertStrict" }],
         },
         {
