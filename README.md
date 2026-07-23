@@ -57,6 +57,22 @@ export default defineConfig([
 ])
 ```
 
+### **[.eslintrc.json](https://eslint.org/docs/latest/use/configure/configuration-files)** (An example)
+
+If you are still using the deprecated eslintrc configuration format, you can configure it like this:
+
+```jsonc
+{
+    "extends": ["eslint:recommended", "plugin:n/recommended"],
+    "parserOptions": {
+        "ecmaVersion": 2021
+    },
+    "rules": {
+        "n/exports-style": ["error", "module.exports"]
+    }
+}
+```
+
 **package.json** (An example)
 
 ```json
