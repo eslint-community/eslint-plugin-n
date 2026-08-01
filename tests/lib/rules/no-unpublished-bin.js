@@ -70,6 +70,11 @@ new RuleTester().run("no-unpublished-bin", rule, {
             filename: fixture("issue115/lib/a.js"),
             code: "'issue115/lib/a.js'",
         },
+        // Brace expansion and extglob patterns in the files field.
+        {
+            filename: fixture("brace-extglob/bin/foo.js"),
+            code: "'brace-extglob/bin/foo.js'",
+        },
 
         // empty name
         "'stdin'",

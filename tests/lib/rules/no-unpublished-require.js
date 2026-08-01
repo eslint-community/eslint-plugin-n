@@ -221,6 +221,12 @@ ruleTester.run("no-unpublished-require", rule, {
             code: "require('.');",
         },
 
+        // Brace expansion and extglob patterns in the files field.
+        {
+            filename: fixture("brace-extglob/index.js"),
+            code: "require('./src/helper.js');",
+        },
+
         // allowModules option
         {
             filename: fixture("1/test.js"),

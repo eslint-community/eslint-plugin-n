@@ -1,0 +1,10 @@
+{
+    "name": "brace-extglob",
+    "version": "1.0.0",
+    "bin": {
+        "foo": "bin/foo.js"
+    },
+    "files": [
+        "{bin,src}/**/!(*.test).js"
+    ]
+}
