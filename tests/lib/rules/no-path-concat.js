@@ -174,5 +174,21 @@ new RuleTester({
                 },
             ],
         },
+        {
+            code: 'var fullUrl = import.meta["url"] + "/foo.js";',
+            errors: [
+                {
+                    messageId: "useUrl",
+                },
+            ],
+        },
+        {
+            code: "var fullUrl = `${import.meta[`url`]}/foo.js`;",
+            errors: [
+                {
+                    messageId: "useUrl",
+                },
+            ],
+        },
     ],
 })
