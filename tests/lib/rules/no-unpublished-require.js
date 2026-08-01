@@ -226,6 +226,16 @@ ruleTester.run("no-unpublished-require", rule, {
             filename: fixture("brace-extglob/index.js"),
             code: "require('./src/helper.js');",
         },
+        // npm's files matcher is case-insensitive.
+        {
+            filename: fixture("case-insensitive/index.js"),
+            code: "require('./Foo.js');",
+        },
+        // npm expands numeric brace sequences.
+        {
+            filename: fixture("brace-sequence/index.js"),
+            code: "require('./file1.js');",
+        },
 
         // allowModules option
         {
@@ -268,6 +278,18 @@ ruleTester.run("no-unpublished-require", rule, {
         },
     ],
     invalid: [
+        // The extglob fixture's test helper is omitted from the package.
+        {
+            filename: fixture("brace-extglob/index.js"),
+            code: "require('./src/helper.test.js');",
+            errors: ['"./src/helper.test.js" is not published.'],
+        },
+        // A basename-only extended exclusion applies below the package root.
+        {
+            filename: fixture("extended-basename-exclusion/index.js"),
+            code: "require('./src/test.js');",
+            errors: ['"./src/test.js" is not published.'],
+        },
         {
             filename: fixture("2/test.js"),
             code: "require('./ignore1.js');",
