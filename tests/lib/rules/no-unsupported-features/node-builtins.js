@@ -4528,6 +4528,14 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                     code: "require('util').types",
                     options: [{ version: "10.0.0" }],
                 },
+                {
+                    code: "require('util').styleText",
+                    options: [{ version: "21.7.0", allowExperimental: true }],
+                },
+                {
+                    code: "import { styleText } from 'node:util'; styleText('green', 'ok')",
+                    options: [{ version: "21.7.0", allowExperimental: true }],
+                },
 
                 // Ignores
                 {
@@ -4818,6 +4826,34 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                                 name: "util.types",
                                 supported: "10.0.0",
                                 version: "9.9.9",
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: "require('util').styleText",
+                    options: [{ version: "21.7.0" }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "util.styleText",
+                                supported: "23.5.0 (backported: ^22.13.0)",
+                                version: "21.7.0",
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: "require('util').styleText",
+                    options: [{ version: "20.11.0", allowExperimental: true }],
+                    errors: [
+                        {
+                            messageId: "not-experimental-till",
+                            data: {
+                                name: "util.styleText",
+                                experimental: "21.7.0 (backported: ^20.12.0)",
+                                version: "20.11.0",
                             },
                         },
                     ],
