@@ -18,6 +18,8 @@ Additional ESLint rules for Node.js
 npm install --save-dev eslint eslint-plugin-n
 ```
 
+Migrating from `eslint-plugin-node`? See the [migration guide](docs/migration.md).
+
 | Version | Supported Node.js | Supported ESLint Version | Status |
 |---------|-------------------|---------------------------|--------|
 | 18.x   | `^20.19.0 \|\| ^22.13.0 \|\| >=24.0.0`  | `>=8.57.1`          | 🏃‍♂️actively maintained |
