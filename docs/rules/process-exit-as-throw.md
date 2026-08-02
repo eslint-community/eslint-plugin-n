@@ -30,9 +30,9 @@ This rule itself never warn code.
 - [no-fallthrough]
 - [no-unreachable]
 
-[consistent-return]: http://eslint.org/docs/rules/consistent-return
-[no-fallthrough]: http://eslint.org/docs/rules/no-fallthrough
-[no-unreachable]: http://eslint.org/docs/rules/no-unreachable
+[consistent-return]: https://eslint.org/docs/latest/rules/consistent-return
+[no-fallthrough]: https://eslint.org/docs/latest/rules/no-fallthrough
+[no-unreachable]: https://eslint.org/docs/latest/rules/no-unreachable
 
 ## 🔎 Implementation
 
