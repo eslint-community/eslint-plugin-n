@@ -1,0 +1,9 @@
+{
+    "name": "extended-basename-exclusion",
+    "version": "1.0.0",
+    "main": "index.js",
+    "files": [
+        "src",
+        "!{test,spec}.js"
+    ]
+}

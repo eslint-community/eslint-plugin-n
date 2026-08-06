@@ -1,0 +1,8 @@
+{
+    "name": "brace-extglob",
+    "version": "1.0.0",
+    "main": "index.js",
+    "files": [
+        "{bin,src}/**/!(*.test).js"
+    ]
+}

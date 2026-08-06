@@ -1,0 +1,8 @@
+{
+    "name": "brace-sequence",
+    "version": "1.0.0",
+    "main": "index.js",
+    "files": [
+        "file{1..3}.js"
+    ]
+}
