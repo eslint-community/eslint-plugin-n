@@ -1,10 +1,10 @@
 # n/no-path-concat
 
-📝 Disallow string concatenation with `__dirname` and `__filename`.
+📝 Disallow string concatenation with `__dirname`, `__filename`, and `import.meta` paths.
 
 <!-- end auto-generated rule header -->
 
-In Node.js, the `__dirname` and `__filename` global variables contain the directory path and the file path of the currently executing script file, respectively. Sometimes, developers try to use these variables to create paths to other files, such as:
+In Node.js, the `__dirname` and `__filename` global variables contain the directory path and the file path of the currently executing script file, respectively. In ES modules, `import.meta.dirname` and `import.meta.filename` provide the corresponding paths. Sometimes, developers try to use these values to create paths to other files, such as:
 
 ```js
 var fullPath = __dirname + "/foo.js";
@@ -26,9 +26,15 @@ var fullPath = path.resolve(__dirname, "foo.js");
 
 Both `path.join()` and `path.resolve()` are suitable replacements for string concatenation wherever file or directory paths are being created.
 
+`import.meta.url` is a URL string, not a file-system path. Use `new URL()` to resolve a relative URL instead of concatenating a path segment:
+
+```js
+const url = new URL("./foo.js", import.meta.url)
+```
+
 ## 📖 Rule Details
 
-This rule aims to prevent string concatenation of directory paths in Node.js
+This rule aims to prevent string concatenation of directory paths and URLs in Node.js.
 
 Examples of **incorrect** code for this rule:
 
@@ -39,6 +45,9 @@ const fullPath1 = __dirname + "/foo.js";
 const fullPath2 = __filename + "/foo.js";
 const fullPath3 = `${__dirname}/foo.js`;
 const fullPath4 = `${__filename}/foo.js`;
+const fullPath5 = import.meta.dirname + "/foo.js";
+const fullPath6 = import.meta.filename + "/foo.js";
+const fullUrl = import.meta.url + "/foo.js";
 ```
 
 Examples of **correct** code for this rule:
@@ -52,6 +61,9 @@ const fullPath3 = __dirname + ".js";
 const fullPath4 = __filename + ".map";
 const fullPath5 = `${__dirname}_foo.js`;
 const fullPath6 = `${__filename}.test.js`;
+const fullPath7 = path.join(import.meta.dirname, "foo.js");
+const fullPath8 = path.join(import.meta.filename, "foo.js");
+const fullUrl = new URL("./foo.js", import.meta.url);
 ```
 
 ## 🔎 Implementation

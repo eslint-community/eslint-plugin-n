@@ -24,6 +24,9 @@ new RuleTester({
         "var fullPath = `${__filename}.map`;",
         'var fullPath = __filename + (test ? ".js" : ".ts");',
         'var fullPath = __filename + (ext || ".js");',
+        'var fullPath = import.meta.dirname + ".map";',
+        'var fullPath = import.meta.filename + ".map";',
+        'var fullUrl = import.meta.url + ".map";',
     ],
 
     invalid: [
@@ -144,6 +147,46 @@ new RuleTester({
             errors: [
                 {
                     messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'var fullPath = import.meta.dirname + "/foo.js";',
+            errors: [
+                {
+                    messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'var fullPath = import.meta.filename + "/foo.js";',
+            errors: [
+                {
+                    messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'var fullUrl = import.meta.url + "/foo.js";',
+            errors: [
+                {
+                    messageId: "useUrl",
+                },
+            ],
+        },
+        {
+            code: 'var fullUrl = import.meta["url"] + "/foo.js";',
+            errors: [
+                {
+                    messageId: "useUrl",
+                },
+            ],
+        },
+        {
+            code: "var fullUrl = `${import.meta[`url`]}/foo.js`;",
+            errors: [
+                {
+                    messageId: "useUrl",
                 },
             ],
         },
