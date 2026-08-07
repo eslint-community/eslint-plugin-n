@@ -57,20 +57,23 @@ export default defineConfig([
 ])
 ```
 
-### **[.eslintrc.json](https://eslint.org/docs/latest/use/configure/configuration-files)** (An example)
+### `eslint-plugin-n/node`
 
-If you are still using the deprecated eslintrc configuration format, you can configure it like this:
+If you are migrating from `eslint-plugin-node` and want to keep the `node/` prefix for rules, you can use the `eslint-plugin-n/node` entry point:
 
-```jsonc
-{
-    "extends": ["eslint:recommended", "plugin:n/recommended"],
-    "parserOptions": {
-        "ecmaVersion": 2021
-    },
-    "rules": {
-        "n/exports-style": ["error", "module.exports"]
+```js
+import node from "eslint-plugin-n/node"
+import {defineConfig} from "eslint/config"
+
+export default defineConfig([
+    {
+        plugins: {node},
+        extends: ["node/recommended-module"],
+        rules: {
+            "node/exports-style": ["error", "module.exports"],
+        },
     }
-}
+])
 ```
 
 **package.json** (An example)
