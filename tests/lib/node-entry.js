@@ -1,6 +1,6 @@
 import assert from "node:assert"
-import nodeEntry from "../../lib/node-entry.js"
-import plugin from "../../lib/index.js"
+import nodeEntry from "eslint-plugin-n/node"
+import plugin from "eslint-plugin-n"
 
 describe("node-entry", () => {
     it("should export the same meta and rules as the main plugin", () => {
