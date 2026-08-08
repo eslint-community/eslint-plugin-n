@@ -1,5 +1,31 @@
 # Changelog
 
+## [18.3.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.2...v18.3.0) (2026-08-08)
+
+
+### 🌟 Features
+
+* add prefer-process-get-builtin-module rule ([#554](https://github.com/eslint-community/eslint-plugin-n/issues/554)) ([8d9bd05](https://github.com/eslint-community/eslint-plugin-n/commit/8d9bd051b5a2cd0236057e83cd1f7cbce9880759))
+* implement `prefer-import/assert-strict` rule ([#553](https://github.com/eslint-community/eslint-plugin-n/issues/553)) ([d7afbed](https://github.com/eslint-community/eslint-plugin-n/commit/d7afbedc55e1a7eb5e4738166e289a7ed304b467))
+
+
+### 🩹 Fixes
+
+* handle import.meta paths in no-path-concat ([#559](https://github.com/eslint-community/eslint-plugin-n/issues/559)) ([a6b3ce2](https://github.com/eslint-community/eslint-plugin-n/commit/a6b3ce294511ccab4e2a8a97fddd3a307c7c5be8))
+* **no-unsupported-features:** classify util.styleText as experimental ([#560](https://github.com/eslint-community/eslint-plugin-n/issues/560)) ([b8e39c5](https://github.com/eslint-community/eslint-plugin-n/commit/b8e39c5c9579af0c323d0cf371f04d4dc8a1fbf9))
+* support brace expansion and extglobs in package files ([#558](https://github.com/eslint-community/eslint-plugin-n/issues/558)) ([8cae1af](https://github.com/eslint-community/eslint-plugin-n/commit/8cae1af784976b0db669488119bbaa70025c55b7))
+
+
+### 📚 Documentation
+
+* add eslint-plugin-node migration guide ([#561](https://github.com/eslint-community/eslint-plugin-n/issues/561)) ([4138d4e](https://github.com/eslint-community/eslint-plugin-n/commit/4138d4e85e23f0562a8b410698a3ca02dbccd8e7))
+* update outdated http links to https in docs/rules ([#562](https://github.com/eslint-community/eslint-plugin-n/issues/562)) ([a6cd6a5](https://github.com/eslint-community/eslint-plugin-n/commit/a6cd6a59efbd72c375bc6e00fd94d21e3097ebb1))
+
+
+### 🧹 Chores
+
+* rename default export `n` ([#556](https://github.com/eslint-community/eslint-plugin-n/issues/556)) ([d499fc1](https://github.com/eslint-community/eslint-plugin-n/commit/d499fc1129df5a35042fe44008b002fdfe7731d6))
+
 ## [18.2.2](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.1...v18.2.2) (2026-07-11)
 
 
