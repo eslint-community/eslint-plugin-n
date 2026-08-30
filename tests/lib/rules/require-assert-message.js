@@ -27,6 +27,7 @@ new RuleTester({
         'import assert from "node:assert"; assert.fail();',
         'import assert from "node:assert"; assert.ok(user, message);',
         'import assert from "node:assert"; assert.ok(user, getMessage());',
+        'import assert from "node:assert"; assert.ok(...args);',
         'let assert = require("node:assert"); assert = mock; assert.ok(user);',
         {
             code: 'import assert from "node:assert"; function check(undefined) { assert.ok(user, undefined); }',
@@ -104,6 +105,10 @@ new RuleTester({
         },
         {
             code: 'import assert from "node:assert"; assert.ok(user, void 0);',
+            errors: [{ messageId: "emptyMessage" }],
+        },
+        {
+            code: 'import assert from "node:assert"; assert.ok(user, null);',
             errors: [{ messageId: "emptyMessage" }],
         },
         {
