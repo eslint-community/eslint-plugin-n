@@ -55,7 +55,7 @@ const fs = process.getBuiltinModule("fs")
 
 ### Configured Node.js version range
 
-[Configured Node.js version range](../../../README.md#configured-nodejs-version-range)
+[Configured Node.js version range](../../README.md#configured-nodejs-version-range)
 
 ### Options
 
