@@ -1,0 +1,8 @@
+{
+    "name": "pnpm-workspace-root",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "root-dep": "0.0.0"
+    }
+}
