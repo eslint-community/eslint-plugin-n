@@ -65,7 +65,7 @@ The `"ignores"` option accepts an array of strings.
 
 ### Shared Settings
 
-The following options can be set by [shared settings](https://eslint.org/docs/latest/use/configure/configuration-files#configuring-shared-settings).
+The following options can be set by [shared settings](https://eslint.org/docs/latest/use/configure/configuration-files#configure-shared-settings).
 Several rules have the same option, but we can set this option at once.
 
 - `version`

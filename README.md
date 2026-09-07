@@ -77,7 +77,7 @@ export default defineConfig([
 The rules get the supported Node.js version range from the following, falling back to the next if unspecified:
 
 1. Rule configuration `version`
-2. ESLint [shared setting](http://eslint.org/docs/user-guide/configuring.html#adding-shared-settings) `node.version`
+2. ESLint [shared setting](https://eslint.org/docs/latest/use/configure/configuration-files#configure-shared-settings) `node.version`
 3. `package.json` [`engines`] field
 4. `package.json` [`devEngines.runtime`](https://docs.npmjs.com/cli/v11/configuring-npm/package-json#devengines) field (when `name` is `"node"`)
 5. `>=16.0.0`

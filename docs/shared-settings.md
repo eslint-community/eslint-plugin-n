@@ -1,6 +1,6 @@
 # Shared Settings
 
-The following options can be set by [shared settings](http://eslint.org/docs/user-guide/configuring.html#adding-shared-settings).
+The following options can be set by [shared settings](https://eslint.org/docs/latest/use/configure/configuration-files#configure-shared-settings).
 Several rules have the same option, but we can set this option at once.
 
 `eslint-plugin-n` reads both the `node`, and the `n` settings to allow for backward compatibility with `eslint-plugin-node`.
