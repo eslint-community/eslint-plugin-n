@@ -131,6 +131,12 @@
         "*.{json,js}": "prettier --write --ignore-path .eslintignore",
         "*.md": "markdownlint --fix"
     },
+    "exports": {
+        ".": "./lib/index.js",
+        "./package.json": "./package.json",
+        "./node": "./lib/node-entry.js",
+        "./*": "./*"
+    },
     "imports": {
         "#test-helpers": "./tests/test-helpers.js"
     }
