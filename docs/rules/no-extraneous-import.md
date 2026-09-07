@@ -12,6 +12,8 @@ Additionally, the transitive dependency could be a dev dependency, meaning your 
 
 This rule disallows `import` declarations of extraneous modules.
 
+When checking workspace packages, this rule detects and supports both npm workspaces defined in `package.json` and pnpm workspaces defined in `pnpm-workspace.yaml`.
+
 ## 📖 Rule Details
 
 This rule warns `import` declarations of extraneous modules.
