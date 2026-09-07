@@ -1,5 +1,12 @@
 # Changelog
 
+## [18.3.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.3.0...v18.3.1) (2026-09-07)
+
+
+### 📚 Documentation
+
+* fix broken documentation links ([#567](https://github.com/eslint-community/eslint-plugin-n/issues/567)) ([569153f](https://github.com/eslint-community/eslint-plugin-n/commit/569153f4406597bf1c8e1993430f0f067158bbec))
+
 ## [18.3.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.2...v18.3.0) (2026-08-08)
 
 
