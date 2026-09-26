@@ -1,5 +1,17 @@
 # Changelog
 
+## [18.4.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.3.0...v18.4.0) (2026-09-26)
+
+
+### 🌟 Features
+
+* **no-extraneous:** Support pnpm workspaces in no-extraneous rules ([#569](https://github.com/eslint-community/eslint-plugin-n/issues/569)) ([3aae430](https://github.com/eslint-community/eslint-plugin-n/commit/3aae4304a49052f4fb2cd8e4baff6489aa095c00))
+
+
+### 📚 Documentation
+
+* fix broken documentation links ([#567](https://github.com/eslint-community/eslint-plugin-n/issues/567)) ([569153f](https://github.com/eslint-community/eslint-plugin-n/commit/569153f4406597bf1c8e1993430f0f067158bbec))
+
 ## [18.3.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.2.2...v18.3.0) (2026-08-08)
 
 
