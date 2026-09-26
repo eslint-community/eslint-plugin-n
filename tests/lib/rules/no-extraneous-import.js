@@ -108,6 +108,11 @@ ruleTester.run("no-extraneous-import", rule, {
             code: "import rootDep from 'root-dep'",
             settings: workspaceResolveSettings,
         },
+        {
+            filename: fixture("pnpm-workspace/packages/app/src/index.js"),
+            code: "import rootDep from 'root-dep'",
+            settings: workspaceResolveSettings,
+        },
 
         // missing packages are warned by no-missing-import
         {
@@ -176,6 +181,12 @@ ruleTester.run("no-extraneous-import", rule, {
             code: "import outerDep from 'outer-dep'",
             settings: workspaceResolveSettings,
             errors: ['"outer-dep" is extraneous.'],
+        },
+        {
+            filename: fixture("pnpm-workspace/packages/excluded/src/index.js"),
+            code: "import rootDep from 'root-dep'",
+            settings: workspaceResolveSettings,
+            errors: ['"root-dep" is extraneous.'],
         },
 
         // import()
