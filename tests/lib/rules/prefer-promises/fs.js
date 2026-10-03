@@ -210,5 +210,9 @@ new RuleTester({
             code: "const fs = require('fs'); fs.statfs()",
             errors: [{ messageId: "preferPromises", data: { name: "statfs" } }],
         },
+        {
+            code: "const fs = require('fs'); fs.watch('file', () => {})",
+            errors: [{ messageId: "preferPromises", data: { name: "watch" } }],
+        },
     ],
 })
