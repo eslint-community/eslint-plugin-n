@@ -1,5 +1,20 @@
 # Changelog
 
+## [18.4.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.4.0...v18.4.1) (2026-10-03)
+
+
+### 🩹 Fixes
+
+* **prefer-promises/fs:** cover fs.watch ([#566](https://github.com/eslint-community/eslint-plugin-n/issues/566)) ([37bf3a2](https://github.com/eslint-community/eslint-plugin-n/commit/37bf3a2f25d5ad4a3e419dd5a9487d5a4a5f74eb))
+* properly handle extension override mappings in file-extension-in-import ([#572](https://github.com/eslint-community/eslint-plugin-n/issues/572)) ([995c881](https://github.com/eslint-community/eslint-plugin-n/commit/995c88173c329f55a485d00df0f11caddbea4205))
+
+
+### 🧹 Chores
+
+* cache parsed tsconfig per directory ([#571](https://github.com/eslint-community/eslint-plugin-n/issues/571)) ([1cfd694](https://github.com/eslint-community/eslint-plugin-n/commit/1cfd694fce17569886b64ba49da902c9ccc8feb6))
+* Remove stale TypeScript suppressions blocking the Lint job ([#574](https://github.com/eslint-community/eslint-plugin-n/issues/574)) ([73f4d4f](https://github.com/eslint-community/eslint-plugin-n/commit/73f4d4fd9d70631c777320f0291a02fb59c2b22f))
+* resolve import targets lazily and reuse resolvers ([#570](https://github.com/eslint-community/eslint-plugin-n/issues/570)) ([aff82d1](https://github.com/eslint-community/eslint-plugin-n/commit/aff82d1ea9f01125224c1a023007a7c26fd2cd85))
+
 ## [18.4.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.3.0...v18.4.0) (2026-09-26)
 
 
