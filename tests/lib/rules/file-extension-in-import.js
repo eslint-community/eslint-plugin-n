@@ -154,6 +154,38 @@ new RuleTester({
             options: ["never", { ".json": "always" }],
         },
 
+        // extension overrides with typescript files (issue #405)
+        {
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            options: ["always", { ".ts": "never", ".js": "never" }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './a'",
+            options: ["always", { ".ts": "never", ".js": "never" }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            options: ["always", { ".ts": "never" }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            options: ["always", { ".js": "never" }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d.js'",
+            options: ["never", { ".ts": "always" }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d.js'",
+            options: ["never", { ".js": "always" }],
+        },
+
         // Ignore sub-paths of modules
         {
             filename: fixture("test.js"),
@@ -328,6 +360,43 @@ new RuleTester({
             output: "import './c'",
             options: ["never", { ".json": "always" }],
             errors: [{ messageId: "forbidExt", data: { ext: ".mjs" } }],
+        },
+
+        // extension overrides with typescript files (issue #405)
+        {
+            filename: fixture("test.ts"),
+            code: "import './d.js'",
+            output: "import './d'",
+            options: ["always", { ".ts": "never", ".js": "never" }],
+            errors: [{ messageId: "forbidExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d.js'",
+            output: "import './d'",
+            options: ["always", { ".js": "never" }],
+            errors: [{ messageId: "forbidExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d.js'",
+            output: "import './d'",
+            options: ["always", { ".ts": "never" }],
+            errors: [{ messageId: "forbidExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            output: "import './d.js'",
+            options: ["never", { ".ts": "always" }],
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.ts"),
+            code: "import './d'",
+            output: "import './d.js'",
+            options: ["never", { ".js": "always" }],
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
         },
 
         {
