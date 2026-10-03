@@ -413,6 +413,19 @@ ruleTester.run("no-missing-import", rule, {
                 },
             ],
         },
+        // type and value imports resolve under different conditions, even within one file
+        {
+            filename: fixture("test.ts"),
+            languageOptions: { parser: tsParser },
+            code: "import type d from 'types-only';\nimport e from 'types-only';",
+            errors: [{ messageId: "notFound", line: 2 }],
+        },
+        {
+            filename: fixture("test.ts"),
+            languageOptions: { parser: tsParser },
+            code: "import e from 'types-only';\nimport type d from 'types-only';",
+            errors: [{ messageId: "notFound", line: 1 }],
+        },
         {
             filename: fixture("test.js"),
             code: "import test from '@mysticatea/test';",
