@@ -52,6 +52,18 @@ ruleTester.run("no-mixed-requires", rule, {
         },
         { code: "var a;", options: [true] },
         {
+            code: "var fs = require('fs'), promises = require('node:fs/promises')",
+            options: [{ grouping: true }],
+        },
+        {
+            code: "var fs = require('node:fs'), test = require('node:test')",
+            options: [{ grouping: true }],
+        },
+        {
+            code: "var fs = require('node:fs'), crypto = require('crypto')",
+            options: [{ grouping: true }],
+        },
+        {
             code: "var async = require('async'), debug = require('diagnostics')('my-module')",
             options: [{ allowCall: true }],
         },
@@ -132,6 +144,24 @@ ruleTester.run("no-mixed-requires", rule, {
         {
             code: "var foo = require('foo'), bar = require(getName())",
             options: [true],
+            errors: [
+                {
+                    messageId: "noMixCoreModuleFileComputed",
+                },
+            ],
+        },
+        {
+            code: "var fs = require('node:fs'), foo = require('foo')",
+            options: [{ grouping: true }],
+            errors: [
+                {
+                    messageId: "noMixCoreModuleFileComputed",
+                },
+            ],
+        },
+        {
+            code: "var test = require('node:test'), foo = require('foo')",
+            options: [{ grouping: true }],
             errors: [
                 {
                     messageId: "noMixCoreModuleFileComputed",
