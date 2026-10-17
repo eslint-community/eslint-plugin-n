@@ -115,8 +115,7 @@ var async = require('async'),
 
 - The implementation is not aware of any local functions with the name `require` that may shadow Node.js' global `require`.
 
-- Internally, the list of core modules is retrieved via `require("repl")._builtinLibs`. If you use different versions of Node.js for ESLint and your application, the list of core modules for each version may be different.
-  The above mentioned `_builtinLibs` property became available in 0.8, for earlier versions a hardcoded list of module names is used as a fallback. If your version of Node.js is older than 0.6 that list may be inaccurate.
+- Core modules are detected using Node.js' `module.isBuiltin()`, including `node:`-prefixed imports. If ESLint and your application run different Node.js versions, their available built-in modules may differ.
 
 ## 🔎 Implementation
 
