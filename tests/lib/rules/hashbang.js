@@ -26,6 +26,11 @@ ruleTester.run("shebang", rule, {
             code: "#!/usr/bin/env node\nhello();",
         },
         {
+            name: "string-bin/bin/test.js with tab-separated env argument",
+            filename: fixture("string-bin/bin/test.js"),
+            code: "#!/usr/bin/env\tnode\nhello();",
+        },
+        {
             name: "string-bin/lib/test.js",
             filename: fixture("string-bin/lib/test.js"),
             code: "hello();",
@@ -230,6 +235,20 @@ ruleTester.run("shebang", rule, {
             name: "bin: string - match - incorrect shebang",
             filename: fixture("string-bin/bin/test.js"),
             code: "#!/usr/bin/node\nhello();",
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "bin: string - unrelated interpreter ending in node",
+            filename: fixture("string-bin/bin/test.js"),
+            code: "#!/usr/bin/xxnode\nhello();",
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "bin: string - env without command separator",
+            filename: fixture("string-bin/bin/test.js"),
+            code: "#!/usr/bin/envnode\nhello();",
             output: "#!/usr/bin/env node\nhello();",
             errors: ['This file needs shebang "#!/usr/bin/env node".'],
         },
