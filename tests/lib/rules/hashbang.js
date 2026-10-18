@@ -86,6 +86,18 @@ ruleTester.run("shebang", rule, {
 
         // convertPath
         {
+            name: "convertPath - TypeScript source of a compiled bin",
+            filename: fixture("string-bin/src/bin/test.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+            options: [
+                {
+                    convertPath: {
+                        "src/**": ["^src/(.+)[.]ts$", "$1.js"],
+                    },
+                },
+            ],
+        },
+        {
             name: "convertPath - string-bin/src/bin/test.js",
             filename: fixture("string-bin/src/bin/test.js"),
             code: "#!/usr/bin/env node\nhello();",
@@ -270,6 +282,20 @@ ruleTester.run("shebang", rule, {
         },
 
         // convertPath
+        {
+            name: "convertPath - TypeScript bin source needs shebang",
+            filename: fixture("string-bin/src/bin/test.ts"),
+            code: "hello();",
+            output: "#!/usr/bin/env node\nhello();",
+            options: [
+                {
+                    convertPath: {
+                        "src/**": ["^src/(.+)[.]ts$", "$1.js"],
+                    },
+                },
+            ],
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
         {
             name: "convertPath in options",
             filename: fixture("string-bin/src/bin/test.js"),

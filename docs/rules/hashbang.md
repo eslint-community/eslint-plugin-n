@@ -79,6 +79,30 @@ console.log("hello");
 This can be configured in the rule options or as a shared setting [`settings.convertPath`](../shared-settings.md#convertpath).
 Please see the shared settings documentation for more information.
 
+For TypeScript CLIs compiled to JavaScript, use `convertPath` to match the source file against the output path in `package.json`. For example, if `src/cli.ts` compiles to `dist/cli.js`:
+
+```json
+{
+    "bin": {
+        "my-cli": "./dist/cli.js"
+    }
+}
+```
+
+Configure `n/hashbang` to check the compiled path when linting the source file:
+
+```json
+{
+    "n/hashbang": ["error", {
+        "convertPath": {
+            "src/**": ["^src/(.+)[.]ts$", "dist/$1.js"]
+        }
+    }]
+}
+```
+
+With this setting, a `#!/usr/bin/env node` shebang in `src/cli.ts` is recognized as belonging to the executable `dist/cli.js`. Adjust the mapping if your build uses different source or output directories.
+
 #### ignoreUnpublished
 
 Allow for files that are not published to npm to be ignored by this rule.
