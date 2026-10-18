@@ -169,6 +169,30 @@ ruleTester.run("no-missing-require", rule, {
             ],
         },
 
+        // resolverConfig aliases
+        {
+            filename: fixture("test.js"),
+            code: "require('@app/a');",
+            options: [
+                {
+                    resolverConfig: {
+                        alias: { "@app": fixture("./") },
+                    },
+                },
+            ],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "require('@app/a');",
+            settings: {
+                n: {
+                    resolverConfig: {
+                        alias: { "@app": fixture("./") },
+                    },
+                },
+            },
+        },
+
         // Ignores it if not callee.
         {
             filename: fixture("test.js"),
@@ -453,6 +477,20 @@ ruleTester.run("no-missing-require", rule, {
             filename: fixture("test.js"),
             code: "require.resolve('no-exist-package-0');",
             errors: cantResolve("no-exist-package-0"),
+        },
+
+        // Unresolved paths still fail when using aliases.
+        {
+            filename: fixture("test.js"),
+            code: "require('@app/not-a-file');",
+            options: [
+                {
+                    resolverConfig: {
+                        alias: { "@app": fixture("./") },
+                    },
+                },
+            ],
+            errors: cantResolve("@app/not-a-file"),
         },
 
         // Virtual modules
