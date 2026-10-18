@@ -1,5 +1,23 @@
 # Changelog
 
+## [18.5.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.4.1...v18.5.0) (2026-10-18)
+
+
+### 🌟 Features
+
+* **node-builtins:** ✨ support 20.20, 22.23, 24.22 and 26.12 ([#578](https://github.com/eslint-community/eslint-plugin-n/issues/578)) ([2fa0069](https://github.com/eslint-community/eslint-plugin-n/commit/2fa0069534e97f807092480d8383124da0ae18eb))
+
+
+### 🩹 Fixes
+
+* **no-mixed-requires:** classify modern Node built-ins ([#580](https://github.com/eslint-community/eslint-plugin-n/issues/580)) ([58c5d56](https://github.com/eslint-community/eslint-plugin-n/commit/58c5d56f8ac64905d32a9427c03e62d61063eba8))
+* **no-unsupported-features/es-syntax:** Promise.withResolvers is supported since Node.js 22.0.0 ([#577](https://github.com/eslint-community/eslint-plugin-n/issues/577)) ([4a6dee1](https://github.com/eslint-community/eslint-plugin-n/commit/4a6dee17e067da781b94cbe42674bf7f589cc930))
+
+
+### 📚 Documentation
+
+* explain module aliases for no-missing-require ([#579](https://github.com/eslint-community/eslint-plugin-n/issues/579)) ([fcf1256](https://github.com/eslint-community/eslint-plugin-n/commit/fcf1256ee65f490af65b98a4812f95c422313189))
+
 ## [18.4.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.4.0...v18.4.1) (2026-10-03)
 
 
