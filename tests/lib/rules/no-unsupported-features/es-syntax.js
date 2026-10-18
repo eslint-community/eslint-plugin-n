@@ -3111,6 +3111,34 @@ runTests([
         ],
     },
     //----------------------------------------------------------------------
+    // ES2024
+    //----------------------------------------------------------------------
+    {
+        keyword: "promiseWithresolvers",
+        valid: [
+            {
+                code: "Promise.withResolvers()",
+                options: [{ version: "22.0.0" }],
+            },
+        ],
+        invalid: [
+            {
+                code: "Promise.withResolvers()",
+                options: [{ version: "21.7.3" }],
+                errors: [
+                    {
+                        messageId: "not-supported-till",
+                        data: {
+                            featureName: "promise-withresolvers",
+                            supported: ">=22.0.0",
+                            version: "21.7.3",
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    //----------------------------------------------------------------------
     // MISC
     //----------------------------------------------------------------------
     {
