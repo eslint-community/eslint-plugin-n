@@ -59,6 +59,25 @@ export default defineConfig([
 ])
 ```
 
+### `eslint-plugin-n/node`
+
+If you are migrating from `eslint-plugin-node` and want to keep the `node/` prefix for rules, you can use the `eslint-plugin-n/node` entry point:
+
+```js
+import node from "eslint-plugin-n/node"
+import {defineConfig} from "eslint/config"
+
+export default defineConfig([
+    {
+        plugins: {node},
+        extends: ["node/recommended-module"],
+        rules: {
+            "node/exports-style": ["error", "module.exports"],
+        },
+    }
+])
+```
+
 **package.json** (An example)
 
 ```json
