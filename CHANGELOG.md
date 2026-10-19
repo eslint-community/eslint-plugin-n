@@ -1,5 +1,17 @@
 # Changelog
 
+## [18.5.1](https://github.com/eslint-community/eslint-plugin-n/compare/v18.5.0...v18.5.1) (2026-10-19)
+
+
+### 🩹 Fixes
+
+* **hashbang:** reject invalid env interpreter prefixes ([#584](https://github.com/eslint-community/eslint-plugin-n/issues/584)) ([259aed3](https://github.com/eslint-community/eslint-plugin-n/commit/259aed3bdad7c35c28fbbddc8af0c127ca41638e))
+
+
+### 📚 Documentation
+
+* **hashbang:** explain TypeScript CLI path mapping ([#582](https://github.com/eslint-community/eslint-plugin-n/issues/582)) ([cb7637b](https://github.com/eslint-community/eslint-plugin-n/commit/cb7637bdc51f19b1072cb925c0698d5b38cb10c3))
+
 ## [18.5.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.4.1...v18.5.0) (2026-10-18)
 
 
