@@ -154,6 +154,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [prefer-promises/dns](docs/rules/prefer-promises/dns.md)                                     | enforce `require("dns").promises`                                                     |      |    |    |
 | [prefer-promises/fs](docs/rules/prefer-promises/fs.md)                                       | enforce `require("fs").promises`                                                      |      |    |    |
 | [process-exit-as-throw](docs/rules/process-exit-as-throw.md)                                 | require that `process.exit()` expressions use the same code path as `throw`           | 🟢 ✅ |    |    |
+| [require-assert-message](docs/rules/require-assert-message.md)                               | require messages for `node:assert` calls                                              |      |    |    |
 | [shebang](docs/rules/shebang.md)                                                             | require correct usage of hashbang                                                     |      | 🔧 | ❌  |
 
 <!-- end auto-generated rules list -->
