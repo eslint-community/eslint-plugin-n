@@ -279,6 +279,17 @@ ruleTester.run("no-missing-require", rule, {
             options: [{ allowModules: ["virtual:package-scope"] }],
         },
 
+        // The same allowModules schema is shared with no-missing-import.
+        {
+            filename: fixture("test.js"),
+            code: "require('bun:test');",
+            options: [{ allowModules: ["bun:test"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "require('bun:sqlite');",
+            settings: { n: { allowModules: ["bun:sqlite"] } },
+        },
         // typescriptExtensionMap
         {
             filename: fixture("test.tsx"),
@@ -493,6 +504,13 @@ ruleTester.run("no-missing-require", rule, {
             errors: cantResolve("@app/not-a-file"),
         },
 
+        // Unlisted Bun modules should still be reported.
+        {
+            filename: fixture("test.js"),
+            code: "require('bun:sqlite');",
+            options: [{ allowModules: ["bun:test"] }],
+            errors: [{ messageId: "notFound" }],
+        },
         // Virtual modules
         {
             filename: fixture("test.js"),
