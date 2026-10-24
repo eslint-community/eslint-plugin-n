@@ -179,6 +179,27 @@ ruleTester.run("no-missing-import", rule, {
             options: [{ allowModules: ["virtual:package-scope"] }],
         },
 
+        // Allow Bun modules only when explicitly configured.
+        {
+            filename: fixture("test.js"),
+            code: "import test from 'bun:test';",
+            options: [{ allowModules: ["bun:test"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "export { test } from 'bun:test';",
+            options: [{ allowModules: ["bun:test"] }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import sqlite from 'bun:sqlite';",
+            settings: { n: { allowModules: ["bun:sqlite"] } },
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import test from 'bun:test';",
+            settings: { node: { allowModules: ["bun:test"] } },
+        },
         // resolvePaths
         {
             filename: fixture("test.js"),
@@ -524,6 +545,18 @@ ruleTester.run("no-missing-import", rule, {
               ]
             : []),
 
+        // A Bun module still has to be explicitly allowed.
+        {
+            filename: fixture("test.js"),
+            code: "import test from 'bun:test';",
+            errors: [{ messageId: "notFound" }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import sqlite from 'bun:sqlite';",
+            options: [{ allowModules: ["bun:test"] }],
+            errors: [{ messageId: "notFound" }],
+        },
         // virtual modules
         {
             filename: fixture("test.js"),
