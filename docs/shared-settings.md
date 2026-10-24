@@ -30,6 +30,7 @@ For example, Electron has `electron` module.
 
 We can specify additional embedded modules with this option.
 This option is an array of strings as module names.
+For example, code running under Bun can explicitly allow `bun:test` or `bun:sqlite` without changing which modules the plugin recognizes by default.
 
 ### Example allowModules
 
