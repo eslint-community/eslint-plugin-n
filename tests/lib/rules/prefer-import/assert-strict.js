@@ -38,55 +38,198 @@ new RuleTester({
     invalid: [
         {
             code: 'import assert from "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'import assert from "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: "import * as assert from 'node:assert';",
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: "import * as assert from 'node:assert/strict';",
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'import "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'import "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'import assert, { strict } from "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'import assert, { strict } from "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'import { strict, equal } from "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'import { strict, equal } from "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'export { default as assert } from "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'export { default as assert } from "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'export { strict, equal } from "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'export { strict, equal } from "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'export * from "node:assert";',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'export * from "node:assert/strict";',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'import("node:assert");',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'import("node:assert/strict");',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'require("node:assert");',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'require("node:assert/strict");',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'require("node:assert", extra);',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'require("node:assert/strict", extra);',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'const { strict, equal } = require("node:assert");',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'const { strict, equal } = require("node:assert/strict");',
+                        },
+                    ],
+                },
+            ],
         },
         {
             code: 'require("node:\\u0061ssert");',
-            errors: [{ messageId: "preferAssertStrict" }],
+            output: null,
+            errors: [
+                {
+                    messageId: "preferAssertStrict",
+                    suggestions: [
+                        {
+                            messageId: "useAssertStrict",
+                            output: 'require("node:\\u0061ssert/strict");',
+                        },
+                    ],
+                },
+            ],
         },
     ],
 })
