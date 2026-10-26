@@ -59,6 +59,8 @@ new RuleTester({
         "import { spawn } from 'child_process'; spawn('cmd', [], { timeout: 1000 })",
         "import { exec } from 'child_process'; const options = { signal: controller.signal }; exec('cmd', options)",
         "import { exec } from 'child_process'; const options = {}; options.timeout = 1000; exec('cmd', options)",
+        "import { exec } from 'child_process'; const options = {}; const alias = options; alias.timeout = 1000; exec('cmd', options)",
+        "import { exec } from 'child_process'; const options = {}; const alias = options; const next = alias; next.timeout = 1000; exec('cmd', options)",
         "import { exec } from 'child_process'; let options = {}; options = getOptions(); exec('cmd', options)",
         "const exec = command => command; exec('cmd')",
         "const cp = { exec() {} }; cp.exec('cmd')",
