@@ -5713,7 +5713,7 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
         },
 
 
-        //----------------------------------------------------------------------
+//----------------------------------------------------------------------
         // globals that no longer need experimental flags
         //----------------------------------------------------------------------
         {
@@ -5741,69 +5741,110 @@ new RuleTester({ languageOptions: { sourceType: "module" } }).run(
                 },
                 {
                     code: "fetch('/api')",
-                    options: [{ version: "16.16.0", allowUnflagged: true, allowExperimental: true }],
+                    options: [
+                        {
+                            version: "16.16.0",
+                            allowUnflagged: true,
+                            allowExperimental: true,
+                        },
+                    ],
                 },
             ],
             invalid: [
                 {
                     code: "fetch('/api')",
                     options: [{ version: ">=20" }],
-                    errors: [{
-                        messageId: "not-supported-till",
-                        data: { name: "fetch", supported: "21.0.0", version: ">=20" },
-                    }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "fetch",
+                                supported: "21.0.0",
+                                version: ">=20",
+                            },
+                        },
+                    ],
                 },
                 ...["17.9.0", ">=17.5.0"].map(version => ({
                     code: "fetch('/api')",
                     options: [{ version, allowUnflagged: true }],
-                    errors: [{
-                        messageId: "not-supported-till",
-                        data: { name: "fetch", supported: "21.0.0", version },
-                    }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "fetch",
+                                supported: "21.0.0",
+                                version,
+                            },
+                        },
+                    ],
                 })),
                 {
                     code: "void crypto",
                     options: [{ version: "18.19.0", allowUnflagged: true }],
-                    errors: [{
-                        messageId: "not-supported-till",
-                        data: { name: "crypto", supported: "23.0.0", version: "18.19.0" },
-                    }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "crypto",
+                                supported: "23.0.0",
+                                version: "18.19.0",
+                            },
+                        },
+                    ],
                 },
                 {
                     code: "new CustomEvent('x')",
                     options: [{ version: "18.7.0", allowUnflagged: true }],
-                    errors: [{
-                        messageId: "not-supported-till",
-                        data: { name: "CustomEvent", supported: "23.0.0", version: "18.7.0" },
-                    }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "CustomEvent",
+                                supported: "23.0.0",
+                                version: "18.7.0",
+                            },
+                        },
+                    ],
                 },
                 {
                     code: "new WebSocket('wss://example.com')",
                     options: [{ version: "21.0.0", allowUnflagged: true }],
-                    errors: [{
-                        messageId: "not-supported-till",
-                        data: { name: "WebSocket", supported: "22.4.0", version: "21.0.0" },
-                    }],
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "WebSocket",
+                                supported: "22.4.0",
+                                version: "21.0.0",
+                            },
+                        },
+                    ],
                 },
                 {
                     code: "void navigator",
                     options: [{ version: "22.0.0", allowUnflagged: true }],
-                    errors: [{
-                        messageId: "not-supported-yet",
-                        data: { name: "navigator", version: "22.0.0" },
-                    }],
+                    errors: [
+                        {
+                            messageId: "not-supported-yet",
+                            data: { name: "navigator", version: "22.0.0" },
+                        },
+                    ],
                 },
                 {
                     code: "import.meta.dirname",
                     options: [{ version: "21.2.0", allowUnflagged: true }],
-                    errors: [{
-                        messageId: "not-supported-till",
-                        data: {
-                            name: "import.meta.dirname",
-                            supported: "24.0.0 (backported: ^22.16.0)",
-                            version: "21.2.0",
+                    languageOptions: { ecmaVersion: "latest" },
+                    errors: [
+                        {
+                            messageId: "not-supported-till",
+                            data: {
+                                name: "import.meta.dirname",
+                                supported: "24.0.0 (backported: ^22.16.0)",
+                                version: "21.2.0",
+                            },
                         },
-                    }],
+                    ],
                 },
             ],
         },
