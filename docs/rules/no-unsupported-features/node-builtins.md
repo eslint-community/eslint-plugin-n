@@ -28,6 +28,7 @@ This rule reports APIs of Node.js built-in APIs on the basis of [Node.js v13.2.0
 {
     "n/no-unsupported-features/node-builtins": ["error", {
         "version": ">=16.0.0",
+        "allowUnflagged": true,
         "ignores": []
     }]
 }
@@ -45,6 +46,15 @@ The `version` option accepts [the valid version range of `node-semver`](https://
 This allows you to enable experimental features that are available in your configured node version
 
 The `"allowExperimental"` option accepts a boolean value (the default value is `false`).
+
+#### allowUnflagged
+
+Some Node.js APIs are available without an enabling CLI flag before they are marked stable.
+Set `"allowUnflagged": true` to allow these APIs when **every version** in the configured range supports them without a flag.
+
+The default is `false`, and only APIs with recorded unflagged versions are affected.
+Unlike `allowExperimental`, this does not allow APIs that still require an opt-in flag.
+For example, `fetch` is allowed on Node.js `>=18` but `CustomEvent` is not allowed on Node.js 18, where it still requires a flag.
 
 #### ignores
 
