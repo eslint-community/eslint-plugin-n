@@ -4,5 +4,5 @@
  * @deprecated use `flat/recommended-module` instead
  */
 
-import pkg from '../lib/index.js';
+import pkg from "../lib/index.js"
 export default pkg.configs["flat/recommended-module"]
