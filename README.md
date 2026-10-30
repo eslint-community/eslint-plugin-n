@@ -150,6 +150,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [prefer-global/url-search-params](docs/rules/prefer-global/url-search-params.md)             | enforce either `URLSearchParams` or `require("url").URLSearchParams`                  |      |    |    |
 | [prefer-import/assert-strict](docs/rules/prefer-import/assert-strict.md)                     | enforce using `node:assert/strict` instead of `node:assert`.                          |      |    |    |
 | [prefer-node-protocol](docs/rules/prefer-node-protocol.md)                                   | enforce using the `node:` protocol when importing Node.js builtin modules.            |      | 🔧 |    |
+| [prefer-process-cwd](docs/rules/prefer-process-cwd.md)                                       | enforce `process.cwd()` instead of `path.resolve()`                                   |      | 🔧 |    |
 | [prefer-process-get-builtin-module](docs/rules/prefer-process-get-builtin-module.md)         | enforce using `process.getBuiltinModule()` to load Node.js built-in modules           |      |    |    |
 | [prefer-promises/dns](docs/rules/prefer-promises/dns.md)                                     | enforce `require("dns").promises`                                                     |      |    |    |
 | [prefer-promises/fs](docs/rules/prefer-promises/fs.md)                                       | enforce `require("fs").promises`                                                      |      |    |    |
