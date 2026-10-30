@@ -2,12 +2,11 @@
  * @author 唯然<weiran.zsd@outlook.com>
  */
 
-
-import js from "@eslint/js";
-import globals from "globals";
-import nodePlugin from "eslint-plugin-n";
-import eslintPlugin from "eslint-plugin-eslint-plugin";
-import prettierConfig from "eslint-config-prettier";
+import js from "@eslint/js"
+import globals from "globals"
+import nodePlugin from "eslint-plugin-n"
+import eslintPlugin from "eslint-plugin-eslint-plugin"
+import prettierConfig from "eslint-config-prettier"
 
 export default [
     {
@@ -44,6 +43,6 @@ export default [
         files: ["{tests,scripts}/**/*.js"],
         rules: {
             "n/no-unsupported-features/node-builtins": 0, // import.meta.dirname is used in tests, and it is supported in all supported Node versions
-        }
-    }
+        },
+    },
 ]

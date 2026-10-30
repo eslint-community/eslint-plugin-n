@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: lts/*
       - run: npm install
+      - run: npm run -s format:check
       - run: npm run -s lint
       - run: npm run -s test:types
 
