@@ -221,6 +221,32 @@ ruleTester.run("shebang", rule, {
             options: [{ additionalExecutables: ["*.test.js"] }],
         },
 
+        // Shebangs outside of package.json#bin can be optional.
+        {
+            name: "non-bin shebang allowed by option",
+            filename: fixture("string-bin/lib/test.js"),
+            code: "#!/usr/bin/env node\nhello();",
+            options: [{ allowNonBinHashbang: true }],
+        },
+        {
+            name: "non-bin file without shebang still allowed",
+            filename: fixture("string-bin/lib/test.js"),
+            code: "hello();",
+            options: [{ allowNonBinHashbang: true }],
+        },
+        {
+            name: "non-bin custom interpreter is preserved",
+            filename: fixture("no-bin-field/lib/test.js"),
+            code: "#!/usr/bin/env bun\nhello();",
+            options: [{ allowNonBinHashbang: true }],
+        },
+        {
+            name: "bin entry still accepts the expected shebang",
+            filename: fixture("string-bin/bin/test.js"),
+            code: "#!/usr/bin/env node\nhello();",
+            options: [{ allowNonBinHashbang: true }],
+        },
+
         // executableMap
         {
             name: ".ts maps to ts-node",
@@ -518,6 +544,40 @@ ruleTester.run("shebang", rule, {
             options: [{ additionalExecutables: ["*.test.js"] }],
             output: "hello();",
             errors: ["This file needs no shebang."],
+        },
+
+        // The option keeps scripts executable without weakening bin checks.
+        {
+            name: "non-bin optional shebang with BOM",
+            filename: fixture("string-bin/lib/test.js"),
+            code: "\uFEFF#!/usr/bin/env node\nhello();",
+            options: [{ allowNonBinHashbang: true }],
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ["This file must not have Unicode BOM."],
+        },
+        {
+            name: "non-bin optional shebang with CRLF",
+            filename: fixture("string-bin/lib/test.js"),
+            code: "#!/usr/bin/env bun\r\nhello();",
+            options: [{ allowNonBinHashbang: true }],
+            output: "#!/usr/bin/env bun\nhello();",
+            errors: ["This file must have Unix linebreaks (LF)."],
+        },
+        {
+            name: "bin entry still requires shebang with option",
+            filename: fixture("string-bin/bin/test.js"),
+            code: "hello();",
+            options: [{ allowNonBinHashbang: true }],
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "bin entry still checks interpreter with option",
+            filename: fixture("string-bin/bin/test.js"),
+            code: "#!/usr/bin/env bun\nhello();",
+            options: [{ allowNonBinHashbang: true }],
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
         },
 
         // executableMap
