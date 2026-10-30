@@ -67,6 +67,7 @@ console.log("hello");
         "convertPath": null,
         "ignoreUnpublished": false,
         "additionalExecutables": [],
+        "allowNonBinHashbang": false,
         "executableMap": {
             ".js": "node"
         }
@@ -110,6 +111,20 @@ Allow for files that are not published to npm to be ignored by this rule.
 #### additionalExecutables
 
 Mark files as executable that are not referenced by the package.json#bin property
+
+#### allowNonBinHashbang
+
+Allow scripts outside `package.json#bin` to keep a hashbang without requiring one in every file
+The default is `false`, so extra hashbangs are still removed unless this option is enabled
+
+Files listed in `bin` still require the expected Node hashbang
+For optional hashbangs, the rule keeps the interpreter as written but still checks for Unicode BOM and CRLF line endings
+
+```json
+{
+    "n/hashbang": ["error", { "allowNonBinHashbang": true }]
+}
+```
 
 #### executableMap
 
