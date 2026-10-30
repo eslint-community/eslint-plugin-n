@@ -1,5 +1,23 @@
 # Changelog
 
+## [18.6.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.5.0...v18.6.0) (2026-10-30)
+
+
+### 🌟 Features
+
+* require a timeout or signal for child processes ([#585](https://github.com/eslint-community/eslint-plugin-n/issues/585)) ([96aa334](https://github.com/eslint-community/eslint-plugin-n/commit/96aa33410da24ac4a6467adcd6f4f9386086f4a8))
+
+
+### 🩹 Fixes
+
+* Allow Bun module specifiers in allowModules ([#587](https://github.com/eslint-community/eslint-plugin-n/issues/587)) ([0b26690](https://github.com/eslint-community/eslint-plugin-n/commit/0b26690019a4b72c6863588681688098bf761058))
+* **hashbang:** reject invalid env interpreter prefixes ([#584](https://github.com/eslint-community/eslint-plugin-n/issues/584)) ([259aed3](https://github.com/eslint-community/eslint-plugin-n/commit/259aed3bdad7c35c28fbbddc8af0c127ca41638e))
+
+
+### 📚 Documentation
+
+* **hashbang:** explain TypeScript CLI path mapping ([#582](https://github.com/eslint-community/eslint-plugin-n/issues/582)) ([cb7637b](https://github.com/eslint-community/eslint-plugin-n/commit/cb7637bdc51f19b1072cb925c0698d5b38cb10c3))
+
 ## [18.5.0](https://github.com/eslint-community/eslint-plugin-n/compare/v18.4.1...v18.5.0) (2026-10-18)
 
 
