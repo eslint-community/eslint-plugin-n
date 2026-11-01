@@ -159,6 +159,52 @@ ruleTester.run("no-deprecated-api", rule, {
             ],
         },
 
+        // shared ignores work for modules, globals and different import forms
+        {
+            code: "require('domain');",
+            options: [{ version: "4.0.0", ignores: ["domain"] }],
+        },
+        {
+            code: "import domain from 'node:domain';",
+            languageOptions: { sourceType: "module" },
+            options: [{ version: "4.0.0", ignores: ["domain"] }],
+        },
+        {
+            code: "process.getBuiltinModule('domain');",
+            options: [{ version: "4.0.0", ignores: ["domain"] }],
+        },
+        {
+            code: "require('node:buffer').Buffer()",
+            options: [{ version: "6.0.0", ignores: ["buffer.Buffer()"] }],
+        },
+        {
+            code: "new Buffer(10)",
+            options: [{ version: "6.0.0", ignores: ["new Buffer()"] }],
+        },
+        {
+            code: "process.binding('fs')",
+            options: [{ version: "10.9.0", ignores: ["process.binding"] }],
+        },
+        {
+            code: "require('process').binding('fs')",
+            options: [{ version: "10.9.0", ignores: ["process.binding"] }],
+        },
+        {
+            code: "require('domain'); new Buffer(10)",
+            options: [{
+                version: "6.0.0",
+                ignores: ["domain", "new Buffer()"],
+            }],
+        },
+        {
+            code: "require('domain'); Buffer()",
+            options: [{
+                version: "6.0.0",
+                ignores: ["domain"],
+                ignoreGlobalItems: ["Buffer()"],
+            }],
+        },
+
         // https://github.com/mysticatea/eslint-plugin-node/issues/65
         {
             code: 'require("domain/")',
@@ -171,6 +217,35 @@ ruleTester.run("no-deprecated-api", rule, {
         },
     ],
     invalid: [
+        // shared ignores only suppress the named deprecations
+        {
+            code: "require('domain'); require('punycode');",
+            options: [{ version: "7.0.0", ignores: ["domain"] }],
+            errors: [
+                "'punycode' module was deprecated since v7.0.0. Use 'https://www.npmjs.com/package/punycode' instead.",
+            ],
+        },
+        {
+            code: "new Buffer(); Buffer();",
+            options: [{ version: "6.0.0", ignores: ["new Buffer()"] }],
+            errors: [
+                "'Buffer()' was deprecated since v6.0.0. Use 'Buffer.alloc()' or 'Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "require('buffer').Buffer(); new (require('buffer').Buffer)()",
+            options: [{ version: "6.0.0", ignores: ["buffer.Buffer()"] }],
+            errors: [
+                "'new buffer.Buffer()' was deprecated since v6.0.0. Use 'buffer.Buffer.alloc()' or 'buffer.Buffer.from()' instead.",
+            ],
+        },
+        {
+            code: "Buffer()",
+            options: [{ version: "6.0.0", ignores: ["buffer.Buffer()"] }],
+            errors: [
+                "'Buffer()' was deprecated since v6.0.0. Use 'Buffer.alloc()' or 'Buffer.from()' instead.",
+            ],
+        },
         //----------------------------------------------------------------------
         // Modules
         //----------------------------------------------------------------------
