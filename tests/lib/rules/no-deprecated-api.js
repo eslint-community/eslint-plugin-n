@@ -191,18 +191,22 @@ ruleTester.run("no-deprecated-api", rule, {
         },
         {
             code: "require('domain'); new Buffer(10)",
-            options: [{
-                version: "6.0.0",
-                ignores: ["domain", "new Buffer()"],
-            }],
+            options: [
+                {
+                    version: "6.0.0",
+                    ignores: ["domain", "new Buffer()"],
+                },
+            ],
         },
         {
             code: "require('domain'); Buffer()",
-            options: [{
-                version: "6.0.0",
-                ignores: ["domain"],
-                ignoreGlobalItems: ["Buffer()"],
-            }],
+            options: [
+                {
+                    version: "6.0.0",
+                    ignores: ["domain"],
+                    ignoreGlobalItems: ["Buffer()"],
+                },
+            ],
         },
 
         // https://github.com/mysticatea/eslint-plugin-node/issues/65
