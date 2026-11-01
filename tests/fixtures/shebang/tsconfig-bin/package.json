@@ -1,0 +1,10 @@
+{
+    "name": "tsconfig-bin",
+    "bin": {
+        "cli": "dist/cli.js",
+        "nested": "dist/sub/task.js",
+        "cts": "dist/cli.cjs",
+        "mts": "dist/cli.mjs",
+        "tsx": "dist/screen.jsx"
+    }
+}

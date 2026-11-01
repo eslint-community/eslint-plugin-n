@@ -1,0 +1,6 @@
+{
+    "name": "tsconfig-include-bin",
+    "bin": {
+        "cli": "dist/cli.js"
+    }
+}

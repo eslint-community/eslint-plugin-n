@@ -1,0 +1,6 @@
+{
+    "name": "tsconfig-ambiguous-bin",
+    "bin": {
+        "cli": "dist/cli.js"
+    }
+}
