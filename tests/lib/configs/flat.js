@@ -40,7 +40,7 @@ describe("flat configs", () => {
     })
 
     it("should parse ESM and CommonJS with flat/recommended", () => {
-        const linter = new Linter()
+        const linter = new Linter({ configType: "flat" })
         const config = { ...pkg.configs["flat/recommended"], rules: {} }
 
         assert.deepStrictEqual(
