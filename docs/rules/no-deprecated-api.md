@@ -149,15 +149,16 @@ This rule reports the following deprecated API.
 
 ### Options
 
-This rule has 4 options.
+This rule has 5 options.
 
 ```json
 {
     "rules": {
         "n/no-deprecated-api": ["error", {
             "version": ">=16.0.0",
+            "ignores": [],
             "ignoreModuleItems": [],
-            "ignoreGlobalItems": []
+            "ignoreGlobalItems": [],
             "ignoreIndirectDependencies": true
         }]
     }
@@ -170,6 +171,31 @@ As mentioned above, this rule reads the [engines] field of `package.json`.
 But, you can overwrite the version by `version` option.
 
 The `version` option accepts [the valid version range of `node-semver`](https://github.com/npm/node-semver#range-grammar).
+
+#### ignores
+
+Use `ignores` to skip deprecations for specific global or built-in module APIs.
+The default is an empty array.
+
+The names are the same as those accepted by `ignoreModuleItems` and
+`ignoreGlobalItems`, including call and constructor forms. `node:` module
+specifiers use the same names as their unprefixed versions.
+
+For example, this ignores the deprecated `domain` module and global
+`Buffer` constructor while continuing to report other deprecated APIs:
+
+```json
+{
+    "rules": {
+        "n/no-deprecated-api": ["error", {
+            "ignores": ["domain", "new Buffer()"]
+        }]
+    }
+}
+```
+
+The existing `ignoreModuleItems` and `ignoreGlobalItems` options still work
+and can be combined with `ignores`.
 
 #### ignoreModuleItems
 
