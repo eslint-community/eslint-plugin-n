@@ -79,6 +79,17 @@ console.log("hello");
 This can be configured in the rule options or as a shared setting [`settings.convertPath`](../shared-settings.md#convertpath).
 Please see the shared settings documentation for more information.
 
+For TypeScript source files, the rule also checks the compiled path when a nearby
+`tsconfig.json` has an `outDir` and a predictable source root. It uses
+`rootDir`, the project directory for composite projects, or a single simple
+`include` directory, along with the emitted `.js`, `.cjs`, `.mjs`, or
+`.jsx` extension. This only changes the match when the compiled file is listed
+in `package.json#bin`.
+
+The automatic mapping is skipped for `noEmit`, declaration-only output,
+and ambiguous source roots. Explicit `convertPath` mappings still take
+priority, so custom build layouts can keep using them.
+
 For TypeScript CLIs compiled to JavaScript, use `convertPath` to match the source file against the output path in `package.json`. For example, if `src/cli.ts` compiles to `dist/cli.js`:
 
 ```json
