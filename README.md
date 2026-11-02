@@ -153,6 +153,7 @@ For [Shareable Configs](https://eslint.org/docs/latest/developer-guide/shareable
 | [prefer-process-get-builtin-module](docs/rules/prefer-process-get-builtin-module.md)         | enforce using `process.getBuiltinModule()` to load Node.js built-in modules           |      |    |    |
 | [prefer-promises/dns](docs/rules/prefer-promises/dns.md)                                     | enforce `require("dns").promises`                                                     |      |    |    |
 | [prefer-promises/fs](docs/rules/prefer-promises/fs.md)                                       | enforce `require("fs").promises`                                                      |      |    |    |
+| [prefer-spawn-args](docs/rules/prefer-spawn-args.md)                                         | disallow arguments embedded in child process executable names                         |      |    |    |
 | [process-exit-as-throw](docs/rules/process-exit-as-throw.md)                                 | require that `process.exit()` expressions use the same code path as `throw`           | 🟢 ✅ |    |    |
 | [require-child-process-timeout](docs/rules/require-child-process-timeout.md)                 | require a timeout or signal for child processes                                       |      |    |    |
 | [shebang](docs/rules/shebang.md)                                                             | require correct usage of hashbang                                                     |      | 🔧 | ❌  |
