@@ -8,26 +8,35 @@ import fs from "fs"
 import path from "path"
 const logger = console
 
-    // main
-    ; (ruleId => {
-        if (ruleId == null) {
-            logger.error("Usage: npm run new <RuleID>")
-            process.exitCode = 1
-            return
-        }
-        if (!/^[\w-]+$/u.test(ruleId)) {
-            logger.error("Invalid RuleID '%s'.", ruleId)
-            process.exitCode = 1
-            return
-        }
+// main
+;(ruleId => {
+    if (ruleId == null) {
+        logger.error("Usage: npm run new <RuleID>")
+        process.exitCode = 1
+        return
+    }
+    if (!/^[\w-]+$/u.test(ruleId)) {
+        logger.error("Invalid RuleID '%s'.", ruleId)
+        process.exitCode = 1
+        return
+    }
 
-        const ruleFile = path.resolve(import.meta.dirname, `../lib/rules/${ruleId}.js`)
-        const testFile = path.resolve(import.meta.dirname, `../tests/lib/rules/${ruleId}.js`)
-        const docFile = path.resolve(import.meta.dirname, `../docs/rules/${ruleId}.md`)
+    const ruleFile = path.resolve(
+        import.meta.dirname,
+        `../lib/rules/${ruleId}.js`
+    )
+    const testFile = path.resolve(
+        import.meta.dirname,
+        `../tests/lib/rules/${ruleId}.js`
+    )
+    const docFile = path.resolve(
+        import.meta.dirname,
+        `../docs/rules/${ruleId}.md`
+    )
 
-        fs.writeFileSync(
-            ruleFile,
-            `/**
+    fs.writeFileSync(
+        ruleFile,
+        `/**
  * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
@@ -52,10 +61,10 @@ module.exports = {
     },
 }
 `
-        )
-        fs.writeFileSync(
-            testFile,
-            `/**
+    )
+    fs.writeFileSync(
+        testFile,
+        `/**
  * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
@@ -68,10 +77,10 @@ new RuleTester().run("${ruleId}", rule, {
     invalid: [],
 })
 `
-        )
-        fs.writeFileSync(
-            docFile,
-            `#  (es/${ruleId})
+    )
+    fs.writeFileSync(
+        docFile,
+        `#  (es/${ruleId})
 
 (TODO: Why this rule is useful.)
 
@@ -99,9 +108,9 @@ new RuleTester().run("${ruleId}", rule, {
 }
 \`\`\`
 `
-        )
+    )
 
-        cp.execSync(`code "${ruleFile}"`)
-        cp.execSync(`code "${testFile}"`)
-        cp.execSync(`code "${docFile}"`)
-    })(process.argv[2])
+    cp.execSync(`code "${ruleFile}"`)
+    cp.execSync(`code "${testFile}"`)
+    cp.execSync(`code "${docFile}"`)
+})(process.argv[2])

@@ -3,7 +3,7 @@
  * See LICENSE file in root directory for full license.
  */
 
-import  fs from "fs"
+import fs from "fs"
 import path from "path"
 import { ESLint } from "eslint"
 import { rules } from "./rules.js"

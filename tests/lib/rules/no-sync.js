@@ -63,7 +63,6 @@ new RuleTester().run("no-sync", rule, {
                 {
                     messageId: "noSync",
                     data: { propertyName: "fooSync" },
-
                 },
             ],
         },
