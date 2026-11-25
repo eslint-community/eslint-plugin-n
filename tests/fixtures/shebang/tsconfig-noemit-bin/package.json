@@ -1,0 +1,6 @@
+{
+    "name": "tsconfig-noemit-bin",
+    "bin": {
+        "cli": "dist/cli.js"
+    }
+}

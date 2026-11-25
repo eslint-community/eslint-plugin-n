@@ -1,0 +1,6 @@
+{
+    "name": "tsconfig-composite-bin",
+    "bin": {
+        "cli": "dist/src/cli.js"
+    }
+}

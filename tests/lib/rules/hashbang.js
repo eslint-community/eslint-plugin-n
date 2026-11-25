@@ -89,6 +89,63 @@ ruleTester.run("shebang", rule, {
             code: "hello();",
         },
 
+        // Automatically follow TypeScript output paths for npm binaries.
+        {
+            name: "tsconfig rootDir and outDir map the CLI source",
+            filename: fixture("tsconfig-bin/src/cli.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "tsconfig maps nested TypeScript output",
+            filename: fixture("tsconfig-bin/src/sub/task.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "tsconfig maps .cts to .cjs",
+            filename: fixture("tsconfig-bin/src/cli.cts"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "tsconfig maps .mts to .mjs",
+            filename: fixture("tsconfig-bin/src/cli.mts"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "tsconfig preserve JSX maps .tsx to .jsx",
+            filename: fixture("tsconfig-bin/src/screen.tsx"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "single include directory infers the source root",
+            filename: fixture("tsconfig-include-bin/src/cli.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "composite projects use tsconfig directory as the root",
+            filename: fixture("tsconfig-composite-bin/src/cli.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+        },
+        {
+            name: "TypeScript source not in bin needs no shebang",
+            filename: fixture("tsconfig-bin/src/unused.ts"),
+            code: "hello();",
+        },
+        {
+            name: "outside rootDir is not treated as compiled bin",
+            filename: fixture("tsconfig-bin/other/cli.ts"),
+            code: "hello();",
+        },
+        {
+            name: "noEmit does not infer a bin output",
+            filename: fixture("tsconfig-noemit-bin/src/cli.ts"),
+            code: "hello();",
+        },
+        {
+            name: "ambiguous include roots leave the original path",
+            filename: fixture("tsconfig-ambiguous-bin/src/cli.ts"),
+            code: "hello();",
+        },
+
         // convertPath
         {
             name: "convertPath - TypeScript source of a compiled bin",
@@ -295,6 +352,64 @@ ruleTester.run("shebang", rule, {
         {
             name: "bin: undefined - no match - with shebang",
             filename: fixture("no-bin-field/lib/test.js"),
+            code: "#!/usr/bin/env node\nhello();",
+            output: "hello();",
+            errors: ["This file needs no shebang."],
+        },
+
+        // The output path, not the .ts path, determines the required shebang.
+        {
+            name: "compiled TypeScript bin source needs a shebang",
+            filename: fixture("tsconfig-bin/src/cli.ts"),
+            code: "hello();",
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "nested TypeScript bin source needs a shebang",
+            filename: fixture("tsconfig-bin/src/sub/task.ts"),
+            code: "hello();",
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "TypeScript .mts bin needs a shebang",
+            filename: fixture("tsconfig-bin/src/cli.mts"),
+            code: "hello();",
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "single include directory maps missing shebang",
+            filename: fixture("tsconfig-include-bin/src/cli.ts"),
+            code: "hello();",
+            output: "#!/usr/bin/env node\nhello();",
+            errors: ['This file needs shebang "#!/usr/bin/env node".'],
+        },
+        {
+            name: "noEmit keeps non-bin shebang checks",
+            filename: fixture("tsconfig-noemit-bin/src/cli.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+            output: "hello();",
+            errors: ["This file needs no shebang."],
+        },
+        {
+            name: "explicit convertPath keeps priority over inferred output",
+            filename: fixture("tsconfig-bin/src/cli.ts"),
+            code: "#!/usr/bin/env node\nhello();",
+            options: [
+                {
+                    convertPath: {
+                        "src/**": ["^src/(.+)[.]ts$", "other/$1.js"],
+                    },
+                },
+            ],
+            output: "hello();",
+            errors: ["This file needs no shebang."],
+        },
+        {
+            name: "unlisted TypeScript source cannot keep a shebang",
+            filename: fixture("tsconfig-bin/src/unused.ts"),
             code: "#!/usr/bin/env node\nhello();",
             output: "hello();",
             errors: ["This file needs no shebang."],
