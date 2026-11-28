@@ -2,6 +2,8 @@
 
 📝 Enforce using `node:assert/strict` instead of `node:assert`.
 
+💡 This rule is manually fixable by [editor suggestions](https://eslint.org/docs/latest/use/core-concepts#rule-suggestions).
+
 <!-- end auto-generated rule header -->
 
 ## 📖 Rule Details
