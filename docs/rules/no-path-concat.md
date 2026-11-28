@@ -34,7 +34,7 @@ const url = new URL("./foo.js", import.meta.url)
 
 ## 📖 Rule Details
 
-This rule aims to prevent string concatenation of directory paths and URLs in Node.js.
+This rule aims to prevent string concatenation of directory paths and URLs in Node.js. This includes concatenation with `path.sep`, whether the module is loaded as `path` or `node:path`.
 
 Examples of **incorrect** code for this rule:
 
@@ -47,6 +47,7 @@ const fullPath3 = `${__dirname}/foo.js`;
 const fullPath4 = `${__filename}/foo.js`;
 const fullPath5 = import.meta.dirname + "/foo.js";
 const fullPath6 = import.meta.filename + "/foo.js";
+const fullPath7 = __dirname + path.sep + "foo.js";
 const fullUrl = import.meta.url + "/foo.js";
 ```
 

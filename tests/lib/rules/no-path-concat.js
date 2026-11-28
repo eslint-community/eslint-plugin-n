@@ -27,6 +27,8 @@ new RuleTester({
         'var fullPath = import.meta.dirname + ".map";',
         'var fullPath = import.meta.filename + ".map";',
         'var fullUrl = import.meta.url + ".map";',
+        'var path = require("node:path"); var fullPath = path.join(__dirname, "foo.js");',
+        'function f(require) { var path = require("node:path"); return __dirname + path.sep + "foo.js"; }',
     ],
 
     invalid: [
@@ -80,6 +82,38 @@ new RuleTester({
         },
         {
             code: 'var path = require("path"); var fullPath = __dirname + path.sep + `foo.js`;',
+            errors: [
+                {
+                    messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'var path = require("node:path"); var fullPath = __dirname + path.sep + "foo.js";',
+            errors: [
+                {
+                    messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'var path = require("node:path"); var fullPath = `${__filename}${path.sep}foo.js`;',
+            errors: [
+                {
+                    messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'import path from "node:path"; var fullPath = import.meta.dirname + path.sep + "foo.js";',
+            errors: [
+                {
+                    messageId: "usePathFunctions",
+                },
+            ],
+        },
+        {
+            code: 'import path from "node:path"; var fullPath = `${import.meta.filename}${path.sep}foo.js`;',
             errors: [
                 {
                     messageId: "usePathFunctions",
