@@ -7,6 +7,7 @@ import { RuleTester, TsRuleTester } from "#test-helpers"
 import Module from "node:module"
 import assert from "node:assert"
 import rule from "../../../lib/rules/no-sync.js"
+import typescriptParser from "@typescript-eslint/parser"
 import sinon from "sinon"
 
 new RuleTester().run("no-sync", rule, {
@@ -132,6 +133,39 @@ new RuleTester().run("no-sync", rule, {
                     ignores: ["barSync"],
                 },
             ],
+            errors: [
+                {
+                    messageId: "noSync",
+                    data: { propertyName: "fooSync" },
+                },
+            ],
+        },
+    ],
+})
+
+// TypeScript parser without type information: parser services have no `program`
+new RuleTester({
+    languageOptions: { parser: typescriptParser },
+}).run("no-sync", rule, {
+    valid: [
+        {
+            code: "fooSync();",
+            options: [{ ignores: ["fooSync"] }],
+        },
+    ],
+    invalid: [
+        {
+            code: "fs.fooSync();",
+            errors: [
+                {
+                    messageId: "noSync",
+                    data: { propertyName: "fooSync" },
+                },
+            ],
+        },
+        {
+            code: "fooSync();",
+            options: [{ ignores: ["barSync"] }],
             errors: [
                 {
                     messageId: "noSync",
